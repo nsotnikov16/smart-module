@@ -1,5 +1,6 @@
 /bitrix/
 /upload/
+/.idea
 *.xml
 *.csv
 *.txt
