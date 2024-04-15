@@ -1,0 +1,3 @@
+<?
+$sSectionName="icon-bystrovozvodimye-zdaniya";
+?>

@@ -1,0 +1,915 @@
+	Options -Indexes 
+	ErrorDocument 404 /404.php
+
+	<IfModule mod_php5.c>
+	  php_flag session.use_trans_sid off
+	  #php_value display_errors 1
+	  #php_value mbstring.internal_encoding UTF-8
+	</IfModule>
+
+	<IfModule mod_rewrite.c>
+	  Options +FollowSymLinks
+	  RewriteEngine On
+
+	  #SSL
+	  RewriteCond %{ENV:HTTPS} !on
+	  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+	  #Переход с www -> без www
+	  RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+	  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+	  #Редирект со страницы без слеша на страницу со слешем
+	  RewriteCond %{REQUEST_URI} ^(.*/[^/\.]+)$
+	  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+
+	  #Редирект с index.php на без index.php
+	  RewriteCond %{REQUEST_URI} !^/bitrix/admin/
+	  RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+	  RewriteRule ^(.*)index\.php$ http://%{HTTP_HOST}/$1 [R=301,L]
+	  
+	  #Файлы robots.txt для регионов 
+	RewriteCond  %{HTTP_HOST} zlatoust\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_zlatoust.txt [L]
+	RewriteCond  %{HTTP_HOST} norilsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_norilsk.txt [L]
+	RewriteCond  %{HTTP_HOST} achinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_achinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} zelenograd\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_zelenograd.txt [L]
+	RewriteCond  %{HTTP_HOST} kolpino\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kolpino.txt [L]
+	RewriteCond  %{HTTP_HOST} podolsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_podolsk.txt [L]
+	RewriteCond  %{HTTP_HOST} perm\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_perm.txt [L]
+	RewriteCond  %{HTTP_HOST} arhangelsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_arhangelsk.txt [L]
+	RewriteCond  %{HTTP_HOST} orsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_orsk.txt [L]
+	RewriteCond  %{HTTP_HOST} tomsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tomsk.txt [L]
+
+	RewriteCond  %{HTTP_HOST} moskva\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_msk.txt [L]
+	RewriteCond  %{HTTP_HOST} omsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_omsk.txt [L]
+	RewriteCond  %{HTTP_HOST} vladivostok\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_vladivostok.txt [L]
+	RewriteCond  %{HTTP_HOST} kazan\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kazan.txt [L]
+	RewriteCond  %{HTTP_HOST} krasnoyarsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_krasnoyarsk.txt [L]
+	RewriteCond  %{HTTP_HOST} magadan\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_magadan.txt [L]
+	RewriteCond  %{HTTP_HOST} novosibirsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novosibirsk.txt [L]
+	RewriteCond  %{HTTP_HOST} novocheboksarsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novocheboksarsk.txt [L]
+	RewriteCond  %{HTTP_HOST} samara\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_samara.txt [L]
+	RewriteCond  %{HTTP_HOST} tyumen\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tyumen.txt [L]
+	RewriteCond  %{HTTP_HOST} habarovsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_habarovsk.txt [L]
+	RewriteCond  %{HTTP_HOST} chelyabinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_chelyabinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} ekaterinburg\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ekaterinburg.txt [L]
+	RewriteCond  %{HTTP_HOST} saratov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_saratov.txt [L]
+	RewriteCond  %{HTTP_HOST} pushkin\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_pushkin.txt [L]
+	RewriteCond  %{HTTP_HOST} balashiha\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_balashiha.txt [L]
+	RewriteCond  %{HTTP_HOST} himki\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_himki.txt [L]
+	RewriteCond  %{HTTP_HOST} korolyov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_korolyov.txt [L]
+	RewriteCond  %{HTTP_HOST} mytishchi\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_mytishchi.txt [L]
+	RewriteCond  %{HTTP_HOST} lyubercy\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_lyubercy.txt [L]
+	RewriteCond  %{HTTP_HOST} krasnogorsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_krasnogorsk.txt [L]
+	RewriteCond  %{HTTP_HOST} ehlektrostal\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ehlektrostal.txt [L]
+	RewriteCond  %{HTTP_HOST} kolomna\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kolomna.txt [L]
+	RewriteCond  %{HTTP_HOST} kamensk-uralskij\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kamensk-uralskij.txt [L]
+	RewriteCond  %{HTTP_HOST} arzamas\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_arzamas.txt [L]
+	RewriteCond  %{HTTP_HOST} dzerzhinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_dzerzhinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} nizhnij-novgorod\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nizhnij-novgorod.txt [L]
+	RewriteCond  %{HTTP_HOST} nefteyugansk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nefteyugansk.txt [L]
+	RewriteCond  %{HTTP_HOST} nizhnevartovsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nizhnevartovsk.txt [L]
+	RewriteCond  %{HTTP_HOST} surgut\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_surgut.txt [L]
+	RewriteCond  %{HTTP_HOST} pervouralsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_pervouralsk.txt [L]
+	RewriteCond  %{HTTP_HOST} nizhnij-tagil\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nizhnij-tagil.txt [L]
+	RewriteCond  %{HTTP_HOST} ehngels\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ehngels.txt [L]
+	RewriteCond  %{HTTP_HOST} novokujbyshevsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novokujbyshevsk.txt [L]
+	RewriteCond  %{HTTP_HOST} syzran\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_syzran.txt [L]
+	RewriteCond  %{HTTP_HOST} tolyatti\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tolyatti.txt [L]
+	RewriteCond  %{HTTP_HOST} artyom\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_artyom.txt [L]
+	RewriteCond  %{HTTP_HOST} nahodka\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nahodka.txt [L]
+	RewriteCond  %{HTTP_HOST} ussurijsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ussurijsk.txt [L]
+	RewriteCond  %{HTTP_HOST} armavir\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_armavir.txt [L]
+	RewriteCond  %{HTTP_HOST} saratov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_saratov.txt [L]
+	RewriteCond  %{HTTP_HOST} balakovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_balakovo.txt [L]
+	RewriteCond  %{HTTP_HOST} krasnodar\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_krasnodar.txt [L]
+	RewriteCond  %{HTTP_HOST} cherepovec\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_cherepovec.txt [L]
+	RewriteCond  %{HTTP_HOST} elec\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_elec.txt [L]
+	RewriteCond  %{HTTP_HOST} lipeck\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_lipeck.txt [L]
+	RewriteCond  %{HTTP_HOST} zheleznogorsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_zheleznogorsk.txt [L]
+	RewriteCond  %{HTTP_HOST} kursk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kursk.txt [L]
+	RewriteCond  %{HTTP_HOST} obninsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_obninsk.txt [L]
+	RewriteCond  %{HTTP_HOST} kaluga\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kaluga.txt [L]
+	RewriteCond  %{HTTP_HOST} vologda\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_vologda.txt [L]
+	RewriteCond  %{HTTP_HOST} staryj-oskol\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_staryj-oskol.txt [L]
+	RewriteCond  %{HTTP_HOST} cheboksary\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_cheboksary.txt [L]
+
+	RewriteCond  %{HTTP_HOST} belgorod\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_belgorod.txt [L]
+	RewriteCond  %{HTTP_HOST} severodvinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_severodvinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} komsomolsk-na-amure\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_komsomolsk-na-amure.txt [L]
+	RewriteCond  %{HTTP_HOST} berezniki\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_berezniki.txt [L]
+	RewriteCond  %{HTTP_HOST} noyabrsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_noyabrsk.txt [L]
+	RewriteCond  %{HTTP_HOST} novyj-urengoj\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novyj-urengoj.txt [L]
+	RewriteCond  %{HTTP_HOST} sochi\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_sochi.txt [L]
+	RewriteCond  %{HTTP_HOST} almetevsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_almetevsk.txt [L]
+	RewriteCond  %{HTTP_HOST} odincovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_odincovo.txt [L]
+	RewriteCond  %{HTTP_HOST} sergiev-posad\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_sergiev-posad.txt [L]
+	RewriteCond  %{HTTP_HOST} novocherkassk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novocherkassk.txt [L]
+	RewriteCond  %{HTTP_HOST} volgodonsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_volgodonsk.txt [L]
+	RewriteCond  %{HTTP_HOST} shahty\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_shahty.txt [L]
+	RewriteCond  %{HTTP_HOST} taganrog\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_taganrog.txt [L]
+	RewriteCond  %{HTTP_HOST} rostov-na-donu\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_rostov-na-donu.txt [L]
+	RewriteCond  %{HTTP_HOST} noginsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_noginsk.txt [L]
+	RewriteCond  %{HTTP_HOST} reutov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_reutov.txt [L]
+	RewriteCond  %{HTTP_HOST} pushkino\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_pushkino.txt [L]
+	RewriteCond  %{HTTP_HOST} novoshahtinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novoshahtinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} zhukovskij\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_zhukovskij.txt [L]
+	RewriteCond  %{HTTP_HOST} dolgoprudnyj\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_dolgoprudnyj.txt [L]
+	RewriteCond  %{HTTP_HOST} ramenskoe\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ramenskoe.txt [L]
+	RewriteCond  %{HTTP_HOST} orekhovo-zuevo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_orekhovo-zuevo.txt [L]
+	RewriteCond  %{HTTP_HOST} shchyolkovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_shchyolkovo.txt [L]
+	RewriteCond  %{HTTP_HOST} serpuhov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_serpuhov.txt [L]
+	RewriteCond  %{HTTP_HOST} domodedovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_domodedovo.txt [L]
+	RewriteCond  %{HTTP_HOST} batajsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_batajsk.txt [L]
+	RewriteCond  %{HTTP_HOST} ufa\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ufa.txt [L]
+	RewriteCond  %{HTTP_HOST} nizhnekamsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nizhnekamsk.txt [L]
+	RewriteCond  %{HTTP_HOST} naberezhnye-chelny\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_naberezhnye-chelny.txt [L]
+	RewriteCond  %{HTTP_HOST} kaspijsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kaspijsk.txt [L]
+	RewriteCond  %{HTTP_HOST} derbent\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_derbent.txt [L]
+	RewriteCond  %{HTTP_HOST} hasavyurt\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_hasavyurt.txt [L]
+	RewriteCond  %{HTTP_HOST} mahachkala\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_mahachkala.txt [L]
+	RewriteCond  %{HTTP_HOST} kopejsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kopejsk.txt [L]
+	RewriteCond  %{HTTP_HOST} miass\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_miass.txt [L]
+	RewriteCond  %{HTTP_HOST} magnitogorsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_magnitogorsk.txt [L]
+	RewriteCond  %{HTTP_HOST} sterlitamak\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_sterlitamak.txt [L]
+	RewriteCond  %{HTTP_HOST} essentuki\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_essentuki.txt [L]
+	RewriteCond  %{HTTP_HOST} nevinnomyssk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nevinnomyssk.txt [L]
+	RewriteCond  %{HTTP_HOST} kislovodsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kislovodsk.txt [L]
+	RewriteCond  %{HTTP_HOST} pyatigorsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_pyatigorsk.txt [L]
+	RewriteCond  %{HTTP_HOST} stavropol\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_stavropol.txt [L]
+	RewriteCond  %{HTTP_HOST} oktyabrskij\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_oktyabrskij.txt [L]
+	RewriteCond  %{HTTP_HOST} neftekamsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_neftekamsk.txt [L]
+	RewriteCond  %{HTTP_HOST} salavat\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_salavat.txt [L]
+	RewriteCond  %{HTTP_HOST} berdsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_berdsk.txt [L]
+	RewriteCond  %{HTTP_HOST} orenburg\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_orenburg.txt [L]
+	RewriteCond  %{HTTP_HOST} kamyshin\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kamyshin.txt [L]
+	RewriteCond  %{HTTP_HOST} kurgan\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kurgan.txt [L]
+	RewriteCond  %{HTTP_HOST} murmansk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_murmansk.txt [L]
+	RewriteCond  %{HTTP_HOST} velikij-novgorod\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_velikij-novgorod.txt [L]
+	RewriteCond  %{HTTP_HOST} oryol\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_oryol.txt [L]
+	RewriteCond  %{HTTP_HOST} penza\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_penza.txt [L]
+	RewriteCond  %{HTTP_HOST} pskov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_pskov.txt [L]
+	RewriteCond  %{HTTP_HOST} ryazan\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ryazan.txt [L]
+	RewriteCond  %{HTTP_HOST} yuzhno-sahalinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_yuzhno-sahalinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} smolensk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_smolensk.txt [L]
+	RewriteCond  %{HTTP_HOST} tambov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tambov.txt [L]
+	RewriteCond  %{HTTP_HOST} tver\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tver.txt [L]
+	RewriteCond  %{HTTP_HOST} volgograd\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_volgograd.txt [L]
+	RewriteCond  %{HTTP_HOST} seversk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_seversk.txt [L]
+	RewriteCond  %{HTTP_HOST} tula\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_tula.txt [L]
+	RewriteCond  %{HTTP_HOST} novomoskovsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novomoskovsk.txt [L]
+	RewriteCond  %{HTTP_HOST} ulyanovsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ulyanovsk.txt [L]
+	RewriteCond  %{HTTP_HOST} dimitrovgrad\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_dimitrovgrad.txt [L]
+	RewriteCond  %{HTTP_HOST} yaroslavl\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_yaroslavl.txt [L]
+	RewriteCond  %{HTTP_HOST} rybinsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_rybinsk.txt [L]
+	RewriteCond  %{HTTP_HOST} majkop\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_majkop.txt [L]
+	RewriteCond  %{HTTP_HOST} ulan-udeh\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ulan-udeh.txt [L]
+	RewriteCond  %{HTTP_HOST} nazran\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nazran.txt [L]
+	RewriteCond  %{HTTP_HOST} nalchik\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_nalchik.txt [L]
+	RewriteCond  %{HTTP_HOST} ehlista\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ehlista.txt [L]
+	RewriteCond  %{HTTP_HOST} cherkessk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_cherkessk.txt [L]
+	RewriteCond  %{HTTP_HOST} petrozavodsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_petrozavodsk.txt [L]
+	RewriteCond  %{HTTP_HOST} syktyvkar\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_syktyvkar.txt [L]
+	RewriteCond  %{HTTP_HOST} joshkar-ola\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_joshkar-ola.txt [L]
+	RewriteCond  %{HTTP_HOST} saransk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_saransk.txt [L]
+	RewriteCond  %{HTTP_HOST} vladikavkaz\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_vladikavkaz.txt [L]
+	RewriteCond  %{HTTP_HOST} kyzyl\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kyzyl.txt [L]
+	RewriteCond  %{HTTP_HOST} izhevsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_izhevsk.txt [L]
+	RewriteCond  %{HTTP_HOST} groznyj\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_groznyj.txt [L]
+	RewriteCond  %{HTTP_HOST} yakutsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_yakutsk.txt [L]
+	RewriteCond  %{HTTP_HOST} chita\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_chita.txt [L]
+	RewriteCond  %{HTTP_HOST} petropavlovsk-kamchatskij\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_petropavlovsk-kamchatskij.txt [L]
+	RewriteCond  %{HTTP_HOST} blagoveshchensk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_blagoveshchensk.txt [L]
+	RewriteCond  %{HTTP_HOST} astrahan\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_astrahan.txt [L]
+	RewriteCond  %{HTTP_HOST} bryansk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_bryansk.txt [L]
+	RewriteCond  %{HTTP_HOST} voronezh\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_voronezh.txt [L]
+	RewriteCond  %{HTTP_HOST} ivanovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_ivanovo.txt [L]
+	RewriteCond  %{HTTP_HOST} kaliningrad\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kaliningrad.txt [L]
+	RewriteCond  %{HTTP_HOST} kirov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kirov.txt [L]
+	RewriteCond  %{HTTP_HOST} kostroma\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kostroma.txt [L]
+	RewriteCond  %{HTTP_HOST} volzhskij\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_volzhskij.txt [L]
+	RewriteCond  %{HTTP_HOST} irkutsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_irkutsk.txt [L]
+	RewriteCond  %{HTTP_HOST} bratsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_bratsk.txt [L]
+	RewriteCond  %{HTTP_HOST} angarsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_angarsk.txt [L]
+	RewriteCond  %{HTTP_HOST} vladimir\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_vladimir.txt [L]
+	RewriteCond  %{HTTP_HOST} kovrov\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kovrov.txt [L]
+	RewriteCond  %{HTTP_HOST} murom\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_murom.txt [L]
+	RewriteCond  %{HTTP_HOST} barnaul\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_barnaul.txt [L]
+	RewriteCond  %{HTTP_HOST} bijsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_bijsk.txt [L]
+	RewriteCond  %{HTTP_HOST} rubcovsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_rubcovsk.txt [L]
+	RewriteCond  %{HTTP_HOST} novokuzneck\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_novokuzneck.txt [L]
+		RewriteCond  %{HTTP_HOST} kemerovo\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_kemerovo.txt [L]
+	RewriteCond  %{HTTP_HOST} prokopevsk\.smart-module.ru
+	Rewriterule ^robots.txt$ /robots/robots_prokopevsk.txt [L]
+
+	#Файлы sitemap.xml для регионов
+	RewriteCond  %{HTTP_HOST} prokopevsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapprokopevsk.xml [L]
+	RewriteCond  %{HTTP_HOST} kemerovo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkemerovo.xml [L]
+	RewriteCond  %{HTTP_HOST} novokuzneck\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovokuzneck.xml [L]
+	RewriteCond  %{HTTP_HOST} rubcovsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaprubcovsk.xml [L]
+	RewriteCond  %{HTTP_HOST} bijsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbijsk.xml [L]
+	RewriteCond  %{HTTP_HOST} barnaul\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbarnaul.xml [L]
+	RewriteCond  %{HTTP_HOST} murom\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmurom.xml [L]
+	RewriteCond  %{HTTP_HOST} kovrov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkovrov.xml [L]
+	RewriteCond  %{HTTP_HOST} vladimir\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvladimir.xml [L]
+	RewriteCond  %{HTTP_HOST} angarsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapangarsk.xml [L]
+	RewriteCond  %{HTTP_HOST} bratsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbratsk.xml [L]
+	RewriteCond  %{HTTP_HOST} irkutsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapirkutsk.xml [L]
+	RewriteCond  %{HTTP_HOST} volzhskij\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvolzhskij.xml [L]
+	RewriteCond  %{HTTP_HOST} kostroma\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkostroma.xml [L]
+	RewriteCond  %{HTTP_HOST} kirov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkirov.xml [L]
+	RewriteCond  %{HTTP_HOST} kaliningrad\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkaliningrad.xml [L]
+	RewriteCond  %{HTTP_HOST} ivanovo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapivanovo.xml [L]
+	RewriteCond  %{HTTP_HOST} voronezh\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvoronezh.xml [L]
+	RewriteCond  %{HTTP_HOST} bryansk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbryansk.xml [L]
+	RewriteCond  %{HTTP_HOST} astrahan\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapastrahan.xml [L]
+	RewriteCond  %{HTTP_HOST} blagoveshchensk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapblagoveshchensk.xml [L]
+	RewriteCond  %{HTTP_HOST} petropavlovsk-kamchatskij\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappetropavlovsk-kamchatskij.xml [L]
+	RewriteCond  %{HTTP_HOST} chita\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapchita.xml [L]
+	RewriteCond  %{HTTP_HOST} yakutsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapyakutsk.xml [L]
+	RewriteCond  %{HTTP_HOST} groznyj\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapgroznyj.xml [L]
+	RewriteCond  %{HTTP_HOST} izhevsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapizhevsk.xml [L]
+	RewriteCond  %{HTTP_HOST} kyzyl\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkyzyl.xml [L]
+	RewriteCond  %{HTTP_HOST} vladikavkaz\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvladikavkaz.xml [L]
+	RewriteCond  %{HTTP_HOST} saransk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsaransk.xml [L]
+	RewriteCond  %{HTTP_HOST} joshkar-ola\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapjoshkar-ola.xml [L]
+	RewriteCond  %{HTTP_HOST} syktyvkar\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsyktyvkar.xml [L]
+	RewriteCond  %{HTTP_HOST} petrozavodsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappetrozavodsk.xml [L]
+	RewriteCond  %{HTTP_HOST} cherkessk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapcherkessk.xml [L]
+	RewriteCond  %{HTTP_HOST} ehlista\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapehlista.xml [L]
+	RewriteCond  %{HTTP_HOST} nalchik\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnalchik.xml [L]
+	RewriteCond  %{HTTP_HOST} nazran\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnazran.xml [L]
+	RewriteCond  %{HTTP_HOST} ulan-udeh\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapulan-udeh.xml [L]
+	RewriteCond  %{HTTP_HOST} majkop\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmajkop.xml [L]
+	RewriteCond  %{HTTP_HOST} rybinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaprybinsk.xml [L]
+	RewriteCond  %{HTTP_HOST} yaroslavl\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapyaroslavl.xml [L]
+	RewriteCond  %{HTTP_HOST} dimitrovgrad\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapdimitrovgrad.xml [L]	
+	RewriteCond  %{HTTP_HOST} ulyanovsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapulyanovsk.xml [L]	
+	RewriteCond  %{HTTP_HOST} novomoskovsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovomoskovsk.xml [L]	
+	RewriteCond  %{HTTP_HOST} tula\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptula.xml [L]
+	RewriteCond  %{HTTP_HOST} seversk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapseversk.xml [L]
+	RewriteCond  %{HTTP_HOST} tomsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptomsk.xml [L]
+	RewriteCond  %{HTTP_HOST} arhangelsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaparhangelsk.xml [L] 
+	RewriteCond  %{HTTP_HOST} perm\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapperm.xml [L] 
+	RewriteCond  %{HTTP_HOST} kolpino\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkolpino.xml [L]
+	RewriteCond  %{HTTP_HOST} zelenograd\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapzelenograd.xml [L]
+	RewriteCond  %{HTTP_HOST} achinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapachinsk.xml [L]
+	RewriteCond  %{HTTP_HOST} norilsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnorilsk.xml [L]
+	RewriteCond  %{HTTP_HOST} volgograd\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvolgograd.xml [L]
+	RewriteCond  %{HTTP_HOST} tver\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptver.xml [L]
+	RewriteCond  %{HTTP_HOST} tambov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptambov.xml [L]
+	RewriteCond  %{HTTP_HOST} smolensk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsmolensk.xml [L]
+	RewriteCond  %{HTTP_HOST} yuzhno-sahalinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapyuzhno-sahalinsk.xml [L]
+	RewriteCond  %{HTTP_HOST} ryazan\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapryazan.xml [L]
+	RewriteCond  %{HTTP_HOST} pskov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappskov.xml [L]
+	RewriteCond  %{HTTP_HOST} penza\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappenza.xml [L]
+	RewriteCond  %{HTTP_HOST} oryol\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaporyol.xml [L]
+	RewriteCond  %{HTTP_HOST} omsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapomsk.xml [L]	
+	RewriteCond  %{HTTP_HOST} velikij-novgorod\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvelikij-novgorod.xml [L]
+	RewriteCond  %{HTTP_HOST} murmansk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmurmansk.xml [L]
+	RewriteCond  %{HTTP_HOST} kurgan\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkurgan.xml [L]
+	RewriteCond  %{HTTP_HOST} kamyshin\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkamyshin.xml [L]
+	RewriteCond  %{HTTP_HOST} orenburg\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaporenburg.xml [L]
+	RewriteCond  %{HTTP_HOST} berdsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapberdsk.xml [L]
+	RewriteCond  %{HTTP_HOST} salavat\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsalavat.xml [L]
+	RewriteCond  %{HTTP_HOST} neftekamsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapneftekamsk.xml [L]
+	RewriteCond  %{HTTP_HOST} oktyabrskij\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapoktyabrskij.xml [L]
+	RewriteCond  %{HTTP_HOST} stavropol\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapstavropol.xml [L]
+	RewriteCond  %{HTTP_HOST} pyatigorsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappyatigorsk.xml [L]
+	RewriteCond  %{HTTP_HOST} kislovodsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkislovodsk.xml [L]
+	RewriteCond  %{HTTP_HOST} nevinnomyssk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnevinnomyssk.xml [L]
+	RewriteCond  %{HTTP_HOST} essentuki\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapessentuki.xml [L]
+	RewriteCond  %{HTTP_HOST} sterlitamak\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsterlitamak.xml [L]
+	RewriteCond  %{HTTP_HOST} magnitogorsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmagnitogorsk.xml [L]
+	RewriteCond  %{HTTP_HOST} miass\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmiass.xml [L]
+	RewriteCond  %{HTTP_HOST} kopejsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkopejsk.xml [L]
+	RewriteCond  %{HTTP_HOST} mahachkala\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmahachkala.xml [L]
+	RewriteCond  %{HTTP_HOST} hasavyurt\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaphasavyurt.xml [L]
+	RewriteCond  %{HTTP_HOST} derbent\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapderbent.xml [L]
+	RewriteCond  %{HTTP_HOST} kaspijsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkaspijsk.xml [L]
+	RewriteCond  %{HTTP_HOST} naberezhnye-chelny\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnaberezhnye-chelny.xml [L]
+	RewriteCond  %{HTTP_HOST} zlatoust\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapzlatoust.xml [L]	
+	RewriteCond  %{HTTP_HOST} nizhnekamsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnizhnekamsk.xml [L]
+	RewriteCond  %{HTTP_HOST} ufa\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapufa.xml [L]
+	RewriteCond  %{HTTP_HOST} batajsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbatajsk.xml [L]
+	RewriteCond  %{HTTP_HOST} domodedovo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapdomodedovo.xml [L]
+	RewriteCond  %{HTTP_HOST} serpuhov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapserpuhov.xml [L]
+	RewriteCond  %{HTTP_HOST} shchyolkovo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapshchyolkovo.xml [L]
+	RewriteCond  %{HTTP_HOST} orekhovo-zuevo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaporekhovo-zuevo.xml [L]
+	RewriteCond  %{HTTP_HOST} ramenskoe\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapramenskoe.xml [L]
+	RewriteCond  %{HTTP_HOST} dolgoprudnyj\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapdolgoprudnyj.xml [L]
+	RewriteCond  %{HTTP_HOST} zhukovskij\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapzhukovskij.xml [L]
+	RewriteCond  %{HTTP_HOST} novoshahtinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovoshahtinsk.xml [L]
+	RewriteCond  %{HTTP_HOST} pushkino\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemappushkino.xml [L]
+	RewriteCond  %{HTTP_HOST} reutov\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapreutov.xml [L]
+	RewriteCond  %{HTTP_HOST} noginsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnoginsk.xml [L]
+	RewriteCond  %{HTTP_HOST} rostov-na-donu\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaprostov-na-donu.xml [L]
+	RewriteCond  %{HTTP_HOST} taganrog\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptaganrog.xml [L]
+	RewriteCond  %{HTTP_HOST} shahty\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapshahty.xml [L]
+	RewriteCond  %{HTTP_HOST} volgodonsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvolgodonsk.xml [L]
+	RewriteCond  %{HTTP_HOST} novocherkassk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovocherkassk.xml [L]
+	RewriteCond  %{HTTP_HOST} sergiev-posad\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsergiev-posad.xml [L]
+	RewriteCond  %{HTTP_HOST} odincovo\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapodincovo.xml [L]
+	RewriteCond  %{HTTP_HOST} almetevsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapalmetevsk.xml [L]
+	RewriteCond  %{HTTP_HOST} sochi\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsochi.xml [L]
+	RewriteCond  %{HTTP_HOST} novyj-urengoj\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovyj-urengoj.xml [L]
+	RewriteCond  %{HTTP_HOST} noyabrsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnoyabrsk.xml [L]
+	RewriteCond  %{HTTP_HOST} berezniki\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapberezniki.xml [L]
+	RewriteCond  %{HTTP_HOST} komsomolsk-na-amure\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkomsomolsk-na-amure.xml [L]
+	RewriteCond  %{HTTP_HOST} staryj-oskol\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapstaryj-oskol.xml [L]
+	RewriteCond  %{HTTP_HOST} severodvinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapseverodvinsk.xml [L]
+	RewriteCond  %{HTTP_HOST} belgorod\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapbelgorod.xml [L]
+	RewriteCond  %{HTTP_HOST} cheboksary\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapcheboksary.xml [L]
+	  RewriteCond  %{HTTP_HOST} novosibirsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnov.xml [L]
+	  RewriteCond  %{HTTP_HOST} moskva\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapmsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} chelyabinsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapchel.xml [L]
+	  RewriteCond  %{HTTP_HOST} habarovsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaphab.xml [L]
+	  RewriteCond  %{HTTP_HOST} kazan\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkaz.xml [L]
+	  RewriteCond  %{HTTP_HOST} krasnoyarsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkras.xml [L]
+	  RewriteCond  %{HTTP_HOST} magadan\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapmag.xml [L]
+	  RewriteCond  %{HTTP_HOST} novocheboksarsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnovoch.xml [L]
+	  RewriteCond  %{HTTP_HOST} samara\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapsamara.xml [L]
+	  RewriteCond  %{HTTP_HOST} tyumen\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaptyumen.xml [L]
+	  RewriteCond  %{HTTP_HOST} vladivostok\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapvladiv.xml [L]
+	      RewriteCond  %{HTTP_HOST} pushkin\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemappushkin.xml [L]
+
+	      RewriteCond  %{HTTP_HOST} balashiha\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapbalashiha.xml [L]
+	  RewriteCond  %{HTTP_HOST} podolsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemappodolsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} himki\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaphimki.xml [L]
+	  RewriteCond  %{HTTP_HOST} korolyov\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkorolyov.xml [L]
+	  RewriteCond  %{HTTP_HOST} mytishchi\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapmytishchi.xml [L]
+	  RewriteCond  %{HTTP_HOST} lyubercy\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaplyubercy.xml [L]
+	      RewriteCond  %{HTTP_HOST} orsk\.smart-module.ru
+	 Rewriterule ^sitemap.xml$ /sitemap/sitemaporsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} krasnogorsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkrasnogorsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} ehlektrostal\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapehlektrostal.xml [L]
+	  RewriteCond  %{HTTP_HOST} kolomna\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkolomna.xml [L]
+	  RewriteCond  %{HTTP_HOST} kamensk-uralskij\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkamensk-uralskij.xml [L]
+	  RewriteCond  %{HTTP_HOST} arzamas\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaparzamas.xml [L]
+	      RewriteCond  %{HTTP_HOST} dzerzhinsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapdzerzhinsk.xml [L]
+	      RewriteCond  %{HTTP_HOST} nizhnij-novgorod\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnizhnij-novgorod.xml [L]
+	  RewriteCond  %{HTTP_HOST} nefteyugansk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnefteyugansk.xml [L]
+	  RewriteCond  %{HTTP_HOST} nizhnevartovsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnizhnevartovsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} surgut\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapsurgut.xml [L]
+	  RewriteCond  %{HTTP_HOST} pervouralsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemappervouralsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} nizhnij-tagil\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnizhnij-tagil.xml [L]
+	  RewriteCond  %{HTTP_HOST} ehngels\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapehngels.xml [L]
+	  RewriteCond  %{HTTP_HOST} novocheboksarsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnovoch.xml [L]
+	  RewriteCond  %{HTTP_HOST} novokujbyshevsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnovokujbyshevsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} syzran\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapsyzran.xml [L]
+	  RewriteCond  %{HTTP_HOST} tolyatti\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaptolyatti.xml [L]
+	      RewriteCond  %{HTTP_HOST} artyom\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemappartyom.xml [L]
+	      RewriteCond  %{HTTP_HOST} nahodka\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapnahodka.xml [L]
+	  RewriteCond  %{HTTP_HOST} ussurijsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapussurijsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} armavir\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaparmavir.xml [L]
+	  RewriteCond  %{HTTP_HOST} saratov\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapsaratov.xml [L]
+	  RewriteCond  %{HTTP_HOST} balakovo\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapbalakovo.xml [L]
+	  RewriteCond  %{HTTP_HOST} krasnodar\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkrasnodar.xml [L]
+	  RewriteCond  %{HTTP_HOST} cherepovec\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapcherepovec.xml [L]
+	  RewriteCond  %{HTTP_HOST} elec\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapelec.xml [L]
+	  RewriteCond  %{HTTP_HOST} lipeck\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemaplipeck.xml [L]
+	  RewriteCond  %{HTTP_HOST} zheleznogorsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapzheleznogorsk.xml [L]
+	  RewriteCond  %{HTTP_HOST} kursk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkursk.xml [L]
+	      RewriteCond  %{HTTP_HOST} obninsk\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapobninsk.xml [L]
+	     RewriteCond  %{HTTP_HOST} kaluga\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapkaluga.xml [L]
+	  RewriteCond  %{HTTP_HOST} vologda\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapvologda.xml [L]
+	      RewriteCond  %{HTTP_HOST} staryj-oskol\.smart-module.ru
+	    Rewriterule ^sitemap.xml$ /sitemap/sitemapstaryj-oskol.xml [L]
+
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/iz-sendvich-panelej/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/bytovki-iz-sendvich-paneley/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/vagonchiki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/vagonchiki-bytovki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/peredelki-iz-kontejnerov/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/rekonstruktsiya-konteynerov/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/garazhi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/garazhi/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/sushilki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/sushilki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/gostiniczyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/gostinichnye-kompleksy/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/doma/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/doma/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/avtomasterskie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/avtomasterskie/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/kassyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/kassy/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/otdel-prodazh/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/otdel-prodazh/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/pavilonyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/pavilony/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/skladyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/sklady/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/stolovyie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/stolovye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/pekarni/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/pekarni/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/sportivnye/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/sportivnye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/laboratorii/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/laboratorii/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/kpp/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/kpp/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/dlya-rabochix/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/zdaniya-dlya-rabochikh/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/modulnyie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/modulnye-bytovki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/stroitelnyie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/stroitelnye-bytovki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/blok-kontejneryi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/blok-konteynery/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/byitovki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/containex-dlya-byta/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/razdevalki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/razdevalki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/santexnicheskie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/santekhnicheskie/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/dachi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/dachi/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/obshhezhitiya/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/obshchezhitiya/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/avtomojki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/avtomoyki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/magazinyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/magaziny/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/ofisyi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/ofisy/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/prachechnyie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/prachechnye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/shinomontazhi/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/shinomontazhi/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/kafe/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/kafe/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/medpunkty/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/meduchrezhdeniya/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/kotelnyie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/nasosnyie-stanczii/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/shtab-strojki/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/shtaby-stroyki/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/masterskie/$
+	  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/masterskie/? [R=301,L]
+	  RewriteCond %{REQUEST_URI} ^/catalog/avtomasterskie/modulnaya-moto-masterskaya-mas-3/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/modulnaya-moto-masterskaya-mas-3/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/bistro/modulnoe-zakusochnaya-mpz-3/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/bistro/modulnaya-zakusochnaya-mpz-3/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/vintovye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/vintovye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/kislorodnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/kislorodnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/vstroennye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/vstroennye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/dizelnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/dizelnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/na-otrabotannom-masle/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/na-otrabotannom-masle/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/otdelnostoyashchie/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/otdelnostoyashchie/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/elektrokotelnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/elektrokotelnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/vodonapornye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/vodonapornye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/mnogotselevaya/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/mnogotselevaya/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/-s-rezervuarami/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/-s-rezervuarami/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/vodozabora/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/vodozabora/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/gazoporshnevye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/gazoporshnevye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/kassy/modulnyy-punkt-oplaty-mzp-3/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/modulnyy-punkt-oplaty-mzp-3/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/dushevye/modulnaya-zdanie-dlya-dusha-smzd-1/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/dushevye/modulnye-zdanie-dlya-dusha-smzd-1/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/bistro/modulnaya-shaverma-mpz-2/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/torgovye-pavilony/modulnaya-shaverma-mpz-2/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/azotnye-kompressornye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/azotnye-kompressornye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/podgotovki-szhatogo-vozdukha/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/podgotovki-szhatogo-vozdukha/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/gazovye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/gazovye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/na-mazute/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/na-mazute/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/kryshnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/kryshnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/pristroennye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/pristroennye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/beregovye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/beregovye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/meliorativnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/meliorativnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/pozharotusheniya/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/pozharotusheniya/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/plavuchie/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/plavuchie/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/monoblochnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/monoblochnye/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/dizelnye-stantsii/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/dizelnye-stantsii/? [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/catalog/kassy/konteyner-kassa-dlya-zapravochnoy-stantsii-mzp-4/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/konteyner-kassa-dlya-zapravochnoy-stantsii-mzp-4/? [R=301,L]
+
+	RewriteCond %{REQUEST_URI} ^/catalog/angary/beskarkasnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/angary/filter/type-beskarkasnye/? [R=301,L]
+
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} ^/catalog/angary/karkasnye/$
+	RewriteRule ^(.*) https://smart-module.ru/catalog/angary/filter/type-karkasnye/ [NC,L,R=301]
+
+
+	RewriteCond %{REQUEST_URI} ^/catalog/angary/tentovye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/angary/filter/type-tentovye/? [R=301,L]
+
+	RewriteCond %{REQUEST_URI} ^/catalog/angary/naduvnye/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/angary/filter/type-naduvnye/? [R=301,L]
+	
+		RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/mudulnaya-veterinarnaya-klinika-mvk-1/$
+	RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/modulnaya-veterinarnaya-klinika-mvk-1/? [R=301,L]
+	
+	
+
+
+
+	  RewriteCond %{REQUEST_FILENAME} !-f
+	  RewriteCond %{REQUEST_FILENAME} !-l
+	  RewriteCond %{REQUEST_FILENAME} !-d
+	  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+	</IfModule>
+
+	<IfModule mod_dir.c>
+	  DirectoryIndex index.php index.html
+	</IfModule>
+
+	<IfModule mod_expires.c>
+	  ExpiresActive on
+	  ExpiresByType image/jpeg "access plus 3 day"
+	  ExpiresByType image/gif "access plus 3 day"
+	  ExpiresByType image/png "access plus 3 day"
+	  ExpiresByType text/css "access plus 3 day"
+	  ExpiresByType application/javascript "access plus 3 day"  
+	</IfModule>

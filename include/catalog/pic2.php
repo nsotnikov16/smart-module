@@ -1,0 +1,1 @@
+<img src="/local/templates/smart-module/images/cheap.png" alt=""> <p class="advantages_title">Выгодно</p>

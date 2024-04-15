@@ -1,0 +1,1 @@
+<img src="/local/templates/smart-module/images/complate.png" alt=""> <p class="advantages_title">Сборно-разборные</p>

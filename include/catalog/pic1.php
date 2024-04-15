@@ -1,0 +1,1 @@
+<img src="/local/templates/smart-module/images/fast.png" alt=""> <p class="advantages_title">Быстровозводимые</p>

@@ -1,0 +1,265 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+<IfModule mod_php5.c>
+  php_flag session.use_trans_sid off
+  #php_value display_errors 1
+  #php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+
+  #SSL
+  RewriteCond %{ENV:HTTPS} !on
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  #Переход с www -> без www
+  RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  #Редирект со страницы без слеша на страницу со слешем
+  RewriteCond %{REQUEST_URI} ^(.*/[^/\.]+)$
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+
+  #Редирект с index.php на без index.php
+  RewriteCond %{REQUEST_URI} !^/bitrix/admin/
+  RewriteCond %{REQUEST_URI} ^(.*)/index\.php$
+  RewriteRule ^(.*)index\.php$ http://%{HTTP_HOST}/$1 [R=301,L]
+  
+  #Файлы robots.txt для регионов 
+RewriteCond  %{HTTP_HOST} moskva\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_msk.txt [L]
+RewriteCond  %{HTTP_HOST} vladivostok\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_vladivostok.txt [L]
+RewriteCond  %{HTTP_HOST} kazan\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_kazan.txt [L]
+RewriteCond  %{HTTP_HOST} krasnoyarsk\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_krasnoyarsk.txt [L]
+RewriteCond  %{HTTP_HOST} magadan\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_magadan.txt [L]
+RewriteCond  %{HTTP_HOST} novosibirsk\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_novosibirsk.txt [L]
+RewriteCond  %{HTTP_HOST} novocheboksarsk\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_novocheboksarsk.txt [L]
+RewriteCond  %{HTTP_HOST} samara\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_samara.txt [L]
+RewriteCond  %{HTTP_HOST} tyumen\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_tyumen.txt [L]
+RewriteCond  %{HTTP_HOST} habarovsk\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_habarovsk.txt [L]
+RewriteCond  %{HTTP_HOST} chelyabinsk\.smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots_chelyabinsk.txt [L]
+RewriteCond  %{HTTP_HOST} smart-module.ru
+Rewriterule ^robots.txt$ /robots/robots.txt [L]
+
+	#Файлы sitemap.xml для регионов 
+  RewriteCond  %{HTTP_HOST} novosibirsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnov.xml [L]
+  RewriteCond  %{HTTP_HOST} moskva\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmsk.xml [L]
+  RewriteCond  %{HTTP_HOST} chelyabinsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapchel.xml [L]
+  RewriteCond  %{HTTP_HOST} habarovsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaphab.xml [L]
+  RewriteCond  %{HTTP_HOST} kazan\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkaz.xml [L]
+  RewriteCond  %{HTTP_HOST} krasnoyarsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapkras.xml [L]
+  RewriteCond  %{HTTP_HOST} magadan\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapmag.xml [L]
+  RewriteCond  %{HTTP_HOST} novocheboksarsk\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapnovoch.xml [L]
+  RewriteCond  %{HTTP_HOST} samara\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapsamara.xml [L]
+  RewriteCond  %{HTTP_HOST} tyumen\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemaptyumen.xml [L]
+  RewriteCond  %{HTTP_HOST} vladivostok\.smart-module.ru
+	Rewriterule ^sitemap.xml$ /sitemap/sitemapvladiv.xml [L]
+
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/iz-sendvich-panelej/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/bytovki-iz-sendvich-paneley/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/vagonchiki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/vagonchiki-bytovki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/peredelki-iz-kontejnerov/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/rekonstruktsiya-konteynerov/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/garazhi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/garazhi/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/sushilki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/sushilki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/gostiniczyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/gostinichnye-kompleksy/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/doma/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/doma/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/avtomasterskie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/avtomasterskie/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/kassyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/kassy/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/otdel-prodazh/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/otdel-prodazh/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/pavilonyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/pavilony/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/skladyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/sklady/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/stolovyie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/stolovye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/pekarni/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/pekarni/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/sportivnye/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/sportivnye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/laboratorii/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/laboratorii/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/kpp/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/kpp/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/dlya-rabochix/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/zdaniya-dlya-rabochikh/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/modulnyie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/modulnye-bytovki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/stroitelnyie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/stroitelnye-bytovki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/metallicheskie-byitovki/blok-kontejneryi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/metallicheskie-bytovki/blok-konteynery/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/byitovki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/containex-dlya-byta/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/razdevalki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/razdevalki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/bytovye/santexnicheskie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/bytovye/santekhnicheskie/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/dachi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/dachi/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/zhilye/obshhezhitiya/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/zhilye/obshchezhitiya/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/avtomojki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/avtomoyki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/magazinyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/magaziny/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/ofisyi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/ofisy/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/prachechnyie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/prachechnye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/dlya-biznesa/shinomontazhi/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/dlya-biznesa/shinomontazhi/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/punkty-pitaniya/kafe/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/punkty-pitaniya/kafe/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/administrativnye/medpunkty/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/administrativnye/meduchrezhdeniya/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/kotelnyie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/pod-oborudovanie/nasosnyie-stanczii/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/shtab-strojki/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/shtaby-stroyki/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/modulnyie-zdaniya/stroitelnye/masterskie/$
+  RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-zdaniya/stroitelnye/masterskie/? [R=301,L]
+  RewriteCond %{REQUEST_URI} ^/catalog/avtomasterskie/modulnaya-moto-masterskaya-mas-3/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/modulnaya-moto-masterskaya-mas-3/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/bistro/modulnoe-zakusochnaya-mpz-3/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/bistro/modulnaya-zakusochnaya-mpz-3/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/vintovye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/vintovye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/kislorodnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/kislorodnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/vstroennye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/vstroennye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/dizelnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/dizelnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/na-otrabotannom-masle/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/na-otrabotannom-masle/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/otdelnostoyashchie/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/otdelnostoyashchie/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/elektrokotelnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/elektrokotelnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/vodonapornye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/vodonapornye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/mnogotselevaya/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/mnogotselevaya/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/-s-rezervuarami/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/-s-rezervuarami/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/vodozabora/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/vodozabora/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/gazoporshnevye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/gazoporshnevye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/kassy/modulnyy-punkt-oplaty-mzp-3/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/modulnyy-punkt-oplaty-mzp-3/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/dushevye/modulnaya-zdanie-dlya-dusha-smzd-1/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/dushevye/modulnye-zdanie-dlya-dusha-smzd-1/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/bistro/modulnaya-shaverma-mpz-2/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/torgovye-pavilony/modulnaya-shaverma-mpz-2/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/azotnye-kompressornye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/azotnye-kompressornye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kompressornye-stantsii/podgotovki-szhatogo-vozdukha/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kompressornye-stantsii/podgotovki-szhatogo-vozdukha/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/gazovye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/gazovye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/na-mazute/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/na-mazute/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/kryshnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/kryshnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/kotelnye/pristroennye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/kotelnye/pristroennye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/beregovye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/beregovye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/meliorativnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/meliorativnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/pozharotusheniya/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/pozharotusheniya/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/plavuchie/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/plavuchie/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/nasosnye-stantsii/monoblochnye/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/nasosnye-stantsii/monoblochnye/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/modulnye-zdaniya/pod-oborudovanie/elektrostantsii/dizelnye-stantsii/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/modulnye-stantsii/elektrostantsii/dizelnye-stantsii/? [R=301,L]
+RewriteCond %{REQUEST_URI} ^/catalog/kassy/konteyner-kassa-dlya-zapravochnoy-stantsii-mzp-4/$
+RewriteRule ^.*$ https://smart-module.ru/catalog/pod-kommertsiyu/konteyner-kassa-dlya-zapravochnoy-stantsii-mzp-4/? [R=301,L]
+
+RewriteCond https://moskva.smart-module.ru/catalog/angary/karkasnye/$
+RewriteRule ^.*$ https://moskva.smart-module.ru/catalog/angary/karkasnye/ [R=301,L]
+
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule>

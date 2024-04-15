@@ -1,0 +1,322 @@
+.section-calculate {
+    margin: 120px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.section-calculate h2 {
+    color: #333333;
+    font-size: 27px;
+    font-family: 'EsqaderoFFCY4F', Arial, Helvetica, sans-serif;
+    margin: 70px 0 50px;
+}
+
+.form-group {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-calculate {
+    width: 100%;
+    /*position: relative;*/
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-calculate .manager__check {
+    width: 50%;
+    float: none;
+    margin: 0;
+}
+
+.form-calculate h3 {
+    width: 100%;
+    margin: 0 0 35px;
+    padding: 0;
+    color: #333333;
+    font-size: 20px;
+    font-family: 'EsqaderoFFCY4F', Arial, Helvetica, sans-serif;
+}
+
+.form-calculate .p-popup__check label {
+    padding: 0;
+}
+
+.form-calculate .p-popup__check label::before {
+    top: 3px;
+    width: 14px;
+    height: 14px;
+}
+
+.check-text {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 0 24px;
+    color: #000000;
+    font-size: 14px;
+}
+
+.check-img {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 30px 0 0;
+    width: 100%;
+    height: 130px;
+    /*padding: 1px 20px 7px 1px;*/
+    border: solid 2px #dddddd;
+    background-color: #ffffff;
+    transition: .3s ease;
+}
+
+.manager__check input:checked + label .check-img {
+    border: solid 2px #6989ad;
+}
+
+.tooltip-wrapper {
+    font-family: 'AktivGroteskCorp', sans-serif;
+    position: relative;
+    margin: 0 0 0 9px;
+}
+
+.tooltip-wrapper:hover .tooltip-wrapper__icon {
+    background-color: #65809e;
+}
+
+.tooltip-wrapper:hover .tooltip-wrapper__text {
+    display: block;
+}
+
+.tooltip-wrapper__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 8px 6px;
+    background-color: #dddddd;
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.tooltip-wrapper__text {
+    left: 50%;
+    transform: translate(-50%,0);
+    padding: 13px 18px 14px;
+    border-radius: 4px;
+    background-color: #353535;
+    max-width: 320px;
+    min-width: 320px;
+    width: 100%;
+    bottom: calc(100% + 11px);
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-size: 14px;
+    display: none;
+    transition: .3s ease;
+}
+
+.tooltip-wrapper__text:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: -6px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 6px solid #353535;
+}
+
+.form-calculate .btn-modal {
+    margin: 57px auto 0;
+    max-width: 220px;
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group-100 {
+    width: 100%;
+    margin: 80px 0 0;
+}
+
+.range-item {
+max-width: 400px;
+    width: 100%;
+}
+
+.range-item.ui-widget.ui-widget-content {
+    background-color: #dddddd;
+    border: none;
+    height: 8px;
+}
+
+.range-item.ui-slider .ui-slider-range {
+    background-color: #4c6d91;
+}
+
+.range-item.ui-slider-horizontal .ui-slider-handle {
+    background-color: #323232;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    top: -3px;
+    outline: none;
+}
+
+.range-item.ui-slider-horizontal .ui-slider-handle:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 11px;
+    height: 7px;
+    background: url("img/range-icon.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.modal-result-calc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    padding: 59px 59px 60px 60px;
+    background-color: #3c3c3c;
+    color: #fffefe;
+    display: none;
+}
+
+.modal-result-calc__wrapper{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 30px;
+}
+
+.modal-result-calc__item {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 0 30px;
+    color: #fffefe;
+    font-size: 14px;
+}
+
+.modal-result-calc__item span {
+    display: block;
+    font-size: 20px;
+    line-height: 1.85;
+}
+
+.modal-result-calc__item sup {
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.modal-result-calc__item p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.modal-result-calc__item-text {
+    max-width: 167px;
+    width: 100%;
+    margin: 0 0 0 20px;
+}
+
+.modal-result-calc__item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+}
+
+.modal-result-calc__item-icon img {
+    max-height: 100%;
+}
+
+.modal-result-calc .text {
+    text-align: center;
+    font-size: 15px;
+    margin: 0 auto 28px;
+}
+
+.form-calculate button {
+    color: #fff;
+    margin: 0 auto;
+    font-family: 'AktivGroteskCorp', sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease;
+    padding: 0 17px;
+    max-width: none;
+}
+
+@media (max-width: 992px) {
+    .form-group {
+        width: 100%;
+        margin: 0 0 30px;
+    }
+
+    .form-calculate h3 {
+        font-size: 18px;
+        margin: 0 0 20px;
+    }
+
+    .section-calculate h2 {
+        font-size: 24px;
+        margin: 20px 0 20px;
+    }
+
+    .form-group-100 {
+        margin: 30px 0 0;
+    }
+
+    .modal-result-calc {
+        padding: 30px;
+    }
+
+    .modal-result-calc__item {
+        width: 50%;
+    }
+
+    .section-calculate {
+        margin: 40px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-calculate .manager__check {
+        width: 100%;
+        margin: 0 0 20px;
+    }
+
+    .modal-result-calc__item {
+        width: 100%;
+    }
+}

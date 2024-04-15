@@ -1,0 +1,3 @@
+<?
+$sSectionName="icon-blok-konteynery";
+?>

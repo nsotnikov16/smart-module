@@ -1,0 +1,12 @@
+/bitrix/
+/upload/
+*.xml
+*.csv
+*.txt
+*.png
+*.jpg
+*.zip
+*.svg
+*.gz
+*.gif
+*.jpeg

@@ -1,0 +1,119 @@
+.categories-list-my {
+    margin: 0 0 40px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    overflow: visible;
+}
+
+.categories-list-my .categories-list-item {
+    width: 25%;
+    margin: 0 0 20px;
+    padding: 0 5px;
+}
+
+.categories-list-my .categories-list-item a {
+    padding: 8px 8px 18px;
+    background: #fff;
+    color: #222;
+    font-size: 18px;
+    text-transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    transition: .3s ease;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.categories-list-my .categories-list-item a:hover {
+    background: #fff;
+    box-shadow: -1px 0px 16px 0 rgba(0, 0, 0, 0.22);
+    color: #6989ad;
+    text-decoration: none;
+    z-index: 1;
+    position: relative;
+}
+
+.categories-list-my .categories-list-item a:hover .categories-title{
+    color: #6989ad;
+}
+
+.categories-list-my .categories-title {
+    text-transform: none;
+    color: #222;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 1.33;
+    max-width: 208px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: normal;
+}
+
+.categories-list-my  .categories-image {
+    padding: 0 !important;
+}
+
+.industries-list .categories-list-item {
+    width: 20%;
+}
+
+.services-list .categories-list-item {
+    width: 50%;
+}
+
+@media (max-width: 992px) {
+    .categories-list-my .categories-title {
+        font-size: 16px;
+    }
+
+    .industries-list .categories-list-item {
+        width: 25%;
+    }
+}
+
+@media (max-width: 860px) {
+    .categories-list-my .categories-list-item {
+        width: 33.3%;
+    }
+
+    .categories-list-my {
+        margin: 0 0 30px;
+    }
+
+    .services-list .categories-list-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-list-my .categories-list-item {
+        width: 50%;
+    }
+
+    .industries-list .categories-list-item {
+        width: 33.3%;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .industries-list .categories-list-item {
+        width: 50%;
+    }
+}
+@media (max-width: 440px) {
+    .categories-list-my .categories-list-item {
+        width: 100%;
+    }
+
+    .industries-list .categories-list-item {
+        width: 100%;
+    }
+
+}

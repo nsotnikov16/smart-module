@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Промышленность";
+$arDirProperties = Array(
+
+);
+?>

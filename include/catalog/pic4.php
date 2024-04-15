@@ -1,0 +1,1 @@
+<img src="/local/templates/smart-module/images/temp.png" alt=""> <p class="advantages_title">До -50 градусов</p>

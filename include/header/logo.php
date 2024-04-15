@@ -1,0 +1,1 @@
+<img class="change-logo" src="<?=SITE_TEMPLATE_PATH?>/images/header-logo.png" alt="">
