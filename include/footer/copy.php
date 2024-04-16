@@ -1,1 +1,1 @@
-© Smart Module, <?= date('Y');?> г. Все права защищены.
+© Smart Module, <?= date('Y');?> г.

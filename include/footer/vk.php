@@ -1,11 +1,8 @@
-<? global $isNew; ?>
+<li>
+    <a href="https://vk.com/smart_module">
+        <svg class="svg-icon">
+            <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#vk"></use>
+        </svg>
+    </a>
+</li>
 
-<? if ($isNew) : ?>
-	<a href="https://vk.com/smart_module" class="h-social__link">
-		<img src="/upload/new-image/vk-logo.svg" alt="">
-	</a>
-<? else : ?>
-	<a href="https://vk.com/smart_module" class="h-social__link">
-		<i class="fa fa-vk" aria-hidden="true"></i>
-	</a>
-<? endif; ?>

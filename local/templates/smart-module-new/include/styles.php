@@ -1,0 +1,12 @@
+<? use Bitrix\Main\Page\Asset;
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/bootstrap.min.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/slick.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/fancybox.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/font-awesome.min.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/jquery-ui.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/rangeslider.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/style.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/header.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/footer.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/main.css');
+Asset::getInstance()->addCss(ASSETS_PATH . '/css/media.css');
