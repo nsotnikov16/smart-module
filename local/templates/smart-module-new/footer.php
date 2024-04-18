@@ -6,9 +6,21 @@
             <div class="row">
                 <div class="col-12 d-flex flex-wrap align-items-start">
                     <div class="footer-column">
-                        <a href="index.html" class="logo"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-white.png"
-                                                               alt="" loading="lazy"/></a>
-                        <a href="tel:88122004235" class="phone">8 (812) 200-42-35</a>
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "COMPOSITE_FRAME_MODE" => "A",
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/footer/logo.php"
+                            )
+                        );
+                        ?>
+
+                        <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#">#WF_PHONES#</a>
                         <div class="schedule">
                             <p>пн-пт: с 9:00 - 18:00</p>
                         </div>
@@ -137,12 +149,14 @@
                         ); ?>
 
                     </ul>
-                    <div class="link-developer"><span>Создание и продвижение сайта</span>
+                    <div class="link-developer">
+                        <span>Создание и продвижение сайта</span>
                         <a rel="nofollow"
                            target="blank"
                            href="https://olever.ru">
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-developer.svg" alt="">
-                        </a></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

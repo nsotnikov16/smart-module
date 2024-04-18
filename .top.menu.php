@@ -43,7 +43,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"О компании", 
+		"О нас",
 		"/o-kompanii/", 
 		Array(), 
 		Array(), 

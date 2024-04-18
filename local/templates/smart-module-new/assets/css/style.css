@@ -98,7 +98,7 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-input, textarea, select {
+input:not(.bx-core-window input), textarea:not(.bx-core-window textarea), select:not(.bx-core-window select) {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;

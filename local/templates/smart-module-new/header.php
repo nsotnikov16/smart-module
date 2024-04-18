@@ -1,5 +1,5 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<?define('ASSETS_PATH', SITE_TEMPLATE_PATH . '/assets');?>
+<? define('ASSETS_PATH', SITE_TEMPLATE_PATH . '/assets'); ?>
 <? IncludeTemplateLangFile(__FILE__); ?>
 <!DOCTYPE html>
 <html lang="lang="<?= LANGUAGE_ID ?>"">
@@ -25,34 +25,65 @@
                             <span></span>
                             <span></span>
                         </a>
-                        <a href="<?= SITE_DIR?>" class="logo">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/header-logo.png" alt="" loading="lazy" />
-                        </a>
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "COMPOSITE_FRAME_MODE" => "A",
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/header/logo.php"
+                            )
+                        ); ?>
                         <div class="header-box header-box-phone">
                             <div class="location-box">
                                 <a href="#" class="btn-location" data-bs-toggle="modal"
                                    data-bs-target="#locationModal">Санкт-Петербург</a>
                             </div>
-                            <a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
-                                907-14-59</a>
+                            <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#">
+                                <i class="fa fa-phone"
+                                   aria-hidden="true"></i>
+                                #WF_PHONES#
+                            </a>
                         </div>
                         <div class="header-box header-box-mail">
                             <span>Email поддержка:</span>
-                            <a href="mailto:spb1@smart-module.ru" class="mail"><i class="fa fa-envelope-o"
-                                                                                  aria-hidden="true"></i>spb1@smart-module.ru</a>
+                            <a href="mailto:#WF_EMAIL#" class="mail #WF_EMAIL_REPLACE#">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                #WF_EMAIL#
+                            </a>
                         </div>
 
                         <ul class="list-social my-ul">
                             <li class="list-social__item">
-                                <a href="https://vk.com/smart_module" target="_blank" class="list-social__link">
-                                    <i class="fa fa-vk" aria-hidden="true"></i>
-                                </a>
+                                <? $APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    array(
+                                        "AREA_FILE_SHOW" => "file",
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "COMPOSITE_FRAME_MODE" => "A",
+                                        "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                        "EDIT_TEMPLATE" => "",
+                                        "PATH" => "/include/header/vk.php"
+                                    )
+                                ); ?>
                             </li>
                             <li class="list-social__item">
-                                <a href="https://www.youtube.com/channel/UCe0MhLxBpNUuyEXD-G28J6w/" target="_blank"
-                                   class="list-social__link">
-                                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                                </a>
+                                <? $APPLICATION->IncludeComponent(
+                                    "bitrix:main.include",
+                                    "",
+                                    array(
+                                        "AREA_FILE_SHOW" => "file",
+                                        "AREA_FILE_SUFFIX" => "inc",
+                                        "COMPOSITE_FRAME_MODE" => "A",
+                                        "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                        "EDIT_TEMPLATE" => "",
+                                        "PATH" => "/include/header/youtube.php"
+                                    )
+                                ); ?>
                             </li>
                         </ul>
 
@@ -60,10 +91,10 @@
                            data-bs-target="#callbackModal">Получить консультацию</a>
                         <div class="btn-search d-flex d-md-none">
                             <svg class="svg-icon svg-icon-search">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#search"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#search"></use>
                             </svg>
                             <svg class="svg-icon svg-icon-close">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#close-icon"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#close-icon"></use>
                             </svg>
                         </div>
                     </div>
@@ -78,7 +109,8 @@
                     <div class="col-12">
                         <form method="post" class="form-search">
                             <label>
-                                <input type="search" class="search-field" placeholder="" value="" name="search" autocomplete="off" />
+                                <input type="search" class="search-field" placeholder="" value="" name="search"
+                                       autocomplete="off"/>
                             </label>
                             <button class="btn btn-accent search-submit" type="submit">
                                 <span>Поиск</span>
@@ -92,30 +124,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="product.html" class="search-wrapper-result-item">
-								<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                   loading="lazy" /></span>
-                            <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
-									школа CONTAINEX</span>
-                        </a>
-                        <a href="product.html" class="search-wrapper-result-item">
-								<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                   loading="lazy" /></span>
-                            <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
-									школа CONTAINEX</span>
-                        </a>
-                        <a href="product.html" class="search-wrapper-result-item">
-								<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                   loading="lazy" /></span>
-                            <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
-									школа CONTAINEX</span>
-                        </a>
-                        <a href="product.html" class="search-wrapper-result-item">
-								<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                   loading="lazy" /></span>
-                            <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
-									школа CONTAINEX</span>
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -132,257 +141,47 @@
                                data-bs-target="#locationModal">Санкт-Петербург</a>
                         </div>
                         <ul class="menu my-ul">
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">каталог</a>
-                                <div class="dropdown-menu">
-                                    <ul class="dropdown-menu-catalog my-ul">
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category1.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Металлические бытовки</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category2.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category3.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category4.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Модульные здания</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category5.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category6.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Модульные станции</span>
-                                            </a>
-                                            <ul class="dropdown-submenu my-ul">
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category7.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Торговые павильоны</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="catalog-category.html" class="dropdown-item">
-													<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category8.svg" alt=""
-                                                                                                   loading="lazy" /></span>
-                                                <span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="projects.html" class="nav-link">проекты</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
-                                <div class="dropdown-menu">
-                                    <ul class="dropdown-submenu my-ul">
-                                        <li>
-                                            <a href="rent.html" class="dropdown-item">Аренда</a>
-                                        </li>
-                                        <li>
-                                            <a href="delivery.html" class="dropdown-item">Доставка</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="technology.html" class="nav-link">технология</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="industry.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">отрасли</a>
-                                <div class="dropdown-menu">
-                                    <ul class="dropdown-submenu my-ul">
-                                        <li>
-                                            <a href="events.html" class="dropdown-item">Мероприятия и выставки</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Торговый сектор</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Наука и образование</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Муниципальное управление</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Здравоохранение</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Промышленность</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Порты и логистика</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Гастрономия</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Финансовый сектор</a>
-                                        </li>
-                                        <li>
-                                            <a href="industry.html" class="dropdown-item">Строительство</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="blog.html" class="nav-link">блог</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
-                                <div class="dropdown-menu">
-                                    <ul class="dropdown-submenu my-ul">
-                                        <li>
-                                            <a href="about.html" class="dropdown-item">О компании</a>
-                                        </li>
-                                        <li>
-                                            <a href="team.html" class="dropdown-item">Команда</a>
-                                        </li>
-                                        <li>
-                                            <a href="pride.html" class="dropdown-item">Наша гордость</a>
-                                        </li>
-                                        <li>
-                                            <a href="manufacture.html" class="dropdown-item">Производство</a>
-                                        </li>
-                                        <li>
-                                            <a href="requisites.html" class="dropdown-item">Реквизиты</a>
-                                        </li>
-                                        <li>
-                                            <a href="calculate.html" class="dropdown-item">Калькулятор</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="contacts.html" class="nav-link">контакты</a>
-                            </li>
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:menu",
+                                "header",
+                                array(
+                                    "COMPONENT_TEMPLATE" => "horizontal_multilevel",
+                                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                                    "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                                    "CHILD_MENU_TYPE" => "top_inner",    // Тип меню для остальных уровней
+                                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                                    "COMPOSITE_FRAME_MODE" => "A",    // Голосование шаблона компонента по умолчанию
+                                    "COMPOSITE_FRAME_TYPE" => "AUTO",    // Содержимое компонента
+                                    "MENU_THEME" => "site"
+                                ),
+                                false
+                            ); ?>
                         </ul>
-                        <a href="tel:+78129071459" class="phone d-flex d-md-none"><i class="fa fa-phone" aria-hidden="true"></i>8
-                            (812)
-                            907-14-59</a>
+                        <a href="tel:#WF_PHONES#" class="phone d-flex d-md-none #WF_PHONE_REPLACE#">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            #WF_PHONES#
+                        </a>
                         <a href="#" class="btn btn-accent btn-callback d-flex d-md-none" data-bs-toggle="modal"
                            data-bs-target="#callbackModal">Получить
                             консультацию</a>
                         <div class="btn-search d-none d-md-flex">
                             <svg class="svg-icon svg-icon-search">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#search"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#search"></use>
                             </svg>
                             <svg class="svg-icon svg-icon-close">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#close-icon"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#close-icon"></use>
                             </svg>
                         </div>
-                        <a href="mailto:spb1@smart-module.ru" class="mail d-block d-md-none"><i class="fa fa-envelope-o"
-                                                                                                aria-hidden="true"></i>spb1@smart-module.ru</a>
+                        <a href="mailto:#WF_EMAIL#" class="mail d-block d-md-none #WF_EMAIL_REPLACE#">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            #WF_EMAIL#
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -396,164 +195,24 @@
                 <div class="col-12">
                     <div class="header-top__wrapper">
                         <div class="dropdown dropdown-burger">
-                            <a href="#" class="btn-burger dropdown-toggle" data-bs-toggle="dropdown"><svg class="svg-icon">
-                                    <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#burger"></use>
-                                </svg></a>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-menu-catalog my-ul">
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category1.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Металлические бытовки</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category2.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category3.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category4.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Модульные здания</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category5.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category6.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Модульные станции</span>
-                                        </a>
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Котельные</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Насосные станции</a>
-                                            </li>
-                                            <li>
-                                                <a href="catalog.html" class="dropdown-item">Электростанции</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category7.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Торговые павильоны</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="catalog-category.html" class="dropdown-item">
-												<span class="dropdown-menu-catalog__icon"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/category8.svg" alt=""
-                                                                                               loading="lazy" /></span>
-                                            <span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <a href="#" class="btn-burger dropdown-toggle" data-bs-toggle="dropdown">
+                                <svg class="svg-icon">
+                                    <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#burger"></use>
+                                </svg>
+                            </a>
+
                         </div>
 
-                        <a href="index.html" class="logo">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/img/logo-sm.png" alt="" loading="lazy" />
+                        <a href="<?= SITE_DIR ?>" class="logo">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-sm.png" alt="Logo sm" loading="lazy"/>
                         </a>
                         <div class="header-box">
                             <div class="location-box header-box-phone">
                                 <a href="#" class="btn-location" data-bs-toggle="modal"
                                    data-bs-target="#locationModal">Санкт-Петербург</a>
                             </div>
-                            <a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
+                            <a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8
+                                (812)
                                 907-14-59</a>
                         </div>
 
@@ -580,7 +239,8 @@
                                     <a href="blog.html" class="nav-link">блог</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
+                                    <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о
+                                        нас</a>
                                     <div class="dropdown-menu">
                                         <ul class="dropdown-submenu my-ul">
                                             <li>
@@ -617,10 +277,10 @@
                            data-bs-target="#callbackModal">Получить консультацию</a>
                         <div class="btn-search">
                             <svg class="svg-icon svg-icon-search">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#search"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#search"></use>
                             </svg>
                             <svg class="svg-icon svg-icon-close">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/img/sprite.svg#close-icon"></use>
+                                <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#close-icon"></use>
                             </svg>
                         </div>
                     </div>
@@ -635,7 +295,7 @@
                             <form method="post" class="form-search">
                                 <label>
                                     <input type="search" class="search-field" placeholder="" value="" name="search"
-                                           autocomplete="off" />
+                                           autocomplete="off"/>
                                 </label>
                                 <button class="btn btn-accent search-submit" type="submit">
                                     <span>Поиск</span>
@@ -650,26 +310,34 @@
                     <div class="row">
                         <div class="col-12">
                             <a href="product.html" class="search-wrapper-result-item">
-									<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                       loading="lazy" /></span>
+									<span class="search-wrapper-result-item__img"><img
+                                                src="<?= SITE_TEMPLATE_PATH ?>/assets/img/search-result-img-min.jpg"
+                                                alt=""
+                                                loading="lazy"/></span>
                                 <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
 										школа CONTAINEX</span>
                             </a>
                             <a href="product.html" class="search-wrapper-result-item">
-									<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                       loading="lazy" /></span>
+									<span class="search-wrapper-result-item__img"><img
+                                                src="<?= SITE_TEMPLATE_PATH ?>/assets/img/search-result-img-min.jpg"
+                                                alt=""
+                                                loading="lazy"/></span>
                                 <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
 										школа CONTAINEX</span>
                             </a>
                             <a href="product.html" class="search-wrapper-result-item">
-									<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                       loading="lazy" /></span>
+									<span class="search-wrapper-result-item__img"><img
+                                                src="<?= SITE_TEMPLATE_PATH ?>/assets/img/search-result-img-min.jpg"
+                                                alt=""
+                                                loading="lazy"/></span>
                                 <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
 										школа CONTAINEX</span>
                             </a>
                             <a href="product.html" class="search-wrapper-result-item">
-									<span class="search-wrapper-result-item__img"><img src="<?=SITE_TEMPLATE_PATH?>/assets/img/search-result-img-min.jpg" alt=""
-                                                                                       loading="lazy" /></span>
+									<span class="search-wrapper-result-item__img"><img
+                                                src="<?= SITE_TEMPLATE_PATH ?>/assets/img/search-result-img-min.jpg"
+                                                alt=""
+                                                loading="lazy"/></span>
                                 <span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
 										школа CONTAINEX</span>
                             </a>
