@@ -42,31 +42,48 @@
                         ); ?>
 
                     </div>
+                    <div class="footer-column">
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "footer",
+                            array(
+                                "ALLOW_MULTI_SELECT" => "N",
+                                "CHILD_MENU_TYPE" => "top_inner",
+                                "COMPOSITE_FRAME_MODE" => "A",
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                "DELAY" => "N",
+                                "MAX_LEVEL" => "2",
+                                "MENU_CACHE_GET_VARS" => array(0 => "",
+                                ),
+                                "MENU_CACHE_TIME" => "3600",
+                                "MENU_CACHE_TYPE" => "N",
+                                "MENU_CACHE_USE_GROUPS" => "Y",
+                                "ROOT_MENU_TYPE" => "bottom",
+                                "USE_EXT" => "Y"
+                            )
+                        ); ?>
+                    </div>
 
                     <div class="footer-column">
-                        <a href="catalog.html" class="footer-column__title">Каталог</a>
-                        <ul class="footer-menu my-ul">
-                            <li><a href="category.html">Металлические бытовки</a></li>
-                            <li><a href="category.html">Металлические контейнеры</a></li>
-                            <li><a href="category.html">Ангары</a></li>
-                            <li><a href="category.html">Модульные здания</a></li>
-                            <li>
-                                <a href="category.html">Переоборудование контейнеров</a>
-                            </li>
-                            <li><a href="category.html">Модульные станции</a></li>
-                            <li><a href="category.html">Торговые павильоны</a></li>
-                            <li><a href="category.html">Быстровозводимые здания</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <a href="services.html" class="footer-column__title">Услуги</a>
-                        <ul class="footer-menu my-ul">
-                            <li><a href="delivery.html">Доставка</a></li>
-                            <li><a href="rent.html">Аренда</a></li>
-                        </ul>
-                        <a href="projects.html" class="footer-column__title">Проекты</a>
-                        <a href="blog.html" class="footer-column__title">Блог</a>
-                        <a href="contacts.html" class="footer-column__title">Контакты</a>
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "footer",
+                            array(
+                                "ALLOW_MULTI_SELECT" => "N",
+                                "CHILD_MENU_TYPE" => "top_inner",
+                                "COMPOSITE_FRAME_MODE" => "A",
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",
+                                "DELAY" => "N",
+                                "MAX_LEVEL" => "2",
+                                "MENU_CACHE_GET_VARS" => array(0 => "",
+                                ),
+                                "MENU_CACHE_TIME" => "3600",
+                                "MENU_CACHE_TYPE" => "N",
+                                "MENU_CACHE_USE_GROUPS" => "Y",
+                                "ROOT_MENU_TYPE" => "bottom2",
+                                "USE_EXT" => "Y"
+                            )
+                        ); ?>
                     </div>
                 </div>
             </div>
