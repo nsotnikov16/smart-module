@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Smart-module</title>
+
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+	<!-- add plugins css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/slick.css" />
+	<link rel="stylesheet" href="css/fancybox.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+		<link rel="stylesheet" href="css/rangeslider.css" />
+	<!-- add plugins css end -->
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/header.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+	<script src="js/map.js"></script>
+	<script src="js/datamaps.rus.js"></script>
+</head>
+
+<body>
+
+<header>
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 d-flex">
+					<div class="header-top__wrapper">
+						<a href="#" class="btn-burger-mobile">
+							<span></span>
+							<span></span>
+							<span></span>
+						</a>
+						<a href="index.html" class="logo">
+							<img src="img/header-logo.png" alt="" loading="lazy" />
+						</a>
+						<div class="header-box header-box-phone">
+							<div class="location-box">
+								<a href="#" class="btn-location" data-bs-toggle="modal"
+									data-bs-target="#locationModal">Санкт-Петербург</a>
+							</div>
+							<a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
+								907-14-59</a>
+						</div>
+						<div class="header-box header-box-mail">
+							<span>Email поддержка:</span>
+							<a href="mailto:spb1@smart-module.ru" class="mail"><i class="fa fa-envelope-o"
+									aria-hidden="true"></i>spb1@smart-module.ru</a>
+						</div>
+
+						<ul class="list-social my-ul">
+							<li class="list-social__item">
+								<a href="https://vk.com/smart_module" target="_blank" class="list-social__link">
+									<i class="fa fa-vk" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li class="list-social__item">
+								<a href="https://www.youtube.com/channel/UCe0MhLxBpNUuyEXD-G28J6w/" target="_blank"
+									class="list-social__link">
+									<i class="fa fa-youtube-play" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+
+						<a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
+							data-bs-target="#callbackModal">Получить консультацию</a>
+						<div class="btn-search d-flex d-md-none">
+							<svg class="svg-icon svg-icon-search">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg>
+							<svg class="svg-icon svg-icon-close">
+								<use xlink:href="img/sprite.svg#close-icon"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="search-wrapper">
+		<div class="search-wrapper-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<form method="post" class="form-search">
+							<label>
+								<input type="search" class="search-field" placeholder="" value="" name="search" autocomplete="off" />
+							</label>
+							<button class="btn btn-accent search-submit" type="submit">
+								<span>Поиск</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="search-wrapper-result">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<a href="product.html" class="search-wrapper-result-item">
+							<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+									loading="lazy" /></span>
+							<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+								школа CONTAINEX</span>
+						</a>
+						<a href="product.html" class="search-wrapper-result-item">
+							<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+									loading="lazy" /></span>
+							<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+								школа CONTAINEX</span>
+						</a>
+						<a href="product.html" class="search-wrapper-result-item">
+							<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+									loading="lazy" /></span>
+							<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+								школа CONTAINEX</span>
+						</a>
+						<a href="product.html" class="search-wrapper-result-item">
+							<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+									loading="lazy" /></span>
+							<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+								школа CONTAINEX</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="nav nav-menu">
+						<div class="location-box d-flex d-md-none">
+							<a href="#" class="btn-location" data-bs-toggle="modal"
+								data-bs-target="#locationModal">Санкт-Петербург</a>
+						</div>
+						<ul class="menu my-ul">
+							<li class="dropdown nav-item">
+								<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">каталог</a>
+								<div class="dropdown-menu">
+									<ul class="dropdown-menu-catalog my-ul">
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category1.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Металлические бытовки</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category2.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category3.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category4.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Модульные здания</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category5.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category6.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Модульные станции</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category7.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Торговые павильоны</span>
+											</a>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category8.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="projects.html" class="nav-link">проекты</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
+								<div class="dropdown-menu">
+									<ul class="dropdown-submenu my-ul">
+										<li>
+											<a href="rent.html" class="dropdown-item">Аренда</a>
+										</li>
+										<li>
+											<a href="delivery.html" class="dropdown-item">Доставка</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="technology.html" class="nav-link">технология</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="industry.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">отрасли</a>
+								<div class="dropdown-menu">
+									<ul class="dropdown-submenu my-ul">
+										<li>
+											<a href="events.html" class="dropdown-item">Мероприятия и выставки</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Торговый сектор</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Наука и образование</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Муниципальное управление</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Здравоохранение</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Промышленность</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Порты и логистика</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Гастрономия</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Финансовый сектор</a>
+										</li>
+										<li>
+											<a href="industry.html" class="dropdown-item">Строительство</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="blog.html" class="nav-link">блог</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
+								<div class="dropdown-menu">
+									<ul class="dropdown-submenu my-ul">
+										<li>
+											<a href="about.html" class="dropdown-item">О компании</a>
+										</li>
+										<li>
+											<a href="team.html" class="dropdown-item">Команда</a>
+										</li>
+										<li>
+											<a href="pride.html" class="dropdown-item">Наша гордость</a>
+										</li>
+										<li>
+											<a href="manufacture.html" class="dropdown-item">Производство</a>
+										</li>
+										<li>
+											<a href="requisites.html" class="dropdown-item">Реквизиты</a>
+										</li>
+										<li>
+											<a href="calculate.html" class="dropdown-item">Калькулятор</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="contacts.html" class="nav-link">контакты</a>
+							</li>
+						</ul>
+						<a href="tel:+78129071459" class="phone d-flex d-md-none"><i class="fa fa-phone" aria-hidden="true"></i>8
+							(812)
+							907-14-59</a>
+						<a href="#" class="btn btn-accent btn-callback d-flex d-md-none" data-bs-toggle="modal"
+							data-bs-target="#callbackModal">Получить
+							консультацию</a>
+						<div class="btn-search d-none d-md-flex">
+							<svg class="svg-icon svg-icon-search">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg>
+							<svg class="svg-icon svg-icon-close">
+								<use xlink:href="img/sprite.svg#close-icon"></use>
+							</svg>
+						</div>
+						<a href="mailto:spb1@smart-module.ru" class="mail d-block d-md-none"><i class="fa fa-envelope-o"
+								aria-hidden="true"></i>spb1@smart-module.ru</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="header-fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="header-top__wrapper">
+						<div class="dropdown dropdown-burger">
+							<a href="#" class="btn-burger dropdown-toggle" data-bs-toggle="dropdown"><svg class="svg-icon">
+									<use xlink:href="img/sprite.svg#burger"></use>
+								</svg></a>
+							<div class="dropdown-menu">
+								<ul class="dropdown-menu-catalog my-ul">
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category1.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Металлические бытовки</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category2.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category3.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category4.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Модульные здания</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category5.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category6.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Модульные станции</span>
+										</a>
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Котельные</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+											</li>
+											<li>
+												<a href="catalog.html" class="dropdown-item">Электростанции</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category7.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Торговые павильоны</span>
+										</a>
+									</li>
+									<li>
+										<a href="catalog-category.html" class="dropdown-item">
+											<span class="dropdown-menu-catalog__icon"><img src="img/category8.svg" alt=""
+													loading="lazy" /></span>
+											<span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<a href="index.html" class="logo">
+							<img src="img/logo-sm.png" alt="" loading="lazy" />
+						</a>
+						<div class="header-box">
+							<div class="location-box header-box-phone">
+								<a href="#" class="btn-location" data-bs-toggle="modal"
+									data-bs-target="#locationModal">Санкт-Петербург</a>
+							</div>
+							<a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
+								907-14-59</a>
+						</div>
+
+						<nav class="nav nav-menu">
+							<ul class="menu my-ul">
+								<li class="nav-item">
+									<a href="projects.html" class="nav-link">проекты</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="rent.html" class="dropdown-item">Аренда</a>
+											</li>
+											<li>
+												<a href="delivery.html" class="dropdown-item">Доставка</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+
+								<li class="nav-item">
+									<a href="blog.html" class="nav-link">блог</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="about.html" class="dropdown-item">О компании</a>
+											</li>
+											<li>
+												<a href="team.html" class="dropdown-item">Команда</a>
+											</li>
+											<li>
+												<a href="pride.html" class="dropdown-item">Наша гордость</a>
+											</li>
+											<li>
+												<a href="manufacture.html" class="dropdown-item">Производство</a>
+											</li>
+											<li>
+												<a href="requisites.html" class="dropdown-item">Реквизиты</a>
+											</li>
+											<li>
+												<a href="certificates.html" class="dropdown-item">Сертификаты</a>
+											</li>
+											<li>
+												<a href="calculate.html" class="dropdown-item">Калькулятор</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="contacts.html" class="nav-link">контакты</a>
+								</li>
+							</ul>
+						</nav>
+
+						<a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
+							data-bs-target="#callbackModal">Получить консультацию</a>
+						<div class="btn-search">
+							<svg class="svg-icon svg-icon-search">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg>
+							<svg class="svg-icon svg-icon-close">
+								<use xlink:href="img/sprite.svg#close-icon"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="search-wrapper">
+			<div class="search-wrapper-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<form method="post" class="form-search">
+								<label>
+									<input type="search" class="search-field" placeholder="" value="" name="search" autocomplete="off" />
+								</label>
+								<button class="btn btn-accent search-submit" type="submit">
+									<span>Поиск</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="search-wrapper-result">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+	<div class="content-wrapper">
+
+		<section class="page page-project">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<nav aria-label="breadcrumb" class="nav-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+								<li class="breadcrumb-item"><a href="projects.html">Проекты</a></li>
+								<li class="breadcrumb-item"><a href="projects.html">Блочно-модульные здания</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Модульное общежитие на 150 человек</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="col-12">
+						<h1 class="text-center mb-35">Модульное общежитие на 150 человек</h1>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-lg-7">
+						<div class="project-sliders-wrapper">
+							<div class="projects-slider-preview">
+								<div class="slide">
+									<div class="projects-slider__item">
+										<span class="image-border"></span>
+										<img src="img/project-slide1.jpeg" alt="" loading="lazy" />
+									</div>
+								</div>
+								<div class="slide">
+									<div class="projects-slider__item">
+										<span class="image-border"></span>
+										<img src="img/project-slide2.jpeg" alt="" loading="lazy" />
+									</div>
+								</div>
+								<div class="slide">
+									<div class="projects-slider__item">
+										<span class="image-border"></span>
+										<img src="img/project-slide3.jpeg" alt="" loading="lazy" />
+									</div>
+								</div>
+								<div class="slide">
+									<div class="projects-slider__item">
+										<span class="image-border"></span>
+										<img src="img/project-slide1.jpeg" alt="" loading="lazy" />
+									</div>
+								</div>
+								<div class="slide">
+									<div class="projects-slider__item">
+										<span class="image-border"></span>
+										<img src="img/project-slide3.jpeg" alt="" loading="lazy" />
+									</div>
+								</div>
+							</div>
+
+							<div class="projects-slider-max">
+								<div class="slide">
+									<a href="img/project-slide1.jpeg" data-fancybox="project-gallery" class="projects-slider__item">
+										<img src="img/project-slide1.jpeg" alt="" loading="lazy" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="img/project-slide2.jpeg" data-fancybox="project-gallery" class="projects-slider__item">
+										<img src="img/project-slide2.jpeg" alt="" loading="lazy" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="img/project-slide3.jpeg" data-fancybox="project-gallery" class="projects-slider__item">
+										<img src="img/project-slide3.jpeg" alt="" loading="lazy" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="img/project-slide1.jpeg" data-fancybox="project-gallery" class="projects-slider__item">
+										<img src="img/project-slide1.jpeg" alt="" loading="lazy" />
+									</a>
+								</div>
+								<div class="slide">
+									<a href="img/project-slide3.jpeg" data-fancybox="project-gallery" class="projects-slider__item">
+										<img src="img/project-slide3.jpeg" alt="" loading="lazy" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-5 mb-35">
+						<div class="project-information">
+							<div class="project-information-box">
+								<div class="project-information-box__icon"><img src="img/clock.svg" alt="" loading="lazy" /></div>
+								<div class="project-information-box__text">
+									<p>Сроки реализации:</p>
+									<p><strong>17 дней</strong></p>
+								</div>
+							</div>
+							<div class="project-information-box">
+								<div class="project-information-box__icon"><img src="img/vector.svg" alt="" loading="lazy" /></div>
+								<div class="project-information-box__text">
+									<p>Общая площадь:
+									</p>
+									<p><strong>288</strong></p>
+								</div>
+							</div>
+							<div class="project-information-box">
+								<div class="project-information-box__icon"><img src="img/man.svg" alt="" loading="lazy" /></div>
+								<div class="project-information-box__text">
+									<p>Заказчик:</p>
+									<p><strong>НПО "КВАНТ"</strong></p>
+								</div>
+							</div>
+
+							<a href="#" class="btn btn-green btn-order-project" data-bs-toggle="modal"
+								data-bs-target="#orderModal">Заказать похожий
+								проект</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="table-wrapper">
+							<table class="table table-project-description">
+								<thead>
+									<tr>
+										<th>Наименование:</th>
+										<th>описание:</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p>
+												Габаритные размеры
+											</p>
+										</td>
+										<td>
+											<p>
+												72000х14000х 4000 мм. по внешнему краю;
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Силовой каркас
+											</p>
+										</td>
+										<td>
+											<p>
+												Верхняя и нижняя обвязка: холодногнутый швеллер 120х50х3 мм.;
+											</p>
+											<p>
+												Верхняя обвязка для помещений кухни-столовой, зала воспитательной работы на первом этаже:
+												холодногнутый швеллер
+												180х50х3 мм.;
+											</p>
+											<p>
+												Угловые стойки: уголок 90х90х3 мм. с окраской по RAL 9003(белый);
+											</p>
+											<p>
+												Фасонные элементы с окраской по RAL 9003 (белый);
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Внутренний каркас
+											</p>
+										</td>
+										<td>
+											<p>
+												Деревянный, обрешетка из бруса, размером 100x40 мм., 2 - 4 сорта естественной влажности;
+											</p>
+											<p>
+												Пропитка огнебиозащитой;
+											</p>
+											<p>
+												Металлическое армирование в помещениях для нарушителей( пол, потолок и стены);
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Внешняя отделка
+											</p>
+										</td>
+										<td>
+											<p>
+												Оцинкованный проф. лист С8 0,45 мм.;
+											</p>
+											<p>
+												С окраской по RAL 5005 (синий);
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Внутренняя отделка стен и потолка
+											</p>
+										</td>
+										<td>
+											<p>
+												Влагостойкие панели ЛДСП в туалетах, душевых, умывальных, гладильных, постирочных,
+												кухнях-столовых;
+											</p>
+											<p>
+												Влагостойкие панели ЛДСП в туалете для дежурного смены и душевой для осужденных;
+											</p>
+											<p>
+												Оцинкованный гладкий лист 0,4 мм. в сушилках, сушилке для обуви и в коридоре;
+											</p>
+											<p>
+												Панели ЛДСП светлого цвета в остальных помещениях;
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Утепление (стены, пол, потолок)
+											</p>
+										</td>
+										<td>
+											<p>
+												Минеральный утеплитель рулонного типа, толщина 100 мм.;
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Тепло-влагоизоляция (пол, стены)
+											</p>
+										</td>
+										<td>
+											<p>
+												Мембрана Изоспан А, Б;
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>
+												Влагоизоляция (потолок)
+											</p>
+										</td>
+										<td>
+											<p>
+												Пленка - ПВХ, 80 микрон со стороны утеплителя;
+											</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="project-location">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="text-center mb-30">Проект на карте</h2>
+						<div class="project-location__map">
+							<iframe
+								src="https://yandex.ru/map-widget/v1/?ll=39.833927%2C64.581543&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1MzEyNTkzMhJR0KDQvtGB0YHQuNGPLCDQkNGA0YXQsNC90LPQtdC70YzRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KHQtdCy0LXRgNC-0LTQstC40L3RgdC6IgoNjksfQhV0IIFC&z=11.3"
+								allowfullscreen="true" style="position:relative;"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer class="footer-wrapper footer-fixed">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex flex-wrap align-items-start">
+						<div class="footer-column">
+							<a href="index.html" class="logo"><img src="img/logo-white.png" alt="" loading="lazy" /></a>
+							<a href="tel:88122004235" class="phone">8 (812) 200-42-35</a>
+							<div class="schedule">
+								<p>пн-пт: с 9:00 - 18:00</p>
+							</div>
+							<div class="footer-column__description">
+								<p>Компания смарт-модуль была
+									основана в 2016 году и на
+									сегодняшний день предлагает
+									своим клиентам разнообразные
+									интеллектуальные решения <br>
+									под ключ.</p>
+							</div>
+							<a href="about.html" class="link-page color-accent">
+								<span>О компании</span>
+								<svg class="svg-icon">
+									<use xlink:href="img/sprite.svg#arrow-link"></use>
+								</svg>
+							</a>
+						</div>
+
+						<div class="footer-column">
+							<a href="catalog.html" class="footer-column__title">Каталог</a>
+							<ul class="footer-menu my-ul">
+								<li><a href="category.html">Металлические бытовки</a></li>
+								<li><a href="category.html">Металлические контейнеры</a></li>
+								<li><a href="category.html">Ангары</a></li>
+								<li><a href="category.html">Модульные здания</a></li>
+								<li><a href="category.html">Переоборудование контейнеров</a></li>
+								<li><a href="category.html">Модульные станции</a></li>
+								<li><a href="category.html">Торговые павильоны</a></li>
+								<li><a href="category.html">Быстровозводимые здания</a></li>
+							</ul>
+						</div>
+						<div class="footer-column">
+							<a href="services.html" class="footer-column__title">Услуги</a>
+							<ul class="footer-menu my-ul">
+								<li><a href="delivery.html">Доставка</a></li>
+								<li><a href="rent.html">Аренда</a></li>
+							</ul>
+							<a href="projects.html" class="footer-column__title">Проекты</a>
+							<a href="blog.html" class="footer-column__title">Блог</a>
+							<a href="contacts.html" class="footer-column__title">Контакты</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex flex-wrap align-items-center">
+						<div class="copyright">
+							© Smart Module, 2020 г. <a href="#" class="color-grey link-document d-inline" target="_blank">Политика
+								конфиденциальности</a>
+						</div>
+						<ul class="list-social my-ul">
+							<li>
+								<a href="#"><svg class="svg-icon">
+										<use xlink:href="img/sprite.svg#vk"></use>
+									</svg></a>
+							</li>
+							<li>
+								<a href="#"><svg class="svg-icon">
+										<use xlink:href="img/sprite.svg#youtube"></use>
+									</svg></a>
+							</li>
+						</ul>
+						<div class="link-developer"> <span>Создание и продвижение сайта</span> <a rel="nofollow" target="blank"
+								href="https://olever.ru"> <img src="img/logo-developer.svg" alt=""></a> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Модальное окно -->
+	<div class="modal fade" id="locationModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content" id="select-city-fo-map">
+				<div class="modal-header">
+					<div class="back-to-map">Назад к карте</div>
+					<div class="modal-title">Выберите свой регион на карте</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form method="post" class="form-modal-search">
+						<label>
+							<input type="text" placeholder="Быстрый поиск города" name="search" id="map-search">
+						</label>
+						<button type="submit"><svg class="svg-icon svg-icon-search">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg></button>
+					</form>
+					<div id="container">
+						<div class="city-block"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-v2 fade" id="callbackModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title">Обратный звонок</div>
+					<div class="modal-description">
+						<p>Оставте заявку и наш оператор свяжется с Вами в течении 2х минут</p>
+					</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form method="post" class="form-callback">
+						<div class="row">
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Ваше имя" name="name">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Ваш телефон" name="phone" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<button type="submit" class="btn btn-accent w-100">
+									Отправить
+								</button>
+							</div>
+							<div class="col-12">
+								<label class="label-checkbox">
+									<input type="checkbox" name="checkbox" checked="">
+									<span class="label-checkbox__custom"></span>
+									<span class="label-checkbox__text">Согласие на обработку персональных данных</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-v2 fade" id="thanksModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title">Ваше сообщение успешно отправлено</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<div class="modal-title">Оформление заказа</div>
+					<form method="post" class="form-callback">
+						<div class="row">
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Введите номер телефона" name="phone" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<div class="consent">
+									<p>Заполняя форму вы соглашаетесь с условиями <a href="#" class="text-decoration d-inline"
+											target="_blank">политики конфиденциальности</a></p>
+								</div>
+							</div>
+							<div class="col-12">
+								<button type="submit" class="btn btn-accent w-100">
+									Оформить заказ
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- add plugins js-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/fancybox.umd.js"></script>
+	<script src="js/jquery.matchHeight-min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/rangeslider.min.js"></script>
+	<script src="js/spritespin.min.js"></script>
+	<script src="js/common.js"></script>
+	<!-- add plugins js end-->
+
+</body>
+
+</html>

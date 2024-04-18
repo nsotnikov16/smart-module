@@ -1,0 +1,2825 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Smart-module</title>
+
+	<meta property="og:image" content="path/to/image.jpg" />
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+
+	<!-- add plugins css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/slick.css" />
+	<link rel="stylesheet" href="css/fancybox.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/rangeslider.css" />
+	<!-- add plugins css end -->
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/header.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+	<script src="js/map.js"></script>
+	<script src="js/datamaps.rus.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex">
+						<div class="header-top__wrapper">
+							<a href="#" class="btn-burger-mobile">
+								<span></span>
+								<span></span>
+								<span></span>
+							</a>
+							<a href="index.html" class="logo">
+								<img src="img/header-logo.png" alt="" loading="lazy" />
+							</a>
+							<div class="header-box header-box-phone">
+								<div class="location-box">
+									<a href="#" class="btn-location" data-bs-toggle="modal"
+										data-bs-target="#locationModal">Санкт-Петербург</a>
+								</div>
+								<a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
+									907-14-59</a>
+							</div>
+							<div class="header-box header-box-mail">
+								<span>Email поддержка:</span>
+								<a href="mailto:spb1@smart-module.ru" class="mail"><i class="fa fa-envelope-o"
+										aria-hidden="true"></i>spb1@smart-module.ru</a>
+							</div>
+
+							<ul class="list-social my-ul">
+								<li class="list-social__item">
+									<a href="https://vk.com/smart_module" target="_blank" class="list-social__link">
+										<i class="fa fa-vk" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="list-social__item">
+									<a href="https://www.youtube.com/channel/UCe0MhLxBpNUuyEXD-G28J6w/" target="_blank"
+										class="list-social__link">
+										<i class="fa fa-youtube-play" aria-hidden="true"></i>
+									</a>
+								</li>
+							</ul>
+
+							<a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
+								data-bs-target="#callbackModal">Получить консультацию</a>
+							<div class="btn-search d-flex d-md-none">
+								<svg class="svg-icon svg-icon-search">
+									<use xlink:href="img/sprite.svg#search"></use>
+								</svg>
+								<svg class="svg-icon svg-icon-close">
+									<use xlink:href="img/sprite.svg#close-icon"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="search-wrapper">
+			<div class="search-wrapper-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<form method="post" class="form-search">
+								<label>
+									<input type="search" class="search-field" placeholder="" value="" name="search" autocomplete="off" />
+								</label>
+								<button class="btn btn-accent search-submit" type="submit">
+									<span>Поиск</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="search-wrapper-result">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+							<a href="product.html" class="search-wrapper-result-item">
+								<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+										loading="lazy" /></span>
+								<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+									школа CONTAINEX</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<nav class="nav nav-menu">
+							<div class="location-box d-flex d-md-none">
+								<a href="#" class="btn-location" data-bs-toggle="modal"
+									data-bs-target="#locationModal">Санкт-Петербург</a>
+							</div>
+							<ul class="menu my-ul">
+								<li class="dropdown nav-item">
+									<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">каталог</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-menu-catalog my-ul">
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category1.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Металлические бытовки</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category2.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category3.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category4.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Модульные здания</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category5.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category6.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Модульные станции</span>
+												</a>
+												<ul class="dropdown-submenu my-ul">
+													<li>
+														<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Котельные</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+													</li>
+													<li>
+														<a href="catalog.html" class="dropdown-item">Электростанции</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category7.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Торговые павильоны</span>
+												</a>
+											</li>
+											<li>
+												<a href="catalog-category.html" class="dropdown-item">
+													<span class="dropdown-menu-catalog__icon"><img src="img/category8.svg" alt=""
+															loading="lazy" /></span>
+													<span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="projects.html" class="nav-link">проекты</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="rent.html" class="dropdown-item">Аренда</a>
+											</li>
+											<li>
+												<a href="delivery.html" class="dropdown-item">Доставка</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="technology.html" class="nav-link">технология</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="industry.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">отрасли</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="events.html" class="dropdown-item">Мероприятия и выставки</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Торговый сектор</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Наука и образование</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Муниципальное управление</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Здравоохранение</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Промышленность</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Порты и логистика</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Гастрономия</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Финансовый сектор</a>
+											</li>
+											<li>
+												<a href="industry.html" class="dropdown-item">Строительство</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="blog.html" class="nav-link">блог</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
+									<div class="dropdown-menu">
+										<ul class="dropdown-submenu my-ul">
+											<li>
+												<a href="about.html" class="dropdown-item">О компании</a>
+											</li>
+											<li>
+												<a href="team.html" class="dropdown-item">Команда</a>
+											</li>
+											<li>
+												<a href="pride.html" class="dropdown-item">Наша гордость</a>
+											</li>
+											<li>
+												<a href="manufacture.html" class="dropdown-item">Производство</a>
+											</li>
+											<li>
+												<a href="requisites.html" class="dropdown-item">Реквизиты</a>
+											</li>
+											<li>
+												<a href="calculate.html" class="dropdown-item">Калькулятор</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="nav-item">
+									<a href="contacts.html" class="nav-link">контакты</a>
+								</li>
+							</ul>
+							<a href="tel:+78129071459" class="phone d-flex d-md-none"><i class="fa fa-phone" aria-hidden="true"></i>8
+								(812)
+								907-14-59</a>
+							<a href="#" class="btn btn-accent btn-callback d-flex d-md-none" data-bs-toggle="modal"
+								data-bs-target="#callbackModal">Получить
+								консультацию</a>
+							<div class="btn-search d-none d-md-flex">
+								<svg class="svg-icon svg-icon-search">
+									<use xlink:href="img/sprite.svg#search"></use>
+								</svg>
+								<svg class="svg-icon svg-icon-close">
+									<use xlink:href="img/sprite.svg#close-icon"></use>
+								</svg>
+							</div>
+							<a href="mailto:spb1@smart-module.ru" class="mail d-block d-md-none"><i class="fa fa-envelope-o"
+									aria-hidden="true"></i>spb1@smart-module.ru</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="header-fixed">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header-top__wrapper">
+							<div class="dropdown dropdown-burger">
+								<a href="#" class="btn-burger dropdown-toggle" data-bs-toggle="dropdown"><svg class="svg-icon">
+										<use xlink:href="img/sprite.svg#burger"></use>
+									</svg></a>
+								<div class="dropdown-menu">
+									<ul class="dropdown-menu-catalog my-ul">
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category1.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Металлические бытовки</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category2.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Блок-контейнеры</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category3.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Металлические контейнеры</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category4.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Модульные здания</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category5.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Переоборудование контейнеров</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category6.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Модульные станции</span>
+											</a>
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="catalog.html" class="dropdown-item">Компрессионные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Котельные</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Насосные станции</a>
+												</li>
+												<li>
+													<a href="catalog.html" class="dropdown-item">Электростанции</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category7.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Торговые павильоны</span>
+											</a>
+										</li>
+										<li>
+											<a href="catalog-category.html" class="dropdown-item">
+												<span class="dropdown-menu-catalog__icon"><img src="img/category8.svg" alt=""
+														loading="lazy" /></span>
+												<span class="dropdown-menu-catalog__text">Быстровозводимые здания</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<a href="index.html" class="logo">
+								<img src="img/logo-sm.png" alt="" loading="lazy" />
+							</a>
+							<div class="header-box">
+								<div class="location-box header-box-phone">
+									<a href="#" class="btn-location" data-bs-toggle="modal"
+										data-bs-target="#locationModal">Санкт-Петербург</a>
+								</div>
+								<a href="tel:+78129071459" class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8 (812)
+									907-14-59</a>
+							</div>
+
+							<nav class="nav nav-menu">
+								<ul class="menu my-ul">
+									<li class="nav-item">
+										<a href="projects.html" class="nav-link">проекты</a>
+									</li>
+									<li class="nav-item dropdown">
+										<a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
+										<div class="dropdown-menu">
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="rent.html" class="dropdown-item">Аренда</a>
+												</li>
+												<li>
+													<a href="delivery.html" class="dropdown-item">Доставка</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+
+									<li class="nav-item">
+										<a href="blog.html" class="nav-link">блог</a>
+									</li>
+									<li class="nav-item dropdown">
+										<a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о нас</a>
+										<div class="dropdown-menu">
+											<ul class="dropdown-submenu my-ul">
+												<li>
+													<a href="about.html" class="dropdown-item">О компании</a>
+												</li>
+												<li>
+													<a href="team.html" class="dropdown-item">Команда</a>
+												</li>
+												<li>
+													<a href="pride.html" class="dropdown-item">Наша гордость</a>
+												</li>
+												<li>
+													<a href="manufacture.html" class="dropdown-item">Производство</a>
+												</li>
+												<li>
+													<a href="requisites.html" class="dropdown-item">Реквизиты</a>
+												</li>
+												<li>
+													<a href="certificates.html" class="dropdown-item">Сертификаты</a>
+												</li>
+												<li>
+													<a href="calculate.html" class="dropdown-item">Калькулятор</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li class="nav-item">
+										<a href="contacts.html" class="nav-link">контакты</a>
+									</li>
+								</ul>
+							</nav>
+
+							<a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
+								data-bs-target="#callbackModal">Получить консультацию</a>
+							<div class="btn-search">
+								<svg class="svg-icon svg-icon-search">
+									<use xlink:href="img/sprite.svg#search"></use>
+								</svg>
+								<svg class="svg-icon svg-icon-close">
+									<use xlink:href="img/sprite.svg#close-icon"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="search-wrapper">
+				<div class="search-wrapper-content">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<form method="post" class="form-search">
+									<label>
+										<input type="search" class="search-field" placeholder="" value="" name="search"
+											autocomplete="off" />
+									</label>
+									<button class="btn btn-accent search-submit" type="submit">
+										<span>Поиск</span>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search-wrapper-result">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<a href="product.html" class="search-wrapper-result-item">
+									<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+											loading="lazy" /></span>
+									<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+										школа CONTAINEX</span>
+								</a>
+								<a href="product.html" class="search-wrapper-result-item">
+									<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+											loading="lazy" /></span>
+									<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+										школа CONTAINEX</span>
+								</a>
+								<a href="product.html" class="search-wrapper-result-item">
+									<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+											loading="lazy" /></span>
+									<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+										школа CONTAINEX</span>
+								</a>
+								<a href="product.html" class="search-wrapper-result-item">
+									<span class="search-wrapper-result-item__img"><img src="img/search-result-img-min.jpg" alt=""
+											loading="lazy" /></span>
+									<span class="search-wrapper-result-item__title"><span class="color-accent font-700">Модул</span>ьная
+										школа CONTAINEX</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="content-wrapper">
+		<div class="page page-catalog">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<nav aria-label="breadcrumb" class="nav-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="index.html">Главная</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="catalog-category.html">Каталог</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									Металлические бытовки
+								</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 text-center">
+						<h1>Металлические бытовки</h1>
+					</div>
+
+					<div class="col-12">
+						<p class="under_title_text">
+							Модульные здания относятся к категории мобильных конструкций
+							контейнерного типа, которые стоят сравнительно недорого и
+							быстро собираются. По условиям проживания и функциональности
+							они практически не уступают капитальным постройкам. Отсутствие
+							ограничений на транспортировку, сборку и разборку – главное
+							преимущество подобных зданий.
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 d-flex flex-wrap">
+						<div class="sidebar sidebar-catalog no-active">
+							<div class="sidebar-head">
+								<div class="sidebar-title">
+									<div class="h3">Каталог</div>
+									<div class="sidebar-close"></div>
+								</div>
+
+							</div>
+							<div class="sidebar-body sidebar-menu">
+								<ul class="catalog-menu my-ul">
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Металлические бытовки</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Модульные здания</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Модульные здания</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Контейнеры</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Торговые павильоны</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Реконструкции контейнеров</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Ангары</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+									<li class="catalog-menu__list">
+										<div class="catalog-menu__link">Модульные станции</div>
+										<div class="catalog-menu__dropdown">
+											<ul class="catalog-menu__submenu my-ul">
+												<li><a href="#">Блок контейнеры</a></li>
+												<li><a href="#">Вагончики бытовки</a></li>
+												<li>
+													<a href="#">Металлические бытовки CONTAINEX</a>
+												</li>
+												<li><a href="#">Модульные бытовки</a></li>
+												<li><a href="#">Модульные КПП</a></li>
+												<li><a href="#">Строительные бытовки</a></li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+							<div class="sidebar-head">
+								<div class="sidebar-title">
+									<div class="h3">Фильтр</div>
+								</div>
+							</div>
+
+							<div class="sidebar-body" id="kombox-filter">
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Этажность">
+										Этажность
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Двухэтажные<span
+													class="val kombox-cnt">(1)</span></span>
+										</label>
+										<label class="label-checkbox lvl2 kombox-disabled">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Одноэтажные<span
+													class="val kombox-cnt">(1)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Материал">
+										Материал
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Профлист<span
+													class="val kombox-cnt">(15)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Профнастил<span
+													class="val kombox-cnt">(11)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Сэндвич
+												панели<span class="val kombox-cnt">(10)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Модификации">
+										Модификации
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" checked />
+											<span class="label-checkbox__custom"> </span>
+											<span class="label-checkbox__text">Высокие
+												(50)<span class="val kombox-cnt">(50)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Жилые<span
+													class="val kombox-cnt">(9)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Зимние<span
+													class="val kombox-cnt">(148)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" checked />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">С туалетом и
+												душем<span class="val kombox-cnt">(143)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">С туалетом и
+												раковиной<span class="val kombox-cnt">(63)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Утепленные<span
+													class="val kombox-cnt">(149)</span></span>
+										</label>
+									</div>
+								</div>
+
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Внутренняя отделка">
+										Внутренняя отделка
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Вагонка<span
+													class="val kombox-cnt">(8)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">ДВП<span
+													class="val kombox-cnt">(3)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">ЛДСП<span
+													class="val kombox-cnt">(15)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">МДФ<span
+													class="val kombox-cnt">(3)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">ОСБ<span
+													class="val kombox-cnt">(2)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">ПВХ<span
+													class="val kombox-cnt">(1)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Профлист<span
+													class="val kombox-cnt">(1)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Фанера<span
+													class="val kombox-cnt">(3)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Количество комнат">
+										Количество комнат
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Двухкомнатные<span
+													class="val kombox-cnt">(3)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Однокомнатные<span
+													class="val kombox-cnt">(3)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Тип">
+										Тип
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">Мобильные<span
+													class="val">(36)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span
+												class="label-checkbox__text">Сборно-разборные<span class="val">(4)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card lvl1 kombox-column panel_heading">
+									<div class="block_title select-title" data-property-name="Размер">
+										Размер
+									</div>
+									<div class="block_hover kombox-combo">
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">20 футов<span
+													class="val">(4)</span></span>
+										</label>
+										<label class="label-checkbox lvl2">
+											<input type="checkbox" name="filter-checkbox" />
+											<span class="label-checkbox__custom"> </span><span class="label-checkbox__text">30 футов<span
+													class="val">(1)</span></span>
+										</label>
+									</div>
+								</div>
+								<div class="sidebar-card sidebar-card__footer">
+									<div class="btn-group">
+										<a href="#" class="btn btn-accent">Показать</a>
+										<a href="#" class="btn btn-border-accent btn-clear">Сбросить</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="certificates-sidebar sidebar-box">
+								<div class="certificates-sidebar-slider">
+									<div class="slide">
+										<a href="img/certificate1.jpg" class="certificate-box" data-fancybox="certificate"><img
+												src="img/certificate1.jpg" alt="" loading="lazy" /></a>
+									</div>
+									<div class="slide">
+										<a href="img/certificate1.jpg" class="certificate-box" data-fancybox="certificate"><img
+												src="img/certificate1.jpg" alt="" loading="lazy" /></a>
+									</div>
+									<div class="slide">
+										<a href="img/certificate1.jpg" class="certificate-box" data-fancybox="certificate"><img
+												src="img/certificate1.jpg" alt="" loading="lazy" /></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="advantages-events">
+								<div class="advantages-events-box">
+									<div class="advantages-events-box__icon">
+										<img src="img/54a51dd1dfbc4ee4e4424909f02f3b8d.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Быстровозводимые</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box">
+									<div class="advantages-events-box__icon">
+										<img src="img/adv-cost.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Выгодно</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box">
+									<div class="advantages-events-box__icon">
+										<img src="img/adv-complete.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Сборно-разборные</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box">
+									<div class="advantages-events-box__icon">
+										<img src="img/arv-thermometer.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>До -50 градусов</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="sales-sidebar">
+								<div class="sales-sidebar__title">
+									До конца акции осталось:
+								</div>
+
+								<div class="timer_block">
+									<script data-skip-moving="true">
+										(function () {
+											var _id = "6cd91e0e0899178fc878278f6dbfc92b";
+											while (document.getElementById("timer" + _id))
+												_id = _id + "0";
+											document.write(
+												"<div id='timer" +
+												_id +
+												"' style='min-width:222px;height:56px;'></div>"
+											);
+											var _t = document.createElement("script");
+											_t.src = "https://megatimer.ru/timer/timer.min.js";
+											var _f = function (_k) {
+												var l = new MegaTimer(_id, {
+													view: [1, 1, 1, 1],
+													type: {
+														currentType: "2",
+														params: {
+															startByFirst: true,
+															days: "1",
+															hours: "16",
+															minutes: "48",
+															seconds: "25",
+															utc: 0,
+														},
+													},
+													design: {
+														type: "circle",
+														params: {
+															width: "2",
+															radius: "29",
+															line: "solid",
+															"line-color": "#6989ad",
+															background: "solid",
+															"background-color": "#dadada",
+															direction: "direct",
+															"number-font-family": {
+																family: "Esqadero",
+																<!-- link: "<link href='//fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet'>", -->
+															},
+															"number-font-size": "15",
+															"number-font-color": "#383838",
+															"separator-margin": "0",
+															"separator-on": false,
+															"separator-text": ":",
+															"text-on": true,
+															"text-font-family": {
+																family: "Esqadero",
+															},
+															"text-font-size": "10",
+															"text-font-color": "#383838",
+														},
+													},
+													designId: 7,
+													theme: "white",
+													width: 56,
+													height: 56,
+												});
+												if (_k != null) l.run();
+											};
+											_t.onload = _f;
+											_t.onreadystatechange = function () {
+												if (_t.readyState == "loaded") _f(1);
+											};
+											var _h =
+												document.head ||
+												document.getElementsByTagName("head")[0];
+											_h.appendChild(_t);
+										}).call(this);
+									</script>
+								</div>
+
+								<form method="post" class="form-sales">
+									<label><input type="text" name="phone" placeholder="+7 (___) ___-__-__" required /></label>
+
+									<button class="btn btn-green text-transform" type="submit">
+										хочу скидку 30%
+									</button>
+
+									<label class="label-checkbox">
+										<input type="checkbox" name="checkbox" checked="" />
+										<span class="label-checkbox__custom"></span>
+										<span class="label-checkbox__text">Согласие на обработку
+											<a href="#" class="d-inline text-decoration color-accent" target="_blank">персональных
+												данных</a></span>
+									</label>
+								</form>
+							</div>
+						</div>
+
+						<div class="catalog-content">
+
+							<a href="#" class="btn btn-border-accent btn-filter">
+								<i class="fa fa-sliders" aria-hidden="true"></i>
+								<span>Фильтр</span>
+							</a>
+
+							<div class="manager-callback">
+								<div class="manager-callback-wrapper">
+									<div class="manager-callback-photo">
+										<span class="company-border"></span>
+										<img src="img/call-m1.png" alt="" class="img-default" loading="lazy" />
+										<img src="img/call-m2.png" alt="" class="img-hover" loading="lazy" />
+									</div>
+									<div class="manager-callback-name">
+										<div class="manager-name">Максим Вячеславович</div>
+										<div class="manager-position">Консультант-менеджер</div>
+									</div>
+								</div>
+								<div class="manager-callback-content">
+									<div class="manager-callback__title">
+										Есть вопросы? Оставьте заявку и мы свяжемся с Вами!
+									</div>
+									<form method="post" class="form-callback">
+										<div class="row">
+											<div class="col-12 col-lg-6 mb-20">
+												<label>
+													<input type="text" placeholder="ФИО" name="name" />
+												</label>
+											</div>
+											<div class="col-12 col-lg-6 mb-20">
+												<label>
+													<input type="text" placeholder="Ваш телефон" name="phone" required="" />
+												</label>
+											</div>
+											<div class="col-12 col-lg-6 mb-20">
+												<button type="submit" class="btn btn-green text-transform w-100">
+													Отправить
+												</button>
+											</div>
+											<div class="col-12 col-lg-6">
+												<label class="label-checkbox">
+													<input type="checkbox" name="checkbox" checked="" />
+													<span class="label-checkbox__custom"></span>
+													<span class="label-checkbox__text">Даю согласие на обработку
+														<a href="#" class="d-inline text-decoration color-accent" target="_blank">персональных
+															данных</a></span>
+												</label>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="advantages-events tabs">
+								<div class="advantages-events-box js-tab-trigger active" data-tab="1">
+									<div class="advantages-events-box__icon">
+										<img src="img/54a51dd1dfbc4ee4e4424909f02f3b8d.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Быстровозводимые</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box js-tab-trigger" data-tab="2">
+									<div class="advantages-events-box__icon">
+										<img src="img/adv-cost.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Выгодно</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box js-tab-trigger" data-tab="3">
+									<div class="advantages-events-box__icon">
+										<img src="img/adv-complete.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>Сборно-разборные</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box js-tab-trigger" data-tab="4">
+									<div class="advantages-events-box__icon">
+										<img src="img/arv-thermometer.png" alt="" loading="lazy" />
+									</div>
+									<div class="advantages-events-box__text">
+										<div class="box-text">
+											<p>До -50 градусов</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="advantages-events-box__hidden js-tab-content" data-tab="1">
+									<div class="advantages-events-box__close">
+										<svg class="svg-icon">
+											<use xlink:href="img/sprite.svg#close"></use>
+										</svg>
+									</div>
+									<div class="advantages-events-box">
+										<div class="advantages-events-box__icon">
+											<img src="img/54a51dd1dfbc4ee4e4424909f02f3b8d.png" alt="" loading="lazy" />
+										</div>
+										<div class="advantages-events-box__text">
+											<div class="box-text">
+												<p>Быстровозводимые</p>
+											</div>
+										</div>
+									</div>
+									<div class="advantages-events-box__body">
+										<div class="box-text">
+											<p>
+												Перед тем, как выйти на рынок модульного
+												строительства, мы изучили и проанализировали и
+												детально разобрали 37 производственных площадки на
+												территории Российской Федерации и Европы. Результатом
+												исследования стал вывод о том, что потребителям
+												предлагают некачественные и зачастую одноразовые
+												конструкции.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="advantages-events-box__hidden js-tab-content" data-tab="2">
+									<div class="advantages-events-box__close">
+										<svg class="svg-icon">
+											<use xlink:href="img/sprite.svg#close"></use>
+										</svg>
+									</div>
+									<div class="advantages-events-box">
+										<div class="advantages-events-box__icon">
+											<img src="img/adv-cost.png" alt="" loading="lazy" />
+										</div>
+										<div class="advantages-events-box__text">
+											<div class="box-text">
+												<p>Выгодно</p>
+											</div>
+										</div>
+									</div>
+									<div class="advantages-events-box__body">
+										<div class="box-text">
+											<p>
+												Элементы сооружения изготавливаются под ключ. На
+												объекте их достаточно собрать, после чего конструкция
+												полностью готова к эксплуатации.
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="advantages-events-box__hidden js-tab-content" data-tab="3">
+									<div class="advantages-events-box__close">
+										<svg class="svg-icon">
+											<use xlink:href="img/sprite.svg#close"></use>
+										</svg>
+									</div>
+									<div class="advantages-events-box">
+										<div class="advantages-events-box__icon">
+											<img src="img/adv-complete.png" alt="" loading="lazy" />
+										</div>
+										<div class="advantages-events-box__text">
+											<div class="box-text">
+												<p>Эстетичность</p>
+											</div>
+										</div>
+									</div>
+									<div class="advantages-events-box__body">
+										<div class="box-text">
+											<p>
+												Технология позволяет реализовывать любые дизайнерские
+												концепции и стили. С помощью новейших материалов можно
+												создать современное здание как снаружи, так и изнутри.
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="advantages-events-box__hidden js-tab-content" data-tab="4">
+									<div class="advantages-events-box__close">
+										<svg class="svg-icon">
+											<use xlink:href="img/sprite.svg#close"></use>
+										</svg>
+									</div>
+									<div class="advantages-events-box">
+										<div class="advantages-events-box__icon">
+											<img src="img/arv-thermometer.png" alt="" loading="lazy" />
+										</div>
+										<div class="advantages-events-box__text">
+											<div class="box-text">
+												<p>До -50 градусов</p>
+											</div>
+										</div>
+									</div>
+									<div class="advantages-events-box__body">
+										<div class="box-text">
+											<p>
+												Для повышения узнаваемости компании мобильное
+												сооружение может быть брендировано в соответствии с
+												пожеланиями заказчика.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-6 col-md-4 mb-30">
+									<div class="recommended-products-card">
+										<div class="recommended-products-card__show">
+											<a href="product.html" class="recommended-products-card__title">Стандартная металлическая бытовка
+												МБ-6</a>
+											<div class="recommended-products-card__nav">
+												<a href="#" class="recommended-products-card__info"></a>
+
+												<div class="recommended-products-card__hidden">
+													<ul class="list-characteristics my-ul">
+														<li>
+															<p>Внутренняя отделка:</p>
+															<span>Вагонка</span>
+														</li>
+														<li>
+															<p>Материал:</p>
+															<span>Сэндвич панели</span>
+														</li>
+														<li>
+															<p>Модификации:</p>
+															<span>С перегородками, Утепленные, Зимние, С
+																окнами</span>
+														</li>
+														<li>
+															<p>Тип:</p>
+															<span>Мобильные</span>
+														</li>
+													</ul>
+												</div>
+												<a href="#" class="recommended-products-card__3d" data-bs-toggle="tooltip"
+													data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть в 3D"></a>
+											</div>
+											<div class="product-slider">
+												<div class="recommended-products-image-slider">
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/prod-icon11-0.png" alt="" loading="lazy" /></a>
+													</div>
+													<div class="slide">
+														<a href="product.html" class="recommended-products-card__img"><img
+																src="img/cdd157d0135579f1477b1a19fac9c30a.jpeg" alt="" loading="lazy" /></a>
+													</div>
+												</div>
+
+												<div class="product-pagination-image">
+													<a href="#" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="1" onmouseenter="paginationImageMouseEnter(this)"></a>
+													<a href="#" data-index="2" onmouseenter="paginationImageMouseEnter(this)"></a>
+												</div>
+											</div>
+
+											<div class="price-wrapper">
+												<div class="price">Цена: по запросу</div>
+											</div>
+											<a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal"
+												data-bs-target="#orderModal">Купить</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<a href="#" class="btn btn-loader btn-accent">Показать еще</a>
+								</div>
+								<div class="col-12">
+									<nav class="nav nav-pagination nav-pagination-v2">
+										<ul class="pagination my-ul">
+											<li class="nav-item">
+												<span class="company-border"></span><a href="#" class="nav-link"><i class="fa fa-angle-left"
+														aria-hidden="true"></i></a>
+											</li>
+											<li class="nav-item">
+												<span class="company-border"></span><a href="#" class="nav-link">1</a>
+											</li>
+											<li class="nav-item active">
+												<span class="company-border"></span><a href="#" class="nav-link">2</a>
+											</li>
+											<li class="nav-item">
+												<span class="company-border"></span><a href="#" class="nav-link">3</a>
+											</li>
+											<li class="nav-item">
+												<span class="company-border"></span><a href="#" class="nav-link">4</a>
+											</li>
+											<li class="nav-item">
+												<span class="company-border"></span><a href="#" class="nav-link"><i class="fa fa-angle-right"
+														aria-hidden="true"></i></a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="similar-sections">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2>Похожие разделы</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-md-6 mb-40">
+						<a href="manufacture.html" class="advantages-company-col">
+							<img src="img/cat-img1.jpg" alt="" loading="lazy" />
+							<span class="advantages-company-col__link">Мобильные автосалоны</span>
+						</a>
+					</div>
+					<div class="col-12 col-md-6 mb-40">
+						<a href="manufacture.html" class="advantages-company-col">
+							<img src="img/cat-img2.jpg" alt="" loading="lazy" />
+							<span class="advantages-company-col__link">Мобильные автосалоны</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="calculate-catalog">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2>Калькулятор расчета стоимости модульного здания</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="calculate-wrapper mb-65">
+							<form method="post" class="form-calculate">
+								<div class="row">
+									<div class="col-12 col-lg-7 mb-40">
+										<div class="form-calculate-box">
+											<h3>Выбор материала:</h3>
+										</div>
+										<div class="row">
+											<div class="col-12 col-sm-6 mb-20">
+												<label class="label-checkbox">
+													<input type="radio" name="checkbox-form" checked />
+													<span class="label-checkbox__custom"></span>
+													<span class="label-checkbox__text">Профлист
+														<a href="#" class="btn-toolip-default" data-bs-toggle="tooltip"
+															data-bs-custom-class="custom-tooltip" data-bs-placement="top"
+															title="Металлический лист из оцинкованной стали">?</a></span>
+													<span class="label-checkbox__image align-items-start justify-content-end"><img
+															src="img/proflist_ss10_1160h1100_okrashennyy_0-removebg-preview.png" alt=""
+															loading="lazy" /></span>
+												</label>
+											</div>
+
+											<div class="col-12 col-sm-6 mb-20">
+												<label class="label-checkbox">
+													<input type="radio" name="checkbox-form" checked />
+													<span class="label-checkbox__custom"></span>
+													<span class="label-checkbox__text">Сэндвич панели
+														<a href="#" class="btn-toolip-default" data-bs-toggle="tooltip"
+															data-bs-custom-class="custom-tooltip" data-bs-placement="top"
+															title="Трёхслойная структура, состоит из двух листов жёсткого материала и слоя утеплителя между ними.">?</a></span>
+													<span class="label-checkbox__image align-items-start justify-content-start"><img
+															src="img/unnamed-removebg-preview (9).png" alt="" loading="lazy" /></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-lg-5 col-xl-4 offset-xl-1 mb-40">
+										<div class="form-calculate-box">
+											<h3>Вариант исполнения:</h3>
+											<div class="row">
+												<div class="col-12 col-sm-6 mb-20">
+													<label class="label-checkbox">
+														<input type="radio" name="checkbox-form1" checked />
+														<span class="label-checkbox__custom"></span>
+														<span class="label-checkbox__text">Север</span>
+													</label>
+												</div>
+												<div class="col-12 col-sm-6 mb-20">
+													<label class="label-checkbox">
+														<input type="radio" name="checkbox-form1" />
+														<span class="label-checkbox__custom"></span>
+														<span class="label-checkbox__text">Утепленный</span>
+													</label>
+												</div>
+												<div class="col-12">
+													<div class="slider-range-box">
+														<div class="slider-range-box__head">
+															<p>Количество блоков:</p>
+															<input type="text" name="dec" class="slider-range-box__input dec3" disabled="true" />
+														</div>
+														<div class="slider-range-box__body">
+															<div class="slider-range slider-range3"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<button type="button" class="btn btn-green btn-calculate-modal">
+											рассчитать
+										</button>
+									</div>
+								</div>
+							</form>
+							<div class="calculate-total">
+								<div class="row">
+									<div class="col-12 col-sm-6 col-lg-3 mb-30">
+										<div class="calculate-total-box">
+											<div class="calculate-total-box__icon"><img src="img/discount.svg" alt="" loading="lazy"></div>
+											<div class="calculate-total-box__text">
+												<p>Общая стоимость:
+												</p>
+												<span>443.652 руб.</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 col-lg-3 mb-30">
+										<div class="calculate-total-box">
+											<div class="calculate-total-box__icon"><img src="img/user.svg" alt="" loading="lazy"></div>
+											<div class="calculate-total-box__text">
+												<p>Вместимость (мест):
+												</p>
+												<span>18 рабочих
+													или
+													30 спальных</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 col-lg-3 mb-30">
+										<div class="calculate-total-box">
+											<div class="calculate-total-box__icon"><img src="img/date.svg" alt="" loading="lazy"></div>
+											<div class="calculate-total-box__text">
+												<p>Срок поставки:
+												</p>
+												<span>3 дня</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 col-sm-6 col-lg-3 mb-30">
+										<div class="calculate-total-box">
+											<div class="calculate-total-box__icon"><img src="img/size.svg" alt="" loading="lazy"></div>
+											<div class="calculate-total-box__text">
+												<p>Площадь:
+												</p>
+												<span>84 м<sup>2</sup></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="box-text text-center">
+											<p><strong>Отправьте расчет менеджерам и получите дополнительную скидку на модульные
+													здания</strong>
+											</p>
+										</div>
+										<a href="#" class="btn btn-accent m-auto" data-bs-toggle="modal" data-bs-target="#callbackModal">
+											<span>Получить расчет со скидкой</span>
+										</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="callback-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-7 offset-lg-3">
+						<h2>Остались вопросы?</h2>
+						<div class="box-text">
+							<p>
+								Оставьте ваши данные и мы сделаем вам персональную скидку!
+							</p>
+						</div>
+						<form method="post" class="form-callback">
+							<div class="row">
+								<div class="col-12 col-lg-6 mb-20">
+									<label>
+										<input type="text" placeholder="Ваше имя" name="name" />
+									</label>
+								</div>
+								<div class="col-12 col-lg-6 mb-20">
+									<label>
+										<input type="text" placeholder="Ваш телефон" name="phone" required />
+									</label>
+								</div>
+								<div class="col-12 col-lg-6 mb-20">
+									<button type="submit" class="btn btn-green text-transform w-100">
+										Отправить
+									</button>
+								</div>
+								<div class="col-12 col-lg-6">
+									<label class="label-checkbox">
+										<input type="checkbox" name="checkbox" checked />
+										<span class="label-checkbox__custom"></span>
+										<span class="label-checkbox__text">Даю согласие на обработку
+											<a href="#" class="d-inline text-decoration color-accent" target="_blank">персональных
+												данных</a></span>
+									</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="description-catalog">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-5 mb-30">
+						<div class="delivery-image">
+							<img src="img/cat-img3.png" alt="" loading="lazy" />
+						</div>
+					</div>
+					<div class="col-12 col-lg-7 mb-50">
+						<p>
+							Компания «Смарт модуль» – это компания, которая не стоит на
+							месте и постоянно отслеживает, новые технологии в производстве
+							и следует современным тенденциям отрасли. Вся наша продукция
+							сертифицирована, соответствует строительным, пожарным и
+							санитарным нормам, обладает высокой ликвидностью и
+							эксплуатационным ресурсом. Мы гарантируем оперативную доставку
+							и профессиональную сборку на объекте, без задержек на всех
+							этапах реализации. Цена на бытовки в городе Санкт-Петербург
+							компании «Смарт Модуль» зависит от конструктивных материалов и
+							выбранного варианта исполнения.
+						</p>
+						<p>
+							Бытовки - это оптимальное решение, для экономии времени и
+							финансовых затрат. Они обладают мобильностью, долговечностью,
+							а главное, скоростью реализации.
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p>
+							Наша компания с растущей клиентской базой постоянных
+							заказчиков и с собственными поставщиками материалов. Мы не
+							сотрудничаем с посредниками, выбираем прямые поставки с
+							заводов, предлагаем гибкую систему тарифов для комплектации
+							крупных объектов. Купить бытовку в Санкт-Петербурге и
+							определиться с наилучшим вариантом, помогут квалифицированные
+							сотрудники нашей компании.
+						</p>
+
+						<p>
+							Инженерами были разработаны типовые проекты, также мы создаем
+							конструкции «под ключ», опираясь на ваши пожелания. У нас
+							доступны:
+						</p>
+						<div class="description-catalog-wrapper">
+							<a href="catalog.html" class="description-catalog-box">
+								<span class="description-catalog-box__icon"><img src="img/cat-min1.jpg" alt="" loading="lazy" /></span>
+								<span class="description-catalog-box__text">Модули Containex</span>
+							</a>
+							<a href="catalog.html" class="description-catalog-box">
+								<span class="description-catalog-box__icon"><img src="img/cat-min2.jpg" alt="" loading="lazy" /></span>
+								<span class="description-catalog-box__text">Блок-контейнеры</span>
+							</a>
+							<a href="catalog.html" class="description-catalog-box">
+								<span class="description-catalog-box__icon"><img src="img/cat-min3.jpg" alt="" loading="lazy" /></span>
+								<span class="description-catalog-box__text">Вагончики-бытовки</span>
+							</a>
+							<a href="catalog.html" class="description-catalog-box">
+								<span class="description-catalog-box__icon"><img src="img/cat-min4.jpg" alt="" loading="lazy" /></span>
+								<span class="description-catalog-box__text">Модульные бытовки</span>
+							</a>
+							<a href="catalog.html" class="description-catalog-box">
+								<span class="description-catalog-box__icon"><img src="img/cat-min5.jpg" alt="" loading="lazy" /></span>
+								<span class="description-catalog-box__text">Строительные бытовки</span>
+							</a>
+						</div>
+
+						<p>
+							Собственное производство позволяет гарантировать высокое
+							качество и большой период эксплуатации продукции. Железная
+							бытовка может использоваться на протяжении более 20 лет при
+							условии соблюдения правил эксплуатации. Кроме долговечности,
+							наши конструкции имеют ряд положительных свойств:
+						</p>
+
+						<div class="recommendation-rent-box">
+							<div class="recommendation-rent-box__icon">
+								<img src="img/truck.png" alt="" loading="lazy" />
+							</div>
+							<p><strong>Мобильность.</strong> Доступна перевозка на обычном грузовом транспорте.</p>
+						</div>
+						<div class="recommendation-rent-box">
+							<div class="recommendation-rent-box__icon">
+								<img src="img/toolbox.png" alt="" loading="lazy" />
+							</div>
+							<p><strong>Сборно-разборный каркас.</strong>
+								Для транспортировки или долгосрочного хранения модуль
+								может быть разобран для сохранения полезной площади.
+								Процедура монтажа и демонтажа не влияет негативно на раму
+								и другие компоненты
+							</p>
+						</div>
+						<div class="recommendation-rent-box">
+							<div class="recommendation-rent-box__icon">
+								<img src="img/money.png" alt="" loading="lazy" />
+							</div>
+							<p><strong>Низкая цена.</strong>
+								В отличие от строений из кирпича, бетона или бруса,
+								металлические сооружения обходятся при продаже дешевле.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="scope-application typography">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-7 mb-30">
+						<h2 class="ar-title">Сфера применения</h2>
+						<p>
+							Временное жилье может потребоваться в любой области
+							деятельности, поэтому компания «Смарт Модуль» предлагает
+							модели для решения индивидуальных задач клиента. Изготовление
+							металлических бытовок может выполняться как для предприятий,
+							требующих размещения персонала, так и для частных лиц.
+						</p>
+
+						<p>
+							Блок-контейнеры используют в качестве временного жилья,
+							хозяйственного помещения, склада, модуля для оборудования и т.
+							д. Также доступно переоборудование постройки из жилой в
+							хозяйственную и наоборот.
+						</p>
+					</div>
+					<div class="col-12 col-lg-5">
+						<div class="delivery-image">
+							<img src="img/cat-img4.png" alt="" loading="lazy" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="prices-catalog typography">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="ar-title">Стоимость металлических бытовок в Санкт-Петербурге</h2>
+					</div>
+					<div class="col-12">
+						<p>
+							Цена на металлические бытовки с доставкой зависит от типа
+							конструкции, габаритов, комплектации и других параметров.
+							Наиболее доступным вариантом остается модель без отделки.
+						</p>
+					</div>
+					<div class="col-12">
+						<div class="company-block-advantages-info-wrapper callback-order-wrapper callback-order-wrapper-v2">
+							<div class="company-block-advantages-info-card">
+								<span class="company-border"></span>
+								<div class="box-text h2">
+									<p>
+										Сделать заказ или проконсультироваться можно по телефону
+									</p>
+								</div>
+
+								<a class="phone-call" href="tel:+78122004263"><img src="img/telephone.svg" alt="" loading="lazy" />8
+									(812)
+									200-42-63</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer class="footer-wrapper footer-fixed">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex flex-wrap align-items-start">
+						<div class="footer-column">
+							<a href="index.html" class="logo"><img src="img/logo-white.png" alt="" loading="lazy" /></a>
+							<a href="tel:88122004235" class="phone">8 (812) 200-42-35</a>
+							<div class="schedule">
+								<p>пн-пт: с 9:00 - 18:00</p>
+							</div>
+							<div class="footer-column__description">
+								<p>
+									Компания смарт-модуль была основана в 2016 году и на
+									сегодняшний день предлагает своим клиентам разнообразные
+									интеллектуальные решения <br />
+									под ключ.
+								</p>
+							</div>
+							<a href="about.html" class="link-page color-accent">
+								<span>О компании</span>
+								<svg class="svg-icon">
+									<use xlink:href="img/sprite.svg#arrow-link"></use>
+								</svg>
+							</a>
+						</div>
+
+						<div class="footer-column">
+							<a href="catalog.html" class="footer-column__title">Каталог</a>
+							<ul class="footer-menu my-ul">
+								<li><a href="category.html">Металлические бытовки</a></li>
+								<li><a href="category.html">Металлические контейнеры</a></li>
+								<li><a href="category.html">Ангары</a></li>
+								<li><a href="category.html">Модульные здания</a></li>
+								<li>
+									<a href="category.html">Переоборудование контейнеров</a>
+								</li>
+								<li><a href="category.html">Модульные станции</a></li>
+								<li><a href="category.html">Торговые павильоны</a></li>
+								<li><a href="category.html">Быстровозводимые здания</a></li>
+							</ul>
+						</div>
+						<div class="footer-column">
+							<a href="services.html" class="footer-column__title">Услуги</a>
+							<ul class="footer-menu my-ul">
+								<li><a href="delivery.html">Доставка</a></li>
+								<li><a href="rent.html">Аренда</a></li>
+							</ul>
+							<a href="projects.html" class="footer-column__title">Проекты</a>
+							<a href="blog.html" class="footer-column__title">Блог</a>
+							<a href="contacts.html" class="footer-column__title">Контакты</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex flex-wrap align-items-center">
+						<div class="copyright">
+							© Smart Module, 2020 г. <a href="#" class="color-grey link-document d-inline" target="_blank">Политика
+								конфиденциальности</a>
+						</div>
+						<ul class="list-social my-ul">
+							<li>
+								<a href="#"><svg class="svg-icon">
+										<use xlink:href="img/sprite.svg#vk"></use>
+									</svg></a>
+							</li>
+							<li>
+								<a href="#"><svg class="svg-icon">
+										<use xlink:href="img/sprite.svg#youtube"></use>
+									</svg></a>
+							</li>
+						</ul>
+						<div class="link-developer"> <span>Создание и продвижение сайта</span> <a rel="nofollow" target="blank"
+								href="https://olever.ru"> <img src="img/logo-developer.svg" alt=""></a> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Модальное окно -->
+	<div class="modal fade" id="locationModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content" id="select-city-fo-map">
+				<div class="modal-header">
+					<div class="back-to-map">Назад к карте</div>
+					<div class="modal-title">Выберите свой регион на карте</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form method="post" class="form-modal-search">
+						<label>
+							<input type="text" placeholder="Быстрый поиск города" name="search" id="map-search">
+						</label>
+						<button type="submit"><svg class="svg-icon svg-icon-search">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg></button>
+					</form>
+					<div id="container">
+						<div class="city-block"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-v2 fade" id="callbackModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title">Обратный звонок</div>
+					<div class="modal-description">
+						<p>Оставте заявку и наш оператор свяжется с Вами в течении 2х минут</p>
+					</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form method="post" class="form-callback">
+						<div class="row">
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Ваше имя" name="name">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Ваш телефон" name="phone" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<button type="submit" class="btn btn-accent w-100">
+									Отправить
+								</button>
+							</div>
+							<div class="col-12">
+								<label class="label-checkbox">
+									<input type="checkbox" name="checkbox" checked="">
+									<span class="label-checkbox__custom"></span>
+									<span class="label-checkbox__text">Согласие на обработку персональных данных</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-v2 fade" id="thanksModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title">Ваше сообщение успешно отправлено</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<div class="modal-title">Оформление заказа</div>
+					<form method="post" class="form-callback">
+						<div class="row">
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Введите номер телефона" name="phone" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<div class="consent">
+									<p>Заполняя форму вы соглашаетесь с условиями <a href="#" class="text-decoration d-inline"
+											target="_blank">политики конфиденциальности</a></p>
+								</div>
+							</div>
+							<div class="col-12">
+								<button type="submit" class="btn btn-accent w-100">
+									Оформить заказ
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- add plugins js-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/fancybox.umd.js"></script>
+	<script src="js/jquery.matchHeight-min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/rangeslider.min.js"></script>
+	<script src="js/spritespin.min.js"></script>
+	<script src="js/common.js"></script>
+	<!-- add plugins js end-->
+</body>
+
+</html>
