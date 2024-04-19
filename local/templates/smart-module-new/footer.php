@@ -60,7 +60,7 @@
                             "footer",
                             array(
                                 "ALLOW_MULTI_SELECT" => "N",
-                                "CHILD_MENU_TYPE" => "top_inner",
+                                "CHILD_MENU_TYPE" => "bottom_inner",
                                 "COMPOSITE_FRAME_MODE" => "A",
                                 "COMPOSITE_FRAME_TYPE" => "AUTO",
                                 "DELAY" => "N",
@@ -82,7 +82,7 @@
                             "footer",
                             array(
                                 "ALLOW_MULTI_SELECT" => "N",
-                                "CHILD_MENU_TYPE" => "top_inner",
+                                "CHILD_MENU_TYPE" => "bottom_inner",
                                 "COMPOSITE_FRAME_MODE" => "A",
                                 "COMPOSITE_FRAME_TYPE" => "AUTO",
                                 "DELAY" => "N",

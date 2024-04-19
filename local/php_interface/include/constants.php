@@ -1,4 +1,5 @@
 <?php
+const ASSETS_PATH = '/local/templates/smart-module-new/assets';
 AddEventHandler("main", "OnEndBufferContent", "imgSite");
 
 function imgSite(&$content) {

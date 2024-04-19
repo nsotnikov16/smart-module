@@ -1,5 +1,4 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<? define('ASSETS_PATH', SITE_TEMPLATE_PATH . '/assets'); ?>
 <? IncludeTemplateLangFile(__FILE__); ?>
 <!DOCTYPE html>
 <html lang="lang="<?= LANGUAGE_ID ?>"">
@@ -140,29 +139,28 @@
                             <a href="#" class="btn-location" data-bs-toggle="modal"
                                data-bs-target="#locationModal">Санкт-Петербург</a>
                         </div>
-                        <ul class="menu my-ul">
-                            <? $APPLICATION->IncludeComponent(
-                                "bitrix:menu",
-                                "header",
-                                array(
-                                    "COMPONENT_TEMPLATE" => "horizontal_multilevel",
-                                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
-                                    "MENU_CACHE_TYPE" => "A",    // Тип кеширования
-                                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
-                                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
-                                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
-                                    "CHILD_MENU_TYPE" => "top_inner",    // Тип меню для остальных уровней
-                                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
-                                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
-                                    "COMPOSITE_FRAME_MODE" => "A",    // Голосование шаблона компонента по умолчанию
-                                    "COMPOSITE_FRAME_TYPE" => "AUTO",    // Содержимое компонента
-                                    "MENU_THEME" => "site"
-                                ),
-                                false
-                            ); ?>
-                        </ul>
+
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "header",
+                            array(
+                                "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                                "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                                "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                                "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                                "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                                "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                                "CHILD_MENU_TYPE" => "top_inner",    // Тип меню для остальных уровней
+                                "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                                "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                                "COMPOSITE_FRAME_MODE" => "A",    // Голосование шаблона компонента по умолчанию
+                                "COMPOSITE_FRAME_TYPE" => "AUTO",    // Содержимое компонента
+                                "MENU_THEME" => "site"
+                            ),
+                            false
+                        ); ?>
+
                         <a href="tel:#WF_PHONES#" class="phone d-flex d-md-none #WF_PHONE_REPLACE#">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             #WF_PHONES#
@@ -201,8 +199,27 @@
                                 </svg>
                             </a>
 
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:menu",
+                                "header-fixed-catalog",
+                                array(
+                                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                                    "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                                    "CHILD_MENU_TYPE" => "top_inner",    // Тип меню для остальных уровней
+                                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                                    "COMPOSITE_FRAME_MODE" => "A",    // Голосование шаблона компонента по умолчанию
+                                    "COMPOSITE_FRAME_TYPE" => "AUTO",    // Содержимое компонента
+                                    "MENU_THEME" => "site"
+                                ),
+                                false
+                            ); ?>
                         </div>
-
                         <a href="<?= SITE_DIR ?>" class="logo">
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-sm.png" alt="Logo sm" loading="lazy"/>
                         </a>
@@ -217,60 +234,27 @@
                         </div>
 
                         <nav class="nav nav-menu">
-                            <ul class="menu my-ul">
-                                <li class="nav-item">
-                                    <a href="projects.html" class="nav-link">проекты</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">услуги</a>
-                                    <div class="dropdown-menu">
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="rent.html" class="dropdown-item">Аренда</a>
-                                            </li>
-                                            <li>
-                                                <a href="delivery.html" class="dropdown-item">Доставка</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="blog.html" class="nav-link">блог</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="about.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">о
-                                        нас</a>
-                                    <div class="dropdown-menu">
-                                        <ul class="dropdown-submenu my-ul">
-                                            <li>
-                                                <a href="about.html" class="dropdown-item">О компании</a>
-                                            </li>
-                                            <li>
-                                                <a href="team.html" class="dropdown-item">Команда</a>
-                                            </li>
-                                            <li>
-                                                <a href="pride.html" class="dropdown-item">Наша гордость</a>
-                                            </li>
-                                            <li>
-                                                <a href="manufacture.html" class="dropdown-item">Производство</a>
-                                            </li>
-                                            <li>
-                                                <a href="requisites.html" class="dropdown-item">Реквизиты</a>
-                                            </li>
-                                            <li>
-                                                <a href="certificates.html" class="dropdown-item">Сертификаты</a>
-                                            </li>
-                                            <li>
-                                                <a href="calculate.html" class="dropdown-item">Калькулятор</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="contacts.html" class="nav-link">контакты</a>
-                                </li>
-                            </ul>
+                            <? $APPLICATION->IncludeComponent(
+                                "bitrix:menu",
+                                "header",
+                                array(
+                                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                                    "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                                    "CHILD_MENU_TYPE" => "top_inner",    // Тип меню для остальных уровней
+                                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                                    "COMPOSITE_FRAME_MODE" => "A",    // Голосование шаблона компонента по умолчанию
+                                    "COMPOSITE_FRAME_TYPE" => "AUTO",    // Содержимое компонента
+                                    "MENU_THEME" => "site",
+                                    "EXCLUDED" => ['/catalog/', '/tekhnologiya/', '/otrasli/'],
+                                ),
+                                false
+                            ); ?>
                         </nav>
 
                         <a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
@@ -349,4 +333,20 @@
     </div>
 </header>
 <div class="content-wrapper">
+
+    <?
+    // Данные хлебные крошки заносятся в переменную. Для вывода используйте макрос #BREADCRUMB#
+    $APPLICATION->IncludeComponent(
+        "bitrix:breadcrumb",
+        "breadcrumb",
+        array(
+            "COMPONENT_TEMPLATE" => "crumb",
+            "START_FROM" => "0",
+            "PATH" => "",
+            "SITE_ID" => "s1",
+            "COMPOSITE_FRAME_MODE" => "A",
+            "COMPOSITE_FRAME_TYPE" => "AUTO"
+        ),
+        false
+    ) ?>
 

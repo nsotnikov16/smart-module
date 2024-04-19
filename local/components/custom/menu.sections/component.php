@@ -48,7 +48,9 @@ if($this->StartResultCache())
 			"DEPTH_LEVEL",
 			"NAME",
 			"SECTION_PAGE_URL",
-			'UF_HIDE_LINK'
+			'UF_HIDE_LINK',
+			'UF_NAME_TOP_MENU',
+			'UF_ICONMENU'
 		));
 		if($arParams["IS_SEF"] !== "Y")
 			$rsSections->SetUrlTemplates("", $arParams["SECTION_URL"]);
@@ -61,6 +63,8 @@ if($this->StartResultCache())
 				"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],
 				"~NAME" => $arSection["~NAME"],
 				"~SECTION_PAGE_URL" => $arSection["~SECTION_PAGE_URL"],
+				'UF_NAME_TOP_MENU' => $arSection['UF_NAME_TOP_MENU'],
+				'UF_ICONMENU' => $arSection['UF_ICONMENU']
 			);
 			$arResult["ELEMENT_LINKS"][$arSection["ID"]] = array();
 		}
@@ -135,7 +139,9 @@ foreach($arResult["SECTIONS"] as $arSection)
 			"FROM_IBLOCK" => true,
 			"IS_PARENT" => false,
 			"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],
-			'FROM_CATALOG' => $arParams["IBLOCK_ID"] == 1
+			'FROM_CATALOG' => $arParams["IBLOCK_ID"] == 1,
+			'UF_NAME_TOP_MENU' => $arSection['UF_NAME_TOP_MENU'],
+			'UF_ICONMENU' => $arSection['UF_ICONMENU']
 		),
 	);
 }
