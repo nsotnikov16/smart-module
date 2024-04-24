@@ -1255,3 +1255,7 @@ table {
   background: #507298;
   color: #fff;
 }
+
+.visibility-hidden {
+  visibility: hidden;
+}

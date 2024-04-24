@@ -38,16 +38,19 @@ AddEventHandler("main", "OnEndBufferContent", "changeContent");
 function changeContent(&$content)
 {
     global $BREADCRUMB, $APPLICATION;
-    $content = str_replace(
-        "#BREADCRUMB#",
-        $BREADCRUMB ?? '',
-        $content
-    );
+    if (!str_contains($_SERVER['REQUEST_URI'], 'bitrix/admin/')) {
+        $content = str_replace(
+            "#BREADCRUMB#",
+            $BREADCRUMB ?? '',
+            $content
+        );
 
-    $content = str_replace('#H1#', $APPLICATION->GetTitle(), $content);
-    $content = str_replace(
-        '#CALLBACK_SECTION#',
-        file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/include/callback-section.php'),
-        $content
-    );
+        $content = str_replace('#H1#', $APPLICATION->GetTitle(), $content);
+        $content = str_replace(
+            '#CALLBACK_SECTION#',
+            file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/include/callback-section.php'),
+            $content
+        );
+    }
+
 }

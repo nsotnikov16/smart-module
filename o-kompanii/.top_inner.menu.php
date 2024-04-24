@@ -13,6 +13,12 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),Array(
+		"Наша гордость",
+		"/nasha-gordost/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
 		"Производство",
@@ -21,6 +27,13 @@ $aMenuLinks = Array(
 		Array(),
 		""
 	),
+    Array(
+        "Сертификаты",
+        "/o-kompanii/certificates/",
+        Array(),
+        Array(),
+        ""
+    ),
 	Array(
 		"Реквизиты",
 		"/rekvizity/",

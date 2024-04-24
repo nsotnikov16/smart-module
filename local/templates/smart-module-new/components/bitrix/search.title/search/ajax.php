@@ -10,8 +10,7 @@
                             <img src="<?= $arItem['ICON']; ?>" loading="lazy"/>
                         </span>
                     <? endif; ?>
-                    <span class="search-wrapper-result-item__title"><span
-                                class="color-accent font-700"><?= $arItem["NAME"] ?></span>
+                    <span class="search-wrapper-result-item__title"><?= $arItem["NAME"] ?></span>
                 </a>
             <? endforeach; ?>
         <? endforeach; ?>
