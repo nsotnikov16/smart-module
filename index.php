@@ -136,4 +136,6 @@ $APPLICATION->SetTitle("Главная страница");
     false
 ); ?>
 
+#CLIENTS_SECTION#
+
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

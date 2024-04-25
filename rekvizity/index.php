@@ -102,4 +102,7 @@ $APPLICATION->SetTitle("Реквизиты");
         </div>
 
     </section>
+    #ADVANTAGES_SECTION#
+
+    #CALLBACK_SECTION#
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

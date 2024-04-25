@@ -170,8 +170,8 @@ $('.reviews-slider').slick({
 $('.certificates-slider').slick({
 	slidesToShow: 5,
 	appendArrows: '.certificates-slider-nav',
-	prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-	nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
+	prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+	nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
 	responsive: [{
 		breakpoint: 992,
 		settings: {
@@ -195,8 +195,8 @@ $('.certificates-slider').slick({
 $('.certificates-sidebar-slider').slick({
 	slidesToShow: 1,
 	fade: true,
-	prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-	nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
+	prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+	nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
 });
 
 $('.reviews-pride-slider').slick({

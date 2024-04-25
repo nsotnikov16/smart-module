@@ -29,8 +29,7 @@ if ($arParams["SHOW_INPUT"] !== "N"): ?>
                 <div class="row">
                     <div class="col-12">
                         <form action="<? echo $arResult["FORM_ACTION"] ?>" class="form-search" id="<?echo $CONTAINER_ID?>">
-
-                            <label>
+                            <label data-transfer-input>
                                 <input id="<?echo $INPUT_ID?>" type="text" class="search-field" placeholder=""
                                        value="" name="q"
                                        autocomplete="off" maxlength="50"/>

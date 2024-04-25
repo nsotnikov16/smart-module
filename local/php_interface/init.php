@@ -40,17 +40,26 @@ function changeContent(&$content)
     global $BREADCRUMB, $APPLICATION;
     if (!str_contains($_SERVER['REQUEST_URI'], 'bitrix/admin/')) {
         $content = str_replace(
-            "#BREADCRUMB#",
-            $BREADCRUMB ?? '',
-            $content
-        );
-
-        $content = str_replace('#H1#', $APPLICATION->GetTitle(), $content);
-        $content = str_replace(
-            '#CALLBACK_SECTION#',
-            file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/include/callback-section.php'),
+            [
+                '#BREADCRUMB#',
+                '#H1#',
+                '#CALLBACK_SECTION#',
+                '#ADVANTAGES_SECTION#',
+                '#CLIENTS_SECTION#',
+                '#ASSETS_PATH#'
+            ],
+            [
+                $BREADCRUMB ?? '',
+                $APPLICATION->GetTitle(),
+                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
+                    '/include/html/callback-section.html'),
+                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
+                    '/include/html/advantages-section.html'),
+                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
+                    '/include/html/clients-section.html'),
+                ASSETS_PATH
+            ],
             $content
         );
     }
-
 }

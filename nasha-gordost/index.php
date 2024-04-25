@@ -20,28 +20,28 @@ $APPLICATION->SetTitle("Наша гордость");
                             </p>
                             <div class="video-wrapper">
                                 <a href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                   data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview1.jpg"
+                                   data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview1.jpg"
                                                                     alt=""
                                                                     loading="lazy"><span class="play-icon"></span></a>
                                 <a
                                         href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                        data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview2.jpg"
+                                        data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview2.jpg"
                                                                          alt="" loading="lazy"><span
                                             class="play-icon"></span></a> <a
                                         href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                        data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview3.jpg"
+                                        data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview3.jpg"
                                                                          alt="" loading="lazy"><span
                                             class="play-icon"></span></a> <a
                                         href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                        data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview4.jpg"
+                                        data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview4.jpg"
                                                                          alt="" loading="lazy"><span
                                             class="play-icon"></span></a> <a
                                         href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                        data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview3.jpg"
+                                        data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview3.jpg"
                                                                          alt="" loading="lazy"><span
                                             class="play-icon"></span></a> <a
                                         href="https://youtu.be/njX2bu-_Vw4?si=uDk2H2A2inv2xwxU" class="video-frame"
-                                        data-fancybox="video-frame"><img src="<?= ASSETS_PATH ?>/img/pride-preview4.jpg"
+                                        data-fancybox="video-frame"><img src="#ASSETS_PATH#/img/pride-preview4.jpg"
                                                                          alt="" loading="lazy"><span
                                             class="play-icon"></span></a>
                             </div>

@@ -33,7 +33,7 @@ $APPLICATION->SetTitle("Команда");
 
                             <div class="team-wrapper">
                                 <div class="team-wrapper-item">
-                                    <div class="team-wrapper-item__icon"><img src="<?= ASSETS_PATH ?>/img/certificate.svg" alt=""
+                                    <div class="team-wrapper-item__icon"><img src="#ASSETS_PATH#/img/certificate.svg" alt=""
                                                                               loading="lazy"/></div>
                                     <div class="team-wrapper-item__text">
                                         <p><strong>Регулярно</strong> проходят курсы <br>
@@ -41,7 +41,7 @@ $APPLICATION->SetTitle("Команда");
                                     </div>
                                 </div>
                                 <div class="team-wrapper-item">
-                                    <div class="team-wrapper-item__icon"><img src="<?= ASSETS_PATH ?>/img/training-course.svg" alt=""
+                                    <div class="team-wrapper-item__icon"><img src="#ASSETS_PATH#/img/training-course.svg" alt=""
                                                                               loading="lazy"/>
                                     </div>
                                     <div class="team-wrapper-item__text">
@@ -50,7 +50,7 @@ $APPLICATION->SetTitle("Команда");
                                     </div>
                                 </div>
                                 <div class="team-wrapper-item">
-                                    <div class="team-wrapper-item__icon"><img src="<?= ASSETS_PATH ?>/img/audience.svg" alt=""
+                                    <div class="team-wrapper-item__icon"><img src="#ASSETS_PATH#/img/audience.svg" alt=""
                                                                               loading="lazy"/></div>
                                     <div class="team-wrapper-item__text">
                                         <p><strong>Обмениваются</strong> опытом с <br>
@@ -102,7 +102,7 @@ $APPLICATION->SetTitle("Команда");
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo1.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo1.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Никита Иванов</div>
@@ -112,7 +112,7 @@ $APPLICATION->SetTitle("Команда");
                                         </div>
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo2.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo2.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Матвей Дементьев</div>
@@ -122,7 +122,7 @@ $APPLICATION->SetTitle("Команда");
                                         </div>
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo3.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo3.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Иван Левин</div>
@@ -132,7 +132,7 @@ $APPLICATION->SetTitle("Команда");
                                         </div>
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo4.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo4.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Максим Алексеев</div>
@@ -164,7 +164,7 @@ $APPLICATION->SetTitle("Команда");
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo5.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo5.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Александр Дектярев</div>
@@ -176,7 +176,7 @@ $APPLICATION->SetTitle("Команда");
                                         </div>
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo6.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo6.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Александр Мусин</div>
@@ -188,7 +188,7 @@ $APPLICATION->SetTitle("Команда");
                                         </div>
                                         <div class="col-12 col-sm-6 col-lg-3 mb-40">
                                             <div class="team-box">
-                                                <div class="team-box__img"><img src="<?= ASSETS_PATH ?>/img/photo7.jpeg" alt=""
+                                                <div class="team-box__img"><img src="#ASSETS_PATH#/img/photo7.jpeg" alt=""
                                                                                 loading="lazy"/></div>
                                                 <div class="team-box__body">
                                                     <div class="team-box__name">Алексей Левченко</div>
