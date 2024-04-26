@@ -1259,3 +1259,7 @@ table {
 .visibility-hidden {
   visibility: hidden;
 }
+
+.map {
+  height: 100%;
+}
