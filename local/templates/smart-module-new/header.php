@@ -1,7 +1,7 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <? IncludeTemplateLangFile(__FILE__); ?>
 <!DOCTYPE html>
-<html lang="lang="<?= LANGUAGE_ID ?>"">
+<html lang="<?= LANGUAGE_ID ?>">
 <head>
     <title><? $APPLICATION->ShowTitle() ?></title>
     <meta name="viewport"
@@ -9,7 +9,6 @@
     <? include __DIR__ . '/include/styles.php'; ?>
     <? include __DIR__ . '/include/scripts.php'; ?>
     <? $APPLICATION->ShowHead(); ?>
-
 </head>
 <body>
 <? $APPLICATION->ShowPanel() ?>
@@ -19,10 +18,8 @@
     include __DIR__ . '/include/header/bottom.php';
     include __DIR__ . '/include/header/fixed.php';
     ?>
-
 </header>
 <div class="content-wrapper">
-
     <?
     if ($APPLICATION->GetCurDir() !== '/') {
         // Данные хлебные крошки заносятся в переменную. Для вывода используйте макрос #BREADCRUMB#
