@@ -9,10 +9,10 @@
                         <input type="text" placeholder="ФИО" name="name">
                     </label>
                     <label>
-                        <input type="text" placeholder="Телефон" name="phone" required>
+                        <input type="text" placeholder="Телефон *" name="phone" required>
                     </label>
                     <label>
-                        <input type="email" placeholder="Электронный адрес *" name="mail" required>
+                        <input type="email" placeholder="Электронный адрес *" name="email" required>
                     </label>
                 </div>
                 <div class="col-12 col-lg-8 mb-10">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-12 col-lg-8 order-lg-1">
                     <label class="label-checkbox">
-                        <input type="checkbox" name="checkbox" checked>
+                        <input type="checkbox" name="agree" checked>
                         <span class="label-checkbox__custom"></span>
                         <span class="label-checkbox__text">Я даю свою согласие на обработку персональных данных и
                             соглашаюсь с условиями и <br>
@@ -37,6 +37,29 @@
     </div>
 </div>
 
-<script>
-    var ajaxUrlContactsForm = '<?= $templateFolder; ?>/ajax.php';
-</script>
+<div class="modal fade" id="successCallback" tabindex="-1" aria-hidden="true" aria-labelledby="successCallback">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                Спасибо за обращение!<br>
+                Мы ответим Вам в ближайшее время.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="errorCallback" tabindex="-1" aria-hidden="true" aria-labelledby="errorCallback">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                Произошла какая-то ошибка! Попробуйте еще раз.
+            </div>
+        </div>
+    </div>
+</div>
