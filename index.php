@@ -144,6 +144,14 @@ $APPLICATION->IncludeComponent(
     false
 ); ?>
 
-#CLIENTS_SECTION#
+<? $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_TEMPLATE_PATH . '/include/html/clients-section.html',
+        "EDIT_TEMPLATE" => "standard.php"
+    )
+); ?>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

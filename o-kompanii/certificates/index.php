@@ -78,7 +78,15 @@ $APPLICATION->SetTitle("Сертификаты");
 
 </section>
 
-#ADVANTAGES_SECTION#
+<? $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_TEMPLATE_PATH . '/include/html/advantages-section.html',
+        "EDIT_TEMPLATE" => "standard.php"
+    )
+); ?>
 <?
 $APPLICATION->IncludeComponent(
     "custom:form",

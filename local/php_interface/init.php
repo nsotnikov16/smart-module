@@ -43,17 +43,11 @@ function changeContent(&$content)
             [
                 '#BREADCRUMB#',
                 '#H1#',
-                '#ADVANTAGES_SECTION#',
-                '#CLIENTS_SECTION#',
                 '#ASSETS_PATH#'
             ],
             [
                 $BREADCRUMB ?? '',
                 $APPLICATION->GetTitle(),
-                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
-                    '/include/html/advantages-section.html'),
-                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
-                    '/include/html/clients-section.html'),
                 ASSETS_PATH
             ],
             $content
