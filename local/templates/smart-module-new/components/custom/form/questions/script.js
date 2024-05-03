@@ -4,9 +4,6 @@
         const formBtn = form.querySelector('[type="submit"]');
         const formBtnStartText = formBtn.textContent;
 
-        const modalSuccess = bootstrap.Modal.getOrCreateInstance('#successQuestions');
-        document.body.append(modalSuccess._element);
-
         const modalError = bootstrap.Modal.getOrCreateInstance('#errorQuestions');
         const modalErrorBody = modalError._element.querySelector('.modal-body')
         const errorDefault = modalErrorBody.innerHTML;
@@ -25,7 +22,6 @@
                 return modalError.show();
             }
             form.reset();
-            modalSuccess.show();
 
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
@@ -33,6 +29,8 @@
                     data: { name: form.name.value, phone: form.phone.value },
                 });
             }
+
+            redirect('/thank/?message=Ваша заявка принята!', 500);
         })
     } catch (error) {
         console.error(error);

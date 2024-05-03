@@ -3,10 +3,9 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\Mail\Event;
 
-class QuestionsForm
+class CallbackForm
 {
-    const IBLOCK_ID = 59;
-    const TEMPLATE_MESSAGE_ID = 41;
+    const IBLOCK_ID = 55;
     const EVENT_CODE = 'SENDING_A_MESSAGE_CALLBACK';
 
     private $request;
@@ -42,16 +41,23 @@ class QuestionsForm
 
             $phone = $this->request->get('phone');
             $name = $this->request->get('name');
+            $agree = $this->request->get('check');
 
             $el = new CIBlockElement;
 
-            $PROP = ['NAME' => $name];
+            $PROP = [
+                'SM_FORM_NAME' => $name,
+                'SM_FORM_PHONE' => $phone,
+                'SM_FORM_CHECK' => ['VALUE' => $agree == 'on' ? 327 : ''],
+            ];
 
             $arLoadProductArray = array(
+                "IBLOCK_SECTION_ID" => false,
                 "IBLOCK_ID"      => self::IBLOCK_ID,
                 "PROPERTY_VALUES" => $PROP,
-                "NAME"           => $phone,
+                "NAME"           => "Сообщение от " . date('d-m-Y'),
                 "ACTIVE"         => "Y",
+                'PREVIEW_TEXT'    => $this->request->get('MESSAGE')
             );
 
             if (!$el->Add($arLoadProductArray)) {
@@ -60,14 +66,14 @@ class QuestionsForm
 
             $arEventFields = array(
                 "SM_FORM_PHONE" => $phone,
-                "SM_FORM_NAME" => $name
+                "SM_FORM_NAME" => $name,
+                'CHECK' => $agree
             );
 
             $resultSend = Event::send(array(
                 "EVENT_NAME" => self::EVENT_CODE,
                 "LID" => SITE_ID,
                 "C_FIELDS" => $arEventFields,
-                "MESSAGE_ID" => self::TEMPLATE_MESSAGE_ID
             )); 
 
             if (!$resultSend->isSuccess()) {

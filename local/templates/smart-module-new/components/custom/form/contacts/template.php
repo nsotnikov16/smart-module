@@ -37,20 +37,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="successContacts" tabindex="-1" aria-hidden="true" aria-labelledby="successContacts">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-            </div>
-            <div class="modal-body">
-                Спасибо за обращение!<br>
-                Мы ответим Вам в ближайшее время.
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="errorContacts" tabindex="-1" aria-hidden="true" aria-labelledby="errorContacts">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

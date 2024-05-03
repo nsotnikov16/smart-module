@@ -162,6 +162,11 @@
         </div>
     </div>
 </footer>
-
+<?
+$APPLICATION->IncludeComponent(
+    "custom:form",
+    "callback",
+);
+?>
 </body>
 </html>

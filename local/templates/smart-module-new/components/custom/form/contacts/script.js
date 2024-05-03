@@ -3,10 +3,6 @@
         const form = document.querySelector('[data-contacts-form]');
         const formBtn = form.querySelector('[type="submit"]');
         const formBtnStartText = formBtn.textContent;
-
-        const modalSuccess = bootstrap.Modal.getOrCreateInstance('#successContacts');
-        document.body.append(modalSuccess._element);
-
         const modalError = bootstrap.Modal.getOrCreateInstance('#errorContacts');
         document.body.append(modalError._element);
 
@@ -19,8 +15,7 @@
             const result = await request('POST', window.app.AJAX_URL, formData);
             formBtn.textContent = formBtnStartText;
             if (!result.success) return modalError.show();
-            form.reset();
-            modalSuccess.show();
+            redirect('/thank/?message=' + `Спасибо за обращение!<br>Мы ответим Вам в ближайшее время.`, 500);
         })
     } catch (error) {
         console.error(error);

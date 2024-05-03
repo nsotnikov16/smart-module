@@ -36,19 +36,6 @@
     </div>
 </section>
 
-<div class="modal fade" id="successQuestions" tabindex="-1" aria-hidden="true" aria-labelledby="successQuestions">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-            </div>
-            <div class="modal-body">
-                Ваша заявка принята!
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="errorQuestions" tabindex="-1" aria-hidden="true" aria-labelledby="errorQuestions">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

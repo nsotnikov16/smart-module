@@ -959,3 +959,8 @@ async function request(method = 'GET', url, data) {
 
     return result;
 }
+
+function redirect(url, timer = 0) {
+	if (!url) return;
+	setTimeout(() => { window.location.href = window.location.protocol + '//' + window.location.hostname + url; }, timer)
+}
