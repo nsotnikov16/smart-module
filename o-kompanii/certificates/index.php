@@ -82,7 +82,7 @@ $APPLICATION->SetTitle("Сертификаты");
 <?
 $APPLICATION->IncludeComponent(
     "custom:form",
-    "callback-section",
+    "questions",
 );
 ?>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

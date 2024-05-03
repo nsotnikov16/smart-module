@@ -73,7 +73,7 @@ $APPLICATION->SetTitle("Главная страница");
 <?
 $APPLICATION->IncludeComponent(
     "custom:form",
-    "callback-section",
+    "questions",
 );
 ?>
 

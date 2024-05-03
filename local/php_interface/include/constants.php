@@ -1,5 +1,7 @@
 <?php
 const ASSETS_PATH = '/local/templates/smart-module-new/assets';
+const AJAX_URL = '/local/ajax/';
+
 AddEventHandler("main", "OnEndBufferContent", "imgSite");
 
 function imgSite(&$content) {

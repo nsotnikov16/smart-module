@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="successContacts" tabindex="-1" aria-hidden="true" aria-labelledby="errorContacts">
+<div class="modal fade" id="successContacts" tabindex="-1" aria-hidden="true" aria-labelledby="successContacts">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
