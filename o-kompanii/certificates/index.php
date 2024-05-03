@@ -2,15 +2,18 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Сертификаты");
 ?>
-    <section class="page page-certificates">
-        <div class="container">
-            <div class="row">
-                #BREADCRUMB#
-                <div class="col-12">
-                    <h1 class="text-center mb-45">#H1#</h1>
-                </div>
+<section class="page page-certificates">
+    <div class="container">
+        <div class="row">
+            #BREADCRUMB#
+            <div class="col-12">
+                <h1 class="text-center mb-45">#H1#</h1>
             </div>
-            <? $APPLICATION->IncludeComponent("bitrix:news.list", "certificates-tabs", array(
+        </div>
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "certificates-tabs",
+            array(
                 "ACTIVE_DATE_FORMAT" => "d.m.Y",    // Формат показа даты
                 "ADD_SECTIONS_CHAIN" => "N",    // Включать раздел в цепочку навигации
                 "AJAX_MODE" => "N",    // Включить режим AJAX
@@ -69,12 +72,17 @@ $APPLICATION->SetTitle("Сертификаты");
                 "SORT_ORDER2" => "ASC",    // Направление для второй сортировки новостей
                 "STRICT_SECTION_CHECK" => "N",    // Строгая проверка раздела для показа списка
             ),
-                false
-            ); ?>
-        </div>
+            false
+        ); ?>
+    </div>
 
-    </section>
+</section>
 
-    #ADVANTAGES_SECTION#
-    #CALLBACK_SECTION#
+#ADVANTAGES_SECTION#
+<?
+$APPLICATION->IncludeComponent(
+    "custom:form",
+    "callback-section",
+);
+?>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

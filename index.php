@@ -2,9 +2,12 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Главная страница");
 ?>
-    <div class="home-section">
+<div class="home-section">
 
-        <? $APPLICATION->IncludeComponent("bitrix:news.list", "slider-main", array(
+    <? $APPLICATION->IncludeComponent(
+        "bitrix:news.list",
+        "slider-main",
+        array(
             "ACTIVE_DATE_FORMAT" => "d.m.Y",    // Формат показа даты
             "ADD_SECTIONS_CHAIN" => "N",    // Включать раздел в цепочку навигации
             "AJAX_MODE" => "N",    // Включить режим AJAX
@@ -63,11 +66,16 @@ $APPLICATION->SetTitle("Главная страница");
             "SORT_ORDER2" => "ASC",    // Направление для второй сортировки новостей
             "STRICT_SECTION_CHECK" => "N",    // Строгая проверка раздела для показа списка
         ),
-            false
-        ); ?>
-    </div>
+        false
+    ); ?>
+</div>
 
-    #CALLBACK_SECTION#
+<?
+$APPLICATION->IncludeComponent(
+    "custom:form",
+    "callback-section",
+);
+?>
 
 <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",

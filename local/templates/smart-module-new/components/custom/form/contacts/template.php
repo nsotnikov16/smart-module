@@ -2,7 +2,7 @@
 <div class="col-12">
     <div class="contacts-callback">
         <div class="contacts-callback__title">Форма обратной связи:</div>
-        <form method="post" class="form-callback form-callback-contacts" data-callback-form>
+        <form method="post" class="form-callback form-callback-contacts" data-contacts-form>
             <div class="row">
                 <div class="col-12 col-lg-4 mb-10">
                     <label>
@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="successCallback" tabindex="-1" aria-hidden="true" aria-labelledby="successCallback">
+<div class="modal fade" id="successContacts" tabindex="-1" aria-hidden="true" aria-labelledby="errorContacts">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="errorCallback" tabindex="-1" aria-hidden="true" aria-labelledby="errorCallback">
+<div class="modal fade" id="errorContacts" tabindex="-1" aria-hidden="true" aria-labelledby="errorContacts">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">

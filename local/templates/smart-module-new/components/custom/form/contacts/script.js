@@ -1,13 +1,13 @@
 (function () {
     try {
-        const form = document.querySelector('[data-callback-form]');
+        const form = document.querySelector('[data-contacts-form]');
         const formBtn = form.querySelector('[type="submit"]');
         const formBtnStartText = formBtn.textContent;
 
-        const modalSuccess = bootstrap.Modal.getOrCreateInstance('#successCallback');
+        const modalSuccess = bootstrap.Modal.getOrCreateInstance('#successContacts');
         document.body.append(modalSuccess._element);
 
-        const modalError = bootstrap.Modal.getOrCreateInstance('#errorCallback');
+        const modalError = bootstrap.Modal.getOrCreateInstance('#errorContacts');
         document.body.append(modalError._element);
 
         form.addEventListener('submit', async (e) => {

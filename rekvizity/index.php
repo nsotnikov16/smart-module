@@ -1,26 +1,28 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetPageProperty("description",
-    "Реквизиты компании \"Smart Module\" Производим и поставляем модульные здания в #WF_CITY_PRED# по высоким технологиям строительства | ваше будущее и настоящее, звоните #WF_PHONES#");
+$APPLICATION->SetPageProperty(
+    "description",
+    "Реквизиты компании \"Smart Module\" Производим и поставляем модульные здания в #WF_CITY_PRED# по высоким технологиям строительства | ваше будущее и настоящее, звоните #WF_PHONES#"
+);
 $APPLICATION->SetPageProperty("title", "Реквизиты компании \"Smart Module\" в #WF_CITY_PRED#");
 $APPLICATION->SetTitle("Реквизиты");
 ?>
-    <section class="page page-requisites">
-        <div class="container">
-            <div class="row">
-                #BREADCRUMB#
-                <div class="col-12">
-                    <h1 class="text-center mb-60">#H1#</h1>
-                </div>
+<section class="page page-requisites">
+    <div class="container">
+        <div class="row">
+            #BREADCRUMB#
+            <div class="col-12">
+                <h1 class="text-center mb-60">#H1#</h1>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="requisites-box">
-                        <h3 class="requisites-box__title">Карта партнера</h3>
-                        <div class="table-wrapper">
-                            <table class="table-requisites">
-                                <tbody>
+        <div class="row">
+            <div class="col-12">
+                <div class="requisites-box">
+                    <h3 class="requisites-box__title">Карта партнера</h3>
+                    <div class="table-wrapper">
+                        <table class="table-requisites">
+                            <tbody>
                                 <tr>
                                     <td>Полное и сокращенное наименование в соответствии
                                         с учредительными документами
@@ -60,15 +62,15 @@ $APPLICATION->SetTitle("Реквизиты");
                                         <strong>06946379</strong>
                                     </td>
                                 </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="requisites-box">
-                        <h3 class="requisites-box__title">Платежные реквизиты</h3>
-                        <div class="table-wrapper">
-                            <table class="table-requisites">
-                                <tbody>
+                </div>
+                <div class="requisites-box">
+                    <h3 class="requisites-box__title">Платежные реквизиты</h3>
+                    <div class="table-wrapper">
+                        <table class="table-requisites">
+                            <tbody>
                                 <tr>
                                     <td>Расчетный счёт</td>
                                     <td>
@@ -93,16 +95,21 @@ $APPLICATION->SetTitle("Реквизиты");
                                         <strong>АО "ТИНЬКОФФ БАНК"</strong>
                                     </td>
                                 </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </section>
-    #ADVANTAGES_SECTION#
+</section>
+#ADVANTAGES_SECTION#
 
-    #CALLBACK_SECTION#
+<?
+$APPLICATION->IncludeComponent(
+    "custom:form",
+    "callback-section",
+);
+?>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

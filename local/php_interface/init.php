@@ -43,7 +43,6 @@ function changeContent(&$content)
             [
                 '#BREADCRUMB#',
                 '#H1#',
-                '#CALLBACK_SECTION#',
                 '#ADVANTAGES_SECTION#',
                 '#CLIENTS_SECTION#',
                 '#ASSETS_PATH#'
@@ -51,8 +50,6 @@ function changeContent(&$content)
             [
                 $BREADCRUMB ?? '',
                 $APPLICATION->GetTitle(),
-                file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
-                    '/include/html/callback-section.html'),
                 file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
                     '/include/html/advantages-section.html'),
                 file_get_contents($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH .
