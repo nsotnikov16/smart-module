@@ -68,7 +68,7 @@ $APPLICATION->SetTitle("О компании");
     "",
     array(
         "AREA_FILE_SHOW" => "file",
-        "PATH" => SITE_TEMPLATE_PATH . '/include/html/advantages-section.html',
+        "PATH" => '/include/content/advantages-section.php',
         "EDIT_TEMPLATE" => "standard.php"
     )
 ); ?>

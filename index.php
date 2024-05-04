@@ -149,7 +149,7 @@ $APPLICATION->IncludeComponent(
     "",
     array(
         "AREA_FILE_SHOW" => "file",
-        "PATH" => SITE_TEMPLATE_PATH . '/include/html/clients-section.html',
+        "PATH" => '/include/content/clients-section.php',
         "EDIT_TEMPLATE" => "standard.php"
     )
 ); ?>
