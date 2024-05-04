@@ -8,6 +8,14 @@ $arUrlRewrite=array (
     'PATH' => '/bitrix/services/ymarket/index.php',
     'SORT' => 100,
   ),
+  23 => 
+  array (
+    'CONDITION' => '#^/otrasli/(.*)/\\?*(.*?)$#',
+    'RULE' => 'ELEMENT_CODE=$1',
+    'ID' => '',
+    'PATH' => '/otrasli/detail.php',
+    'SORT' => 100,
+  ),
   4 => 
   array (
     'CONDITION' => '#^/company/partners/#',
