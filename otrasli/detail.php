@@ -1,4 +1,7 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$aMenuLinksExt = [];
+if (CModule::IncludeModule('iblock')) $otrasli_iblock = \CIBlock::GetList([], ['CODE' => 'otrasli'], false)->Fetch();
+
 $APPLICATION->SetTitle(""); ?>
 
 <? $APPLICATION->IncludeComponent(
@@ -35,7 +38,7 @@ $APPLICATION->SetTitle(""); ?>
 			4 => "",
 		),
 		"FILE_404" => "",
-		"IBLOCK_ID" => "118",
+		"IBLOCK_ID" => $otrasli_iblock['ID'],
 		"IBLOCK_TYPE" => "content",
 		"IBLOCK_URL" => "",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
