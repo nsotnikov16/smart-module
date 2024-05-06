@@ -1,0 +1,4 @@
+.projects-card .block_title .h3 {
+    word-break: break-word;
+    text-align: left !important;
+}

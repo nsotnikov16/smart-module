@@ -2,7 +2,7 @@
 const ASSETS_PATH = '/local/templates/smart-module-new/assets';
 const AJAX_URL = '/local/ajax/';
 
-//AddEventHandler("main", "OnEndBufferContent", "imgSite");
+AddEventHandler("main", "OnEndBufferContent", "imgSite");
 
 function imgSite(&$content) {
     if (str_contains($_SERVER['REQUEST_URI'], '/bitrix/')) return true;

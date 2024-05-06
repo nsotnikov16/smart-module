@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="blog-list-page">
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section.list",
 		"",
@@ -93,4 +92,3 @@ $this->setFrameMode(true);
 		),
 		$component
 	);?>
-</div>

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -11,156 +11,120 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-//echo "<pre>"; print_r($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']); echo "</pre>";
 ?>
-<div class="large-6 medium-6 small-12 columns photogallery">
-	<div class="slider-for">
-
-		<?if ($arResult['DETAIL_PICTURE']):?>
-            <div class="many-wp-cart">
-                <a href="<?=$arResult['DETAIL_PICTURE']['SRC']?>" rel="gallery"><img src="<?=$arResult['DETAIL_PICTURE']['SRC']?>" alt="" />  <span class="portrait-border "></span></a>
-                <?if (count($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE']) > 0):?>
-                    <?foreach ($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE'] as $photo):?>
-                        <a href="<?=$photo['SRC']?>" class=""  rel="gallery" style="display: none !important;"><img src="<?=$photo['SRC']?>" alt="" />  <span class="portrait-border "></span></a>
-                    <?endforeach?>
-                <?endif?>
+<div class="row">
+    <? if (!empty($arResult['PHOTOS'])) : ?>
+        <div class="col-12 col-lg-7">
+            <div class="project-sliders-wrapper">
+                <div class="projects-slider-preview">
+                    <? foreach ($arResult['PHOTOS'] as $photo) : ?>
+                        <div class="slide">
+                            <div class="projects-slider__item">
+                                <span class="image-border"></span>
+                                <img src="<?= $photo ?>" loading="lazy" />
+                            </div>
+                        </div>
+                    <? endforeach; ?>
+                </div>
+                <div class="projects-slider-max">
+                    <? foreach ($arResult['PHOTOS'] as $photo) : ?>
+                        <div class="slide">
+                            <a href="<?= $photo ?>" data-fancybox="project-gallery" class="projects-slider__item">
+                                <img src="<?= $photo ?>" alt="" loading="lazy" />
+                            </a>
+                        </div>
+                    <? endforeach ?>
+                </div>
             </div>
-		<?endif?>
-		<?if (count($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE']) > 0):?>
-            <?$a = 0;?>
-			<?foreach ($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE'] as $photo):?>
-                <div class="many-wp-cart">
-                    <?$b = 0;?>
-                <?foreach ($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE'] as $photo) {?>
-                    <a href="<?=$photo['SRC']?>" class=""  rel="gallery"<?if($a != $b) {?> style="display: none !important;"<?}?>><img src="<?=$photo['SRC']?>" alt="" />  <span class="portrait-border "></span></a>
-                    <?$b++;?>
-                <?}?>
-                    <?if ($arResult['DETAIL_PICTURE']):?>
-                        <a href="<?=$arResult['DETAIL_PICTURE']['SRC']?>" class=""  rel="gallery" style="display: none !important;"><img src="<?=$arResult['DETAIL_PICTURE']['SRC']?>" alt="" />  <span class="portrait-border "></span></a>
-                    <?endif;?>
+        </div>
+    <? endif; ?>
+    <div class="col-12 col-lg-5 mb-35">
+        <div class="project-information">
+            <? if ($deadline = $arResult['DISPLAY_PROPERTIES']['SROKI_REALIZACII']['VALUE']) : ?>
+                <div class="project-information-box">
+                    <div class="project-information-box__icon"><img src="#ASSETS_PATH#/img/clock.svg" alt="" loading="lazy" /></div>
+                    <div class="project-information-box__text">
+                        <p>Сроки реализации:</p>
+                        <p><strong><?= $deadline ?></strong></p>
+                    </div>
                 </div>
-                <?$a++;?>
-			<?endforeach?>
-		<?endif?>
-	</div>
-	<div class="slider-nav">
-		<?if ($arResult['DETAIL_PICTURE']):
-			$image = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array('width'=> 86, 'height'=> 86), BX_RESIZE_IMAGE_EXACT);
-			?>
-			<div class="image">
-				<span class="image-border"></span>
-				<img src="<?=$image['src']?>" alt="" />
-			</div>
-		<?endif?>
-		<?if (count($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE']) > 0):?>
-			<?foreach ($arResult['DISPLAY_PROPERTIES']['MORE_PHOTO']['FILE_VALUE'] as $photo):
-				$image = CFile::ResizeImageGet($photo, array('width'=> 86, 'height'=> 86), BX_RESIZE_IMAGE_EXACT);
-				?>
-				<div class="image">
-					<span class="image-border"></span>
-					<img src="<?=$image['src']?>" alt="" />
-				</div>
-			<?endforeach?>
-		<?endif?>
-	</div>
-</div>
-
-
- <div class="col-xs-12 col-sm-4 k-card-info"> 
-                   <div class="card-info-block">
-                   		
-                        <div class="card-info-block-detail">
-                        	<div class="card-info-block-detail-img">
-                        		<img src="/local/templates/smart-module/images/carusel-page-icon/clock.svg" alt="">
-                            </div>
-                            
-                            <div class="card-info-block-detail-text">
-                            	<p> Сроки реализации:</p>
-                                <span><?=$arResult['DISPLAY_PROPERTIES']['SROKI_REALIZACII']['VALUE']; ?></span>                   	
-                            </div>
-                        </div>
-                        
-                         <div class="card-info-block-detail">
-                        	<div class="card-info-block-detail-img">
-                        		<img src="/local/templates/smart-module/images/carusel-page-icon/vector.svg" alt="">
-                            </div>
-                            
-                            <div class="card-info-block-detail-text">
-                            	<p> Общая площадь:</p>
-                                <span><?=$arResult['DISPLAY_PROPERTIES']['OBCHAYA_PLOTHAT']['VALUE']; ?></span>                   	
-                            </div>
-                        </div>
-                        
-                         <div class="card-info-block-detail">
-                        	<div class="card-info-block-detail-img">
-                        		<img src="/local/templates/smart-module/images/carusel-page-icon/man.svg" alt="">
-                            </div>
-                            
-                            <div class="card-info-block-detail-text">
-                            	<p> Заказчик:</p>
-                                <span><?=$arResult['DISPLAY_PROPERTIES']['ZAKAZCHIK']['VALUE']; ?></span>                   	
-                            </div>
-                        </div>
-                   			
-                          <div class="card-info-block-btn">
-                          <a href="#order-popup" class=" buy_button" data-base-price="0">Заказать похожий проект</a>
-                          </div>   
-                            
-                   </div>
-                	
-                
-                
-                
-                
+            <? endif; ?>
+            <? if ($square = $arResult['DISPLAY_PROPERTIES']['OBCHAYA_PLOTHAT']['VALUE']) : ?>
+                <div class="project-information-box">
+                    <div class="project-information-box__icon"><img src="#ASSETS_PATH#/img/vector.svg" alt="" loading="lazy" /></div>
+                    <div class="project-information-box__text">
+                        <p>Общая площадь:</p>
+                        <p><strong><?= $square ?></strong></p>
+                    </div>
                 </div>
+            <? endif; ?>
+            <? if ($customer = $arResult['DISPLAY_PROPERTIES']['ZAKAZCHIK']['VALUE']) : ?>
+                <div class="project-information-box">
+                    <div class="project-information-box__icon"><img src="#ASSETS_PATH#/img/man.svg" alt="" loading="lazy" /></div>
+                    <div class="project-information-box__text">
+                        <p>Заказчик:</p>
+                        <p><strong><?= $customer ?></strong></p>
+                    </div>
+                </div>
+            <? endif; ?>
 
-
-
-
-<div class="large-12 medium-12 small-12 columns proekty-slider-text">
-	<?=$arResult['PREVIEW_TEXT']?>
-	<div class="detail">
-		<?=$arResult["DETAIL_TEXT"]?>
-	</div>
+            <a href="#" class="btn btn-green btn-order-project" data-bs-toggle="modal" data-bs-target="#orderModal">Заказать похожий
+                проект</a>
+        </div>
+    </div>
 </div>
 
-
-
-
-<div class="clearfix"></div>
-
-
-
-
-<div class="yandex-map">
-	<h2>Проект на карте</h2>
-	<?=$arResult['DISPLAY_PROPERTIES']['MAP']['DISPLAY_VALUE']?>
+<div class="row">
+    <div class="col-12">
+        <div class="table-wrapper" data-preview-table>
+            <?= $arResult["~PREVIEW_TEXT"] ?>
+        </div>
+    </div>
 </div>
-<style>
-    .lg-outer {
-        z-index: 9999 !important;
-    }
-    .lg-sub-html {
-        display: none !important;
-    }
-    #lg-download {
-        display: none !important;
-    }
-    .lg-fullscreen {
-        display: none !important;
-    }
-    #lg-actual-size {
-        display: none !important;
-    }
-    #lg-share {
-        display: none !important;
-    }
-    .lg-backdrop {
-        z-index: 9998 !important;
-        background-color: rgba(0,0,0,.3);
-    }
-    .lg-thumb-outer.lg-grab {
-        display: none !important;
-    }
-</style>
+
+<section class="project-location" data-project-map>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-30">Проект на карте</h2>
+                <div class="project-location__map">
+                    <?= $arResult['DISPLAY_PROPERTIES']['MAP']['DISPLAY_VALUE'] ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">Оформление заказа</div>
+                <form method="post" class="form-callback" data-order-form>
+                    <div class="row">
+                        <div class="col-12 mb-20">
+                            <label>
+                                <input type="text" placeholder="Введите номер телефона" name="phone" required="">
+                            </label>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <div class="consent">
+                                <p>Заполняя форму вы соглашаетесь с условиями <a href="#" class="text-decoration d-inline" target="_blank">политики конфиденциальности</a></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-accent w-100">
+                                Оформить заказ
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

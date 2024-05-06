@@ -32,11 +32,14 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 						<? endif; ?>
 					</div>
 					<div class="h3"><?= $arSection['NAME'] ?></div>
-					<a href="#" class="projects-card__link h3"><?= $arSection['NAME'] ?></a>
+					<a href="<?= $arSection['SECTION_PAGE_URL'] ?>" onclick="!this.closest('.panel-heading.in') ? false : ''" class="projects-card__link h3"><?= $arSection['NAME'] ?></a>
 					<div class="projects-card__images">
-						<div class="projects-card__img"><img src="img/projects-img1.jpg" alt="" loading="lazy" /></div>
-						<div class="projects-card__img"><img src="img/projects-img1.jpg" alt="" loading="lazy" /></div>
-						<div class="projects-card__img"><img src="img/projects-img1.jpg" alt="" loading="lazy" /></div>
+						<? if (!empty($arSection['ITEMS'])) : ?>
+							<? foreach ($arSection['ITEMS'] as $key => $item) : ?>
+								<? if ($key > 2) break; ?>
+								<div class="projects-card__img"><img src="<?= $item['PREVIEW_PICTURE'] ?: $item['DETAIL_PICTURE'] ?>" loading="lazy" /></div>
+							<? endforeach; ?>
+						<? endif; ?>
 					</div>
 					<div class="projects-card__btn">
 						<svg class="svg-icon svg-icon-plus">
@@ -49,123 +52,37 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 				</div>
 				<div class="block_hover">
 					<div class="row">
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img1.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
+						<? if (!empty($arSection['ITEMS'])) : ?>
+							<? foreach ($arSection['ITEMS'] as $key => $item) : ?>
+								<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
+									<div class="projects-card-box">
+										<img src="<?= $item['PREVIEW_PICTURE'] ?: $item['DETAIL_PICTURE'] ?>" alt="" class="projects-card-box__img">
+										<div class="projects-card-box__body">
+											<div class="projects-card-box__text">
+												<a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="projects-card-box__title"><?= $item['NAME'] ?></a>
+												<div class="box-text">
+													<? if ($deadline = $item['PROPERTY_SROKI_REALIZACII_VALUE']) : ?>
+														<p>Срок реализации: <?= $deadline ?></p>
+													<? endif; ?>
+													<? if ($square = $item['PROPERTY_OBCHAYA_PLOTHAT_VALUE']) : ?>
+														<p>Общая площадь: <?= $square ?></p>
+													<? endif; ?>
+												</div>
+											</div>
+											<a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
+												<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
+														<use xlink:href="#ASSETS_PATH#/img/sprite.svg#arrow-link"></use>
+													</svg></span></a>
 										</div>
 									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="#ASSETS_PATH#/img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
 								</div>
+							<? endforeach ?>
+						<? endif; ?>
+						<? if (!empty($arSection['ITEMS']) && count($arSection['ITEMS']) > 3) : ?>
+							<div class="col-12">
+								<a href="#" class="btn btn-grey btn-load-projects">Показать еще</a>
 							</div>
-						</div>
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img2.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
-										</div>
-									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img3.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
-										</div>
-									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img1.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
-										</div>
-									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img2.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
-										</div>
-									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-sm-6 col-lg-4 mb-25 projects-card-col">
-							<div class="projects-card-box">
-								<img src="img/projects-img3.jpg" alt="" class="projects-card-box__img">
-								<div class="projects-card-box__body">
-									<div class="projects-card-box__text">
-										<a href="project-page.html" class="projects-card-box__title">Блок контейнер для
-											станции таксопарка</a>
-										<div class="box-text">
-											<p>Срок реализации: 14 дней</p>
-											<p>Общая площадь: 36 м2</p>
-										</div>
-									</div>
-									<a href="project-page.html" class="btn btn-accent btn-accent-black text-transform projects-card-box__btn">Подробнее
-										<span class="btn-icon btn-icon-arrow"><svg class="svg-icon">
-												<use xlink:href="img/sprite.svg#arrow-link"></use>
-											</svg></span></a>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<a href="#" class="btn btn-grey btn-load-projects">Показать еще</a>
-						</div>
+						<? endif; ?>
 					</div>
 				</div>
 			</div>
