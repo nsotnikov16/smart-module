@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Кастомизируем скрипт компонента без копирования компонента в папку local/components
     try {
-        const cloneFunc = new Function(`return ${window.searchObj.ShowResult.toString().replace('function(t)', 'function(t,e)')}`);
+        const clone = window.searchObj.ShowResult;
         window.searchObj.ShowResult = function (result) {
-            cloneFunc().call(this, result, this);
+            clone.call(this, result);
             const resultContainers = document.querySelectorAll('[data-search-result]');
             if (!resultContainers.length || !result) return;
             resultContainers.forEach(item => item.innerHTML = result);
