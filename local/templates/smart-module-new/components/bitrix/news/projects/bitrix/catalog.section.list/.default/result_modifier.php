@@ -29,4 +29,8 @@ if (!empty($arResult['SECTIONS'])) {
     foreach ($arResult['SECTIONS'] as $key => $arSection) {
         $arResult['SECTIONS'][$key]['ITEMS'] = $sections[$arSection['ID']];
     }
+
+    $arResult['SECTIONS'] = array_filter($arResult['SECTIONS'], function ($arr) {
+        return !empty($arr['ITEMS']);
+    });
 }

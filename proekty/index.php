@@ -104,7 +104,7 @@ if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("ibloc
 				"DETAIL_PAGER_TITLE" => "Страница",
 				"DETAIL_PAGER_TEMPLATE" => "",
 				"DETAIL_PAGER_SHOW_ALL" => "N",
-				"PAGER_TEMPLATE" => "smart-module",
+				"PAGER_TEMPLATE" => "pagination",
 				"DISPLAY_TOP_PAGER" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "Y",
 				"PAGER_TITLE" => "",

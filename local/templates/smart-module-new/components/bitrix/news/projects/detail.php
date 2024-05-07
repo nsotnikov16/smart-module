@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,10 +13,10 @@
 $this->setFrameMode(true);
 ?>
 <div class="project-detail-page">
-	<?$ElementID = $APPLICATION->IncludeComponent(
+	<? $ElementID = $APPLICATION->IncludeComponent(
 		"bitrix:news.detail",
 		"",
-		Array(
+		array(
 			"DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
 			"DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
 			"DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],
@@ -25,8 +25,8 @@ $this->setFrameMode(true);
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 			"FIELD_CODE" => $arParams["DETAIL_FIELD_CODE"],
 			"PROPERTY_CODE" => $arParams["DETAIL_PROPERTY_CODE"],
-			"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["detail"],
-			"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+			"DETAIL_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["detail"],
+			"SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
 			"META_KEYWORDS" => $arParams["META_KEYWORDS"],
 			"META_DESCRIPTION" => $arParams["META_DESCRIPTION"],
 			"BROWSER_TITLE" => $arParams["BROWSER_TITLE"],
@@ -57,7 +57,7 @@ $this->setFrameMode(true);
 			"ELEMENT_CODE" => $arResult["VARIABLES"]["ELEMENT_CODE"],
 			"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
 			"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-			"IBLOCK_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"],
+			"IBLOCK_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["news"],
 			"USE_SHARE" => $arParams["USE_SHARE"],
 			"SHARE_HIDE" => $arParams["SHARE_HIDE"],
 			"SHARE_TEMPLATE" => $arParams["SHARE_TEMPLATE"],
@@ -68,5 +68,6 @@ $this->setFrameMode(true);
 			'STRICT_SECTION_CHECK' => (isset($arParams['STRICT_SECTION_CHECK']) ? $arParams['STRICT_SECTION_CHECK'] : ''),
 		),
 		$component
-	);?>
+	); ?>
 </div>
+<? $APPLICATION->IncludeComponent("custom:form", "order") ?>
