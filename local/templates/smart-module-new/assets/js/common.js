@@ -621,7 +621,8 @@ $('.catalog-menu__list').click(function () {
 	$(this).find('.catalog-menu__link').toggleClass('active');
 });
 
-$('.video-container-tab1').slick({
+
+$('.video-container-tab').slick({
 	slidesToShow: 1,
 	fade: true,
 	swipe: false,
@@ -629,56 +630,61 @@ $('.video-container-tab1').slick({
 	infinite: false,
 });
 
-$('.video-tab1').slick({
-	slidesToShow: 9,
-	arrows: false,
-	asNavFor: '.video-container-tab1',
-	focusOnSelect: true,
-	infinite: false,
-	swipe: false,
-	prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-	nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
-	responsive: [
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 7,
-				arrows: true,
-				swipe: true,
-				infinite: true,
+$('.video-tab').each(function(i) {
+	const selector = `.video-container-tab${i}`;
+	const countSlides = document.querySelector(selector).childNodes.length;
+	$(this).slick({
+		slidesToShow: countSlides,
+		arrows: false,
+		asNavFor: selector,
+		focusOnSelect: true,
+		infinite: false,
+		swipe: false,
+		prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+		nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 7,
+					arrows: true,
+					swipe: true,
+					infinite: true,
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 5,
+					swipe: true,
+					arrows: true,
+					infinite: true,
+				}
+			},
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 3,
+					arrows: true,
+					swipe: true,
+					infinite: true,
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					arrows: true,
+					swipe: true,
+					infinite: true,
+				}
 			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 5,
-				swipe: true,
-				arrows: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				slidesToShow: 3,
-				arrows: true,
-				swipe: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				arrows: true,
-				swipe: true,
-				infinite: true,
-			}
-		}
-	]
-});
+		]
+	});
+})
 
-$('.video-tab1').on('afterChange', function (event, slick, currentSlide) {
+
+$('.video-tab').on('afterChange', function (event, slick, currentSlide) {
 	// $('.video-conainer-tab-cont').removeClass('active');
 	// $('#video-tab-' + currentSlide + '').addClass('active');
 	// $('video').get(currentSlide).load();
@@ -688,90 +694,6 @@ $('.video-tab1').on('afterChange', function (event, slick, currentSlide) {
 	$(this).find('.video-tab__item.slick-current').nextAll('.video-tab__item').removeClass('chose');
 });
 
-$('.video-container-tab2').slick({
-	slidesToShow: 1,
-	fade: true,
-	swipe: false,
-	arrows: false,
-	infinite: false,
-});
-
-$('.video-tab2').slick({
-	slidesToShow: 14,
-	arrows: false,
-	asNavFor: '.video-container-tab2',
-	focusOnSelect: true,
-	infinite: false,
-	swipe: false,
-	prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-	nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
-	responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 12,
-				arrows: true,
-				swipe: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 10,
-				arrows: true,
-				swipe: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 850,
-			settings: {
-				slidesToShow: 7,
-				swipe: true,
-				arrows: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 5,
-				swipe: true,
-				arrows: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				slidesToShow: 3,
-				swipe: true,
-				arrows: true,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				swipe: true,
-				arrows: true,
-				infinite: true,
-			}
-		}
-	]
-});
-
-$('.video-tab2').on('afterChange', function (event, slick, currentSlide) {
-	// $('.video-conainer-tab-cont').removeClass('active');
-	// $('#video-tab-' + currentSlide + '').addClass('active');
-	// $('video').get(currentSlide).load();
-	// $('#video-' + currentSlide + '').trigger('play');
-	$('div.tabs__content.active').find('video').trigger('play');
-	$(this).find('.video-tab__item.slick-current').prevAll('.video-tab__item').addClass('chose');
-	$(this).find('.video-tab__item.slick-current').nextAll('.video-tab__item').removeClass('chose');
-});
 
 
 $('ul.tabs__caption').on('click', 'li:not(.active)', function () {

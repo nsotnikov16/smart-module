@@ -1,6 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-if (\CModule::IncludeModule('iblock')) $otrasli_iblock_id = \CIBlock::GetList([], ['CODE' => 'otrasli'], false)->Fetch()['ID'];
 $APPLICATION->SetPageProperty("description", "Отрасли строительства в #WF_CITY_PRED# | \"Smart Module\" - ваше будущее и настоящее, звоните #WF_PHONES#");
 $APPLICATION->SetPageProperty('title', "Отрасли строительства в #WF_CITY_PRED# | \"Smart Module\"");
 $APPLICATION->SetTitle("Отрасли");
@@ -42,7 +41,7 @@ $APPLICATION->SetTitle("Отрасли");
                 ),
                 "FILTER_NAME" => "",    // Фильтр
                 "HIDE_LINK_WHEN_NO_DETAIL" => "N",    // Скрывать ссылку, если нет детального описания
-                "IBLOCK_ID" => $otrasli_iblock_id,    // Код информационного блока
+                "IBLOCK_ID" => 'otrasli',    // Код информационного блока
                 "IBLOCK_TYPE" => "content",    // Тип информационного блока (используется только для проверки)
                 "INCLUDE_IBLOCK_INTO_CHAIN" => "N",    // Включать инфоблок в цепочку навигации
                 "INCLUDE_SUBSECTIONS" => "Y",    // Показывать элементы подразделов раздела
