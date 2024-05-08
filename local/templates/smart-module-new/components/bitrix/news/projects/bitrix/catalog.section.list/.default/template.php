@@ -62,7 +62,7 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 												<a href="<?= $item['DETAIL_PAGE_URL'] ?>" class="projects-card-box__title"><?= $item['NAME'] ?></a>
 												<div class="box-text">
 													<? if ($deadline = $item['PROPERTY_SROKI_REALIZACII_VALUE']) : ?>
-														<p>Срок реализации: <?= $deadline ?></p>
+														<p>Срок: <?= $deadline ?></p>
 													<? endif; ?>
 													<? if ($square = $item['PROPERTY_OBCHAYA_PLOTHAT_VALUE']) : ?>
 														<p>Общая площадь: <?= $square ?></p>
