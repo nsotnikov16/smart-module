@@ -1,253 +1,336 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Аренда");
-?><section class="box">
-	<div class="cols text-cols">
-		<div class="col typography">
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+$APPLICATION->SetTitle("Аренда"); ?>
 
-
-
-
-<p>
-	Современные модульные бытовки привлекательны благодаря своей мобильности и универсальности. Такие конструкции можно 
-многократно монтировать и демонтировать, перевозить, менять планировку, конфигурацию, использовать для различных целей.
-При этом не требуется укладка фундамента, задействование многочисленных строительных бригад и прохождение полноценной
-процедуры получения разрешения на возведение сооружения. Все это экономит денежные средства и драгоценное время,
-позволяя начать использование бытовок сразу же после завершения их сборки, длится которая считанные часы.
-</p>
-
-
-<div class="ar-block-form">
-	<div class="col-xs-12  ar-block-form-img">
-    	<div class="ar-block-form-img-wrapper">
-        	<img src="images/icon-arenda/ar-image1.png" alt="">      
-        </div>
-    	
-    </div>
-    
-    <div class="col-xs-12  ar-block-form-input">
-                
-                <div class=" columns ar-block-form-wrapper">
-                        <span class="manager_title">
-                            Есть вопросы по аренде модульных зданий?<br>
-                            Задайте их прямо сейчас!
-                        </span>
-                    <div class="questions_form">
-                
-                
-                <form action="" method="POST" id="form-questions">
-                    <p id="content_questions"></p>
-                    <input type="text" class="manager_callback__input" name="name" placeholder="Ваше Имя">
-                    <input type="text" class="manager_callback__input" name="phone" placeholder="Ваш телефон">
-                    <span class="manager_callback__btn_span"><input type="submit" class="manager_callback__btn" value="Отправить"></span>
-                    <div class="p-popup__check manager__check ac-manager__check">
-                        <input type="checkbox" id="checkid2" name="check" checked="checked">
-                        <label for="checkid2">
-                            Даю согласие на обработку <a href="/politika-konfidentsialnosti/">персональных данных</a>
-                        </label>
-                    </div>
-                </form>
-                
-                    </div>              
+<section class="page page-rent">
+    <div class="container">
+        <div class="row">
+            #BREADCRUMB#
+            <div class="col-12">
+                <h1 class="text-center mb-40">#H1#</h1>
+            </div>
+            <div class="col-12">
+                <div class="box-text mb-50">
+                    <p>Современные модульные бытовки привлекательны благодаря своей мобильности и универсальности. Такие
+                        конструкции можно
+                        многократно монтировать и демонтировать, перевозить, менять планировку, конфигурацию, использовать для
+                        различных целей.
+                        При этом не требуется укладка фундамента, задействование многочисленных строительных бригад и
+                        прохождение полноценной
+                        процедуры получения разрешения на возведение сооружения. Все это экономит денежные средства и
+                        драгоценное время,
+                        позволяя начать использование бытовок сразу же после завершения их сборки, длится которая считанные
+                        часы.</p>
                 </div>
-                
-                <div class="col-xs-12 ar-block-form-icon">
-                	<div class="ar-block-form-icon-i  ">
-                    	<div class="ar-block-form-icon-wrap">
-                            <img src="images/icon-arenda/crane.svg" alt="">
-                            <p>Мобильны и универсальны</p>
-                        </div>
-                    </div>
-                    
-                    <div class="ar-block-form-icon-i   ">
-                    	<div class="ar-block-form-icon-wrap">
-                            <img src="images/icon-arenda/foundation.svg" alt="">
-                            <p>Не требуют фундамента</p>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="ar-block-form-icon-i ">
-                    	<div class="ar-block-form-icon-wrap">
-                            <img src="images/icon-arenda/joint.svg" alt="">
-                            <p>Многократный сбор и разбор</p>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="ar-block-form-icon-i   ">
-                    	<div class="ar-block-form-icon-wrap">
-                            <img src="images/icon-arenda/clock.svg" alt="">
-                            <p>Экономят время и деньги</p>
-                        </div>
-                    </div>
-                    
-                                  	
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-     </div>           
-    </div>
-    
-    <div class="clearfix"></div>
-
-
-
-
-
-
-
-
-<p>
-	Благодаря перечисленным преимуществам быстровозводимые здания на основе блок-контейнеров в последние годы 
-стремительно набирают популярность в России. Чаще всего они используются в следующих целях:
-</p>
-
-<div class="ar-production">
-<div class="col-xs-12  production-text-list ar-production-text">
-		<ul>
-			<li>временное жилье для рабочих;</li>
-			<li>временные и постоянные офисы;</li>
-			<li>торговые киоски, магазины, павильоны;</li>
-			<li>помещения для хранения оборудования, материалов, инвентаря;</li>
-			
-		</ul>
-</div>
-  
-
-<div class=" col-xs-12  production-text-list">
-		<ul>
-			<li>мобильные кухни, столовые, кафе;</li>
-			<li>раздевалки, сушилки, душевые;</li>
-			<li>мини-СТО, автомойки, мастерские и так далее.</li>		
-		</ul>
-</div>
-
- </div> 
-
-<p>
-	Это далеко не полный перечень применения модульных бытовок, однако любому использованию предшествует процедура изготовления нужной конструкции. Ускорить процесс возведения мобильного здания позволяет аренда готовых блок-контейнеров.
-</p>
-<h2 class="ar-title">Арендовать или купить?</h2>
-
-<div class="ar-block-form">
-    
-    <div class="col-xs-12 ar-block-info">
-       	<p>Если предполагается строительство постоянного сооружения, 
-целесообразно приобрести индивидуальный или типовой проект и 
-модульные элементы для сборки здания. Однако в том случае, когда 
-конструкция требуется лишь на время, будь то краткосрочный проект 
-или неуверенность в том, что бизнес «пойдет», оптимальным 
-решением будет аренда блок-контейнеров.</p>        
-      <p class="ar-block-p"> Несколько преимуществ аренды бытовок: </p>         
-               
-       <ul class="ar-advantages">
-       	<li>
-            <img src="images/icon-arenda/time.svg" alt="">
-            <p><b>экономия времени</b> наизготовление блок-модулей</p>
-        </li>
-        
-         <li>
-            <img src="images/icon-arenda/payment.svg" alt="">
-            <p>оплата <b>только за фактическое</b> использование конструкций</p>
-        </li>
-        
-         <li>
-            <img src="images/icon-arenda/no_fuss.svg" alt="">
-            <p><b>отсутствие хлопот</b>, связанных с продажей блок-контейнеров
-после завершения эксплуатации</p>
-        </li>
-        
-         <li>
-            <img src="images/icon-arenda/watch.svg" alt="">
-            <p><b>отсутствие потерь времен</b> и на капитальное строительство</p>
-        </li>
-       </ul>       
-                
-                
-                
-                
-                
-                
-     </div> 
-     
-    <div class="col-xs-12  ar-block-img-two">
-    	<div class="ar-block-form-img-wrapper">
-        	<img src="images/icon-arenda/ar-image2.png" alt="">      
+            </div>
         </div>
-    	
-    </div>          
- 
-</div> 
-    
-    <div class="clearfix"></div>
 
-<p>
-	Аренда модульных бытовок актуальна в любое время года благодаря качественным характеристикам блок-контейнеров. Эти 
-конструкции крепкие, надежные, долговечные и предназначены для эксплуатации в различных климатических условиях.
-</p>
+        <div class="row">
+            <div class="col-12 col-lg-5 mb-50">
+                <div class="rent-image"><img src="#ASSETS_PATH#/img/rent-image1.png" alt="" loading="lazy" /></div>
+            </div>
+            <div class="col-12 col-lg-7 mb-50">
+                <div class="rent-content">
+                    <? $APPLICATION->IncludeComponent(
+                        "custom:form",
+                        "questions-arenda",
+                    ) ?>
 
-<p>
-	Наша компания предлагает высококачественные бытовки из стандартных блок-модулей в аренду на выгодных условиях в 
-Санкт-Петербурге. При необходимости мы самостоятельно доставим конструкции на место установки и соберем сооружение с 
-учетом предпочтений клиента.
-</p>
+                    <div class="rent-advantages">
+                        <div class="rent-advantages-box">
+                            <div class="rent-advantages-box__icon"><img src="#ASSETS_PATH#/img/crane.svg" alt="" loading="lazy" /></div>
+                            <div class="rent-advantages-box__text">
+                                <div class="box-text">
+                                    <p>Мобильны и универсальны</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rent-advantages-box">
+                            <div class="rent-advantages-box__icon"><img src="#ASSETS_PATH#/img/foundation.svg" alt="" loading="lazy" /></div>
+                            <div class="rent-advantages-box__text">
+                                <div class="box-text">
+                                    <p>Не требуют фундамента</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rent-advantages-box">
+                            <div class="rent-advantages-box__icon"><img src="#ASSETS_PATH#/img/joint.svg" alt="" loading="lazy" /></div>
+                            <div class="rent-advantages-box__text">
+                                <div class="box-text">
+                                    <p>Многократный сбор и разбор</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rent-advantages-box">
+                            <div class="rent-advantages-box__icon"><img src="#ASSETS_PATH#/img/time.svg" alt="" loading="lazy" /></div>
+                            <div class="rent-advantages-box__text">
+                                <div class="box-text">
+                                    <p>Экономят время и деньги</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="box-text">
+                    <p>Благодаря перечисленным преимуществам быстровозводимые здания на основе блок-контейнеров в последние
+                        годы
+                        стремительно набирают популярность в России. Чаще всего они используются в следующих целях:</p>
+                    <div class="manufacture-list">
+                        <ul class="list-cube my-ul color-grey">
+                            <li>временное жилье для рабочих;</li>
+                            <li>временные и постоянные офисы;</li>
+                            <li>торговые киоски, магазины, павильоны;</li>
+                            <li>помещения для хранения оборудования, материалов, инвентаря;</li>
+                        </ul>
+                        <ul class="list-cube my-ul color-grey">
+                            <li>мобильные кухни, столовые, кафе;</li>
+                            <li>раздевалки, сушилки, душевые;</li>
+                            <li>мини-СТО, автомойки, мастерские и так далее.</li>
+                        </ul>
+                    </div>
 
 
-<div class="company-block-advantages-info-wrapper ar-info-wrapper">
-            <div class="company-block-advantages-info-card">
-           
-          <span class="company-border"></span>
-           <p class="ar-info-wrapper-tel"> Для аренды быстровозводимых металлических<br> 
-бытовок звоните по телефону:<br><span><img src="images/icon-arenda/telephone.svg" alt=""><a class="neiros-click-lead #WF_PHONE_REPLACE#" style="cursor: pointer;">#WF_PHONES#</a></span> 
-</p>
-          
-        	</div>
-</div>
-
-       </div>
-	</div>
+                    <p>Это далеко не полный перечень применения модульных бытовок, однако любому использованию предшествует
+                        процедура
+                        изготовления нужной конструкции. Ускорить процесс возведения мобильного здания позволяет аренда готовых
+                        блок-
+                        контейнеров.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
+<section class="recommendation-rent">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">Арендовать или купить?</h2>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12 col-lg-5 mb-50 order-lg-1">
+                <div class="rent-image rent-image-v2"><img src="#ASSETS_PATH#/img/rent-image2.png" alt="" loading="lazy" /></div>
+            </div>
+            <div class="col-12 col-lg-7 mb-50">
+                <div class="rent-content">
+                    <div class="box-text">
+                        <p>Если предполагается строительство постоянного сооружения,
+                            целесообразно приобрести индивидуальный или типовой проект и
+                            модульные элементы для сборки здания. Однако в том случае, когда
+                            конструкция требуется лишь на время, будь то краткосрочный проект
+                            или неуверенность в том, что бизнес «пойдет», оптимальным
+                            решением будет аренда блок-контейнеров.</p>
 
-		</div>
+                        <p>Несколько преимуществ аренды бытовок:</p>
+                    </div>
 
-     </div>
-   </section>
+                    <div class="recommendation-rent-box">
+                        <div class="recommendation-rent-box__icon"><img src="#ASSETS_PATH#/img/clock-rent.svg" alt="" loading="lazy" /></div>
+                        <div class="recommendation-rent-box__text">
+                            <div class="box-text">
+                                <p><strong>экономия времени</strong> наизготовление блок-модулей</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation-rent-box">
+                        <div class="recommendation-rent-box__icon"><img src="#ASSETS_PATH#/img/payment.svg" alt="" loading="lazy" /></div>
+                        <div class="recommendation-rent-box__text">
+                            <div class="box-text">
+                                <p><strong>оплата только за фактическое</strong> использование конструкций</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation-rent-box">
+                        <div class="recommendation-rent-box__icon"><img src="#ASSETS_PATH#/img/no-fuss.svg" alt="" loading="lazy" /></div>
+                        <div class="recommendation-rent-box__text">
+                            <div class="box-text">
+                                <p><strong>отсутствие хлопот</strong>, связанных с продажей блок-контейнеров
+                                    после завершения эксплуатации</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation-rent-box">
+                        <div class="recommendation-rent-box__icon"><img src="#ASSETS_PATH#/img/watch.svg" alt="" loading="lazy" /></div>
+                        <div class="recommendation-rent-box__text">
+                            <div class="box-text">
+                                <p><strong>отсутствие потерь времени</strong> на капитальное строительство</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="box-text">
+                    <p>Аренда модульных бытовок актуальна в любое время года благодаря качественным характеристикам
+                        блок-контейнеров. Эти
+                        конструкции крепкие, надежные, долговечные и предназначены для эксплуатации в различных климатических
+                        условиях.</p>
+                    <p>Наша компания предлагает высококачественные бытовки из стандартных блок-модулей в аренду на выгодных
+                        условиях в
+                        Санкт-Петербурге. При необходимости мы самостоятельно доставим конструкции на место установки и соберем
+                        сооружение с
+                        учетом предпочтений клиента.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="calculate-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="calculate-wrapper mb-65">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center">Калькулятор стоимости аренды</h2>
 
-<section class="footer-gray-box ar-footer-gray-box" data-image="/local/templates/smart-module/images/bg-form-foto-3.jpg" style="background-image: url(&quot;/local/templates/smart-module/images/bg-form-foto-3.png&quot;); background-position: center -157.758px;">
-	<div class="large-12 medium-12 columns center footer-gray-box-block ">
-				<p class="manager_title-head">Остались вопросы?</p>
-                   <span class="manager_title-span">
-					Оставьте ваши данные и мы сделаем вам персональную скидку!  
-				</span>
-			<div class="questions_form">
+                            <form method="post" class="form-calculate">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="row">
+                                            <div class="col-12 mb-20">
+                                                <label><select name="select" class="select-my">
+                                                        <option value="Тип бытовки">Тип бытовки</option>
+                                                        <option value="Тип бытовки">Тип бытовки</option>
+                                                        <option value="Тип бытовки">Тип бытовки</option>
+                                                    </select></label>
+                                            </div>
 
+                                            <div class="col-12 col-sm-6 mb-20">
+                                                <div class="slider-range-box">
+                                                    <div class="slider-range-box__head">
+                                                        <p>Срок аренды, мес.</p>
+                                                        <input type="text" name="dec" class="slider-range-box__input dec1" disabled>
+                                                    </div>
+                                                    <div class="slider-range-box__body">
+                                                        <div class="slider-range slider-range1"></div>
+                                                        <div class="slider-range-values">
+                                                            <p>1</p>
+                                                            <p>12</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 mb-20">
+                                                <div class="slider-range-box">
+                                                    <div class="slider-range-box__head">
+                                                        <p>Кол-во бытовок</p>
+                                                        <input type="text" name="dec" class="slider-range-box__input dec2" disabled>
+                                                    </div>
+                                                    <div class="slider-range-box__body">
+                                                        <div class="slider-range slider-range2"></div>
+                                                        <div class="slider-range-values">
+                                                            <p>1</p>
+                                                            <p>20</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-		<form action="" method="POST" id="form-questions">
-			<p id="content_questions"></p>
-			<input type="text" class="manager_callback__input" name="name" placeholder="Ваше Имя">
-			<input type="text" class="manager_callback__input" name="phone" placeholder="Ваш телефон">
-			<span class="manager_callback__btn_span"><input type="submit" class="manager_callback__btn" value="Отправить"></span>
-			<div class="p-popup__check manager__check ">
-				<input type="checkbox" id="checkid2" name="check" checked="checked">
-				<label for="checkid2">
-					Даю согласие на обработку <a href="/politika-konfidentsialnosti/">персональных данных</a>
-				</label>
-			</div>
-		</form>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <div class="col-12 col-lg-5 mb-20">
+                                                <div class="form-calculate__total">
+                                                    <p>Итого <strong>36 660 руб.</strong></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-7 mb-20">
+                                                <button type="button" class="btn btn-green btn-calculate-modal">оставить заявку</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-calculate__image"><img src="#ASSETS_PATH#/img/calculate-image.png" alt="" loading="lazy" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
 
-			</div>
+                            <div class="calculate-total">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-30">
+                                        <div class="calculate-total-box">
+                                            <div class="calculate-total-box__icon"><img src="#ASSETS_PATH#/img/discount.svg" alt="" loading="lazy"></div>
+                                            <div class="calculate-total-box__text">
+                                                <p>Общая стоимость:
+                                                </p>
+                                                <span>443.652 руб.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-30">
+                                        <div class="calculate-total-box">
+                                            <div class="calculate-total-box__icon"><img src="#ASSETS_PATH#/img/user.svg" alt="" loading="lazy"></div>
+                                            <div class="calculate-total-box__text">
+                                                <p>Вместимость (мест):
+                                                </p>
+                                                <span>18 рабочих
+                                                    или
+                                                    30 спальных</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-30">
+                                        <div class="calculate-total-box">
+                                            <div class="calculate-total-box__icon"><img src="#ASSETS_PATH#/img/date.svg" alt="" loading="lazy"></div>
+                                            <div class="calculate-total-box__text">
+                                                <p>Срок поставки:
+                                                </p>
+                                                <span>3 дня</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3 mb-30">
+                                        <div class="calculate-total-box">
+                                            <div class="calculate-total-box__icon"><img src="#ASSETS_PATH#/img/size.svg" alt="" loading="lazy"></div>
+                                            <div class="calculate-total-box__text">
+                                                <p>Площадь:
+                                                </p>
+                                                <span>84 м<sup>2</sup></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="box-text text-center">
+                                            <p><strong>Отправьте расчет менеджерам и получите дополнительную скидку на модульные здания</strong>
+                                            </p>
+                                        </div>
+                                        <a href="#" class="btn btn-accent m-auto" data-bs-toggle="modal" data-bs-target="#callbackModal">
+                                            <span>Получить расчет со скидкой</span>
+                                        </a>
+                                    </div>
+                                </div>
 
-     </div>
-   </section>
-   
-   <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:main.include",
+            "",
+            array(
+                "AREA_FILE_SHOW" => "file",
+                "PATH" => '/include/content/arenda-block.php',
+                "EDIT_TEMPLATE" => "standard.php"
+            )
+        ); ?>
+    </div>
+</section>
+<?
+$APPLICATION->IncludeComponent(
+    "custom:form",
+    "questions",
+);
+?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
