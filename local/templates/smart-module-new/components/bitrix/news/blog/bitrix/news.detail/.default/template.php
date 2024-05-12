@@ -1,134 +1,149 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-/** @var array $arParams */
-/** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
-$this->setFrameMode(true);
-if ($_SERVER['SERVER_NAME'] !== 'smart-module.ru') :
-	@define("ERROR_404", "Y");
-	CHTTP::SetStatus("404 Not Found"); ?>
-	<script>
-		window.location.replace("<?= 'https://smart-module.ru' . $arResult['DETAIL_PAGE_URL'] ?>");
-	</script>
-<?
-	exit();
-endif;
-?>
-<?
-if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("iblock")) {
-	$cityID = CSeoCities::getCityId();
-}
-?>
+$this->setFrameMode(true); ?>
+<div class="row">
+    <div class="col-12">
+        <div class="article-title-wrapper">
+            #BREADCRUMB#
+            <h1>#H1#</h1>
+            <div class="materials-card-list article-info-list">
+                <? if ($arParams["DISPLAY_DATE"] != "N" && $arResult["DISPLAY_ACTIVE_FROM"]) : ?>
+                    <div class="materials-card-list__item">
+                        <svg class="svg-icon svg-icon-calendar">
+                            <use xlink:href="#ASSETS_PATH#/img/sprite.svg#calendar"></use>
+                        </svg>
+                        <span><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></span>
+                    </div>
+                <? endif; ?>
+                <? if ($arResult['PROPERTIES']['READING_TIME']['VALUE']) : ?>
+                    <div class="materials-card-list__item">
+                        <svg class="svg-icon svg-icon-calendar">
+                            <use xlink:href="#ASSETS_PATH#/img/sprite.svg#time"></use>
+                        </svg>
+                        <span><?= $arResult['PROPERTIES']['READING_TIME']['VALUE'] ?></span>
+                    </div>
+                <? endif; ?>
+                <div class="materials-card-list__item">
+                    <svg class="svg-icon svg-icon-calendar">
+                        <use xlink:href="#ASSETS_PATH#/img/sprite.svg#view"></use>
+                    </svg>
+                    <span>156</span>
+                </div>
+                <div class="materials-card-list__item">
+                    <svg class="svg-icon svg-icon-calendar">
+                        <use xlink:href="#ASSETS_PATH#/img/sprite.svg#comment"></use>
+                    </svg>
+                    <a href="#comment-section" class="go_to path-link">Обсудить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 d-flex flex-wrap align-items-stretch">
+        <article class="article-content">
+            <div class="article-menu open">
+                <div class="article-menu__head">
+                    <div class="h4">Содержание</div>
+                </div>
+                <div class="article-menu__body">
+                    <ol>
+                        <li>
+                            <a href="#">На что необходимо обратить внимание</a>
+                        </li>
+                        <li><a href="#">Инженеры рекомендуют</a></li>
+                        <li>
+                            <a href="#">Подготовка к укладке основания</a>
+                            <ul>
+                                <li><a href="#">Подготовка площадки</a></li>
+                                <li><a href="#">Установка бытовки на блоки</a></li>
+                                <li><a href="#">Подготовка площадки</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Покрытие слоем гидроизоляции</a></li>
+                        <li><a href="#">Корректировка количества уровней</a></li>
+                        <li><a href="#">Применение подъемного крана</a></li>
+                        <li><a href="#">Покрытие слоем гидроизоляции</a></li>
+                        <li><a href="#">Корректировка количества уровней</a></li>
+                        <li><a href="#">Применение подъемного крана</a></li>
+                        <li>
+                            <a href="#">Подготовка к укладке основания</a>
+                            <ul>
+                                <li><a href="#">Подготовка площадки</a></li>
+                                <li><a href="#">Установка бытовки на блоки</a></li>
+                                <li><a href="#">Подготовка площадки</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Корректировка количества уровней</a></li>
+                        <li><a href="#">Применение подъемного крана</a></li>
+                    </ol>
+                    <a href="#" class="article-menu__toggle">Показать полностью</a>
+                </div>
+            </div>
 
-<?
-if (in_array($cityID, $arResult["PROPERTIES"][NOT_SHOW_IN_CITIES][VALUE])) {
-	/*	http_response_code(404);
-	header("Location: /404.php");*/
-}
-$arFilterPopular = ['IBLOCK_ID' => $arResult['IBLOCK_ID'], '!ID' => $arResult['ID']];
-$arSelectPopular = ['ID', 'NAME', 'CODE', 'ACTIVE_FROM', 'IBLOCK_SECTION_ID', 'DETAIL_PICTURE'];
-$db_popular = CIBlockElement::GetList(['date_active_from' => 'desc'], $arFilterPopular, false, ['nTopCount' => 3], $arSelectPopular);
-$populars = [];
-while ($popular = $db_popular->Fetch()) :
-	$populars[] = [
-		'IMG_SRC' => CFile::GetPath($popular['DETAIL_PICTURE']),
-		'DATE' => date('d.m.Y', MakeTimeStamp($popular["ACTIVE_FROM"])),
-		'NAME' => $popular['NAME'],
-		'CODE' => $popular['CODE'],
-		'SECTION_CODE' => CIBlockSection::GetById($popular['IBLOCK_SECTION_ID'])->Fetch()['CODE'],
-	];
-endwhile;
-echo '<!-- <pre>';
-var_dump($populars);
-echo '</pre> -->';
-?>
-<header class="blog__header">
-	<div class="path">
-		<? $APPLICATION->IncludeComponent(
-			"bitrix:breadcrumb",
-			"crumb",
-			array(
-				"COMPONENT_TEMPLATE" => "crumb",
-				"START_FROM" => "0",
-				"PATH" => "",
-				"SITE_ID" => "s1",
-				"COMPOSITE_FRAME_MODE" => "A",
-				"COMPOSITE_FRAME_TYPE" => "AUTO"
-			),
-			false
-		); ?>
-	</div>
-	<h1 class="box-title"><? $APPLICATION->ShowTitle(false); ?></h1>
-	<div class="blog__info">
-		<? if ($arParams["DISPLAY_DATE"] != "N" && $arResult["DISPLAY_ACTIVE_FROM"]) : ?>
-			<div class="blog__date"><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></div>
-		<? endif; ?>
-		<? /*  Время чтения */ if ($arResult['PROPERTIES']['READING_TIME']['VALUE']) : ?>
-			<div class="read_time"><?= $arResult['PROPERTIES']['READING_TIME']['VALUE'] ?></div>
-		<? endif; ?>
+            <div class="box-text article-text">
+                <?= $arResult["DETAIL_TEXT"] ?>
+            </div>
 
-		<div class="views_count">156</div>
-		<div class="path-link link_to_commment"><a href="#" onclick="(e) => e.preventDefault()"><span>Обсудить</span></a></div><!-- preventDefault просто заглушка -->
-	</div>
-</header>
-<main class="blog__main">
-	<article class="text">
-		<?= $arResult['PROPERTIES']['SODERZHANIE']['~VALUE']['TEXT'] ?>
-		<?= $arResult["DETAIL_TEXT"] ?>	
-	</article>
-	<aside class="sidebar">
-		<div class="block popular-articles">
-			<span>Популярные статьи</span>
-			<ul>
-				<? foreach ($populars as $popular) : ?>
-					<li>
-						<img src="<?= $popular['IMG_SRC'] ?>" alt="<?= $popular['NAME'] ?>">
-						<div class="date_gray"><?= $popular['DATE'] ?></div>
-						<a href="<?= SITE_DIR . 'blog/' . $popular['SECTION_CODE'] . '/' . $popular['CODE'] . '/' ?>"><?= $popular['NAME'] ?></a>
-					</li>
-				<? endforeach; ?>
+            <div class="comment-section neiros-comment" id="comment-section">
+                <h2>Комментарии</h2>
+            </div>
+        </article>
 
-			</ul>
-			<a href="/blog/" class="all_articles">Ко всем статьям</a>
-		</div>
-		<div class="sidebar__float">
-			<div class="block subscribe__outer">
-				<? $APPLICATION->IncludeComponent(
-					"bitrix:subscribe.edit",
-					"subscribe",
-					array(
-						"AJAX_MODE" => "N",
-						"SHOW_HIDDEN" => "N",
-						"ALLOW_ANONYMOUS" => "Y",
-						"SHOW_AUTH_LINKS" => "N",
-						"CACHE_TYPE" => "N",
-						"CACHE_TIME" => "3600",
-						"SET_TITLE" => "N",
-						"AJAX_OPTION_JUMP" => "N",
-						"AJAX_OPTION_STYLE" => "N",
-						"AJAX_OPTION_HISTORY" => "N",
-						"COMPONENT_TEMPLATE" => ".default",
-						"AJAX_OPTION_ADDITIONAL" => "",
-						"COMPOSITE_FRAME_MODE" => "A",
-						"COMPOSITE_FRAME_TYPE" => "AUTO"
-					),
-					false
-				);
-				?>
-			</div>
-			<div class="block banner">
-				<a href="#" class="banner__link">
-					<img src="/local/templates/smart-module/images/banner_tmp.png" alt="Баннер">
-				</a>
-			</div>
-		</div>
-	</aside>
-</main>
-<div class="neiros-comment"></div>
+
+        <aside class="article-sidebar">
+            <? if (!empty($arResult['POPULARS'])) : ?>
+                <div class="article-sidebar-popular article-box">
+                    <div class="h4 article-box__title">Популярные статьи</div>
+                    <? foreach ($arResult['POPULARS'] as $article) : ?>
+                        <div class="article-popular-box">
+                            <a href="<?= $article['DETAIL_PAGE_URL'] ?>" class="article-popular-box__img"><img src="<?= $article['IMG_SRC'] ?>" alt="<?= $article['NAME'] ?>" loading="lazy" /></a>
+                            <div class="article-popular-box__body">
+                                <div class="materials-card-list__item date">
+                                    <svg class="svg-icon svg-icon-calendar">
+                                        <use xlink:href="#ASSETS_PATH#/img/sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span><?= $article['DATE'] ?></span>
+                                </div>
+                                <a href="<?= $article['DETAIL_PAGE_URL'] ?>" class="article-popular-box__title"><?= $article['NAME'] ?></a>
+                            </div>
+                        </div>
+                    <? endforeach ?>
+                    <a href="/blog/" class="article-popular__link">
+                        <span>Ко всем статьям</span>
+                        <svg class="svg-icon">
+                            <use xlink:href="#ASSETS_PATH#/img/sprite.svg#arrow-link"></use>
+                        </svg>
+                    </a>
+                </div>
+            <? endif; ?>
+            <div class="article-sidebar-fixed">
+                <div class="mb-30">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:subscribe.edit",
+                        "subscribe",
+                        array(
+                            "AJAX_MODE" => "N",
+                            "SHOW_HIDDEN" => "N",
+                            "ALLOW_ANONYMOUS" => "Y",
+                            "SHOW_AUTH_LINKS" => "N",
+                            "CACHE_TYPE" => "N",
+                            "CACHE_TIME" => "3600",
+                            "SET_TITLE" => "N",
+                            "AJAX_OPTION_JUMP" => "N",
+                            "AJAX_OPTION_STYLE" => "N",
+                            "AJAX_OPTION_HISTORY" => "N",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "AJAX_OPTION_ADDITIONAL" => "",
+                            "COMPOSITE_FRAME_MODE" => "A",
+                            "COMPOSITE_FRAME_TYPE" => "AUTO"
+                        ),
+                        false
+                    ); ?>
+                </div>
+                <a href="#" class="banner-link">
+                    <img src="#ASSETS_PATH#/img/banner_tmp.png" alt="Баннер" />
+                </a>
+            </div>
+        </aside>
+    </div>
+</div>

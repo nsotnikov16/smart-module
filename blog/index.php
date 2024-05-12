@@ -1,5 +1,13 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$domain = 'smart-module.ru';
+$domain = 'smart.local';
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+if ($_SERVER['SERVER_NAME'] !== $domain) {
+	@define("ERROR_404", "Y");
+	CHTTP::SetStatus("404 Not Found");
+	LocalRedirect('https://' . $domain . $_SERVER['REQUEST_URI'], true);
+	die();
+};
 $APPLICATION->SetTitle("Блог");
 if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("iblock")) {
 	$cityID = CSeoCities::getCityId();
@@ -7,8 +15,11 @@ if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("ibloc
 	$cityFilter = array("ID" => CIBlockElement::SubQuery("ID", array("IBLOCK_ID" => "6", "PROPERTY_NOT_SHOW_IN_CITIES" => $cityID)));
 }
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:news", "blog", Array(
-	"COMPONENT_TEMPLATE" => ".default",
+<? $APPLICATION->IncludeComponent(
+	"bitrix:news",
+	"blog",
+	array(
+		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "content",	// Тип инфоблока
 		"IBLOCK_ID" => "6",	// Инфоблок
 		"NEWS_COUNT" => "20",	// Количество новостей на странице
@@ -105,5 +116,5 @@ if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("ibloc
 		)
 	),
 	false
-);?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+); ?>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

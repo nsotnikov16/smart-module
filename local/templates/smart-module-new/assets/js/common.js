@@ -101,8 +101,8 @@ $('.clients-slider').slick({
 $('.materials-slider').slick({
 	slidesToShow: 3,
 	appendArrows: '.materials-slider-nav',
-	prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-	nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
+	prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+	nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
 	responsive: [{
 		breakpoint: 768,
 		settings: {
@@ -123,8 +123,8 @@ if ($('.materials-slider').length !== 0) {
 	$('.materials-slider').not('.slick-initialized').slick({
 		slidesToShow: 3,
 		appendArrows: '.materials-slider-nav',
-		prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-		nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
+		prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+		nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
 		responsive: [{
 			breakpoint: 768,
 			settings: {
