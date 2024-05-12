@@ -86,7 +86,7 @@ if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("ibloc
 		"DETAIL_PAGER_TITLE" => "Страница",	// Название категорий
 		"DETAIL_PAGER_TEMPLATE" => "",	// Название шаблона
 		"DETAIL_PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
-		"PAGER_TEMPLATE" => "smart-module",	// Шаблон постраничной навигации
+		"PAGER_TEMPLATE" => "pagination",	// Шаблон постраничной навигации
 		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
 		"DISPLAY_BOTTOM_PAGER" => "Y",	// Выводить под списком
 		"PAGER_TITLE" => "",	// Название категорий

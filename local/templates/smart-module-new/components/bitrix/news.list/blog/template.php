@@ -59,8 +59,33 @@ $this->setFrameMode(true);
                                 </div>
                             </div>
                         <? endforeach; ?>
+                        <?
+                        if ($arResult['ID'] == 6) {
+                            $APPLICATION->IncludeComponent(
+                                "bitrix:subscribe.edit",
+                                "subscribe",
+                                array(
+                                    "AJAX_MODE" => "N",
+                                    "SHOW_HIDDEN" => "N",
+                                    "ALLOW_ANONYMOUS" => "Y",
+                                    "SHOW_AUTH_LINKS" => "N",
+                                    "CACHE_TYPE" => "N",
+                                    "CACHE_TIME" => "3600",
+                                    "SET_TITLE" => "N",
+                                    "AJAX_OPTION_JUMP" => "N",
+                                    "AJAX_OPTION_STYLE" => "N",
+                                    "AJAX_OPTION_HISTORY" => "N",
+                                    "COMPONENT_TEMPLATE" => ".default",
+                                    "AJAX_OPTION_ADDITIONAL" => "",
+                                    "COMPOSITE_FRAME_MODE" => "A",
+                                    "COMPOSITE_FRAME_TYPE" => "AUTO"
+                                ),
+                                false
+                            );
+                        }
+                        ?>
                         <? if ($arParams['DISPLAY_BOTTOM_PAGER']) : ?>
-                            <?=$arResult["NAV_STRING"]?>
+                            <?= $arResult["NAV_STRING"] ?>
                         <? endif; ?>
                     </div>
                 </div>
