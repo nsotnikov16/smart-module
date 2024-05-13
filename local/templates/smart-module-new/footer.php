@@ -168,5 +168,15 @@ $APPLICATION->IncludeComponent(
     "callback",
 );
 ?>
+<?$APPLICATION->IncludeComponent(
+    "webfly:meta.edit", 
+    ".default", 
+    array(
+        "CACHE_TYPE" => "A",
+        "CACHE_TIME" => "3600",
+        "WF_JQUERY" => "N"
+    ),
+    false
+);?>
 </body>
 </html>
