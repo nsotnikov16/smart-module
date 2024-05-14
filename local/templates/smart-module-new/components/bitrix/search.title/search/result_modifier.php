@@ -36,7 +36,7 @@ foreach ($arResult["SEARCH"] as $i => $arItem) {
                 if (mb_substr($arItem["ITEM_ID"], 0, 1) !== "S") {
                     //Try to find gif by element proprety value xml id
                     $rsElement = CIBlockElement::GetList(array(), array(
-                        "=ID" => mb_substr($arItem["ITEM_ID"], 1),
+                        "=ID" => $arItem["ITEM_ID"],
                         "IBLOCK_ID" => $arItem["PARAM2"],
                     ),
                         false, false, array(
@@ -50,9 +50,9 @@ foreach ($arResult["SEARCH"] as $i => $arItem) {
 
                 } else {
                     $SECTION_ID = mb_substr($arItem["ITEM_ID"], 1);
-                    $filter = ["=ID" => $SECTION_ID, 'IBLOCK_ID' => $arItem["PARAM2"], '!UF_ICONMENU' => false];
-                    $rsSection = CIBlockSection::GetList([], $filter, false, ['ID', 'UF_ICONMENU'])->Fetch();
-                    $file = $rsSection['UF_ICONMENU'];
+                    $filter = ["=ID" => $SECTION_ID, 'IBLOCK_ID' => $arItem["PARAM2"]];
+                    $rsSection = CIBlockSection::GetList([], $filter, false, ['ID', 'UF_ICONMENU', 'PICTURE', 'DETAIL_PICTURE'])->Fetch();
+                    $file = $rsSection['UF_ICONMENU'] ?: $rsSection['PICTURE'] ?: $rsSection['DETAIL_PICTURE'];
                 }
 
                 //If no element icon was found. We'll take chances with section

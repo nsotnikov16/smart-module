@@ -20,44 +20,48 @@ if (!$arResult["NavShowAlways"]) {
 $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"] . "&amp;" : "");
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["NavQueryString"] : "");
 ?>
+
 <div class="col-12 col-lg-6">
 	<div class="search-result-value">
-		<p>Результаты поиска <strong>2 - 33</strong> из <strong>33</strong></p>
+		<p>Результаты поиска <strong><?= $arResult['NavFirstRecordShow'] ?> - <?= $arResult['NavLastRecordShow'] ?></strong> из <strong><?= $arResult['NavRecordCount'] ?></strong></p>
 	</div>
 </div>
-<div class="col-12 col-lg-6">
-	<nav class="nav nav-pagination">
-		<ul class="pagination my-ul">
-			<? if ($arResult["NavPageNomer"] <= $arResult["NavPageCount"] && $arResult['NavPageNomer'] != 1) : ?>
-				<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>" class="nav-link"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-			<? endif; ?>
 
-			<? while ($arResult["nStartPage"] >= $arResult["nEndPage"]) : ?>
-				<? $NavRecordGroupPrint = $arResult["NavPageCount"] - $arResult["nStartPage"] + 1; ?>
+<? if ($arResult['NavRecordCount'] > $arResult['NavPageSize']) : ?>
+	<div class="col-12 col-lg-6">
+		<nav class="nav nav-pagination">
+			<ul class="pagination my-ul">
+				<? if ($arResult["NavPageNomer"] <= $arResult["NavPageCount"] && $arResult['NavPageNomer'] != 1) : ?>
+					<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>" class="nav-link"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+				<? endif; ?>
 
-				<? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) : ?>
-					<li class="nav-item active"><span class="company-border"></span><a href="javascript:void(0)" class="nav-link"><?= $NavRecordGroupPrint ?></a></li>
-				<? elseif ($arResult["nStartPage"] == $arResult["NavPageCount"] && $arResult["bSavePage"] == false) : ?>
-				<? else : ?>
-					<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>" class="nav-link"><?= $NavRecordGroupPrint ?></a></li>
-				<? endif ?>
-				<? $arResult["nStartPage"]-- ?>
-			<? endwhile ?>
+				<? while ($arResult["nStartPage"] >= $arResult["nEndPage"]) : ?>
+					<? $NavRecordGroupPrint = $arResult["NavPageCount"] - $arResult["nStartPage"] + 1; ?>
 
-			<? while ($arResult["nStartPage"] <= $arResult["nEndPage"]) : ?>
-				<? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) : ?>
-					<li class="nav-item active"><span class="company-border"></span><a href="javascript:void(0)" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
-				<? elseif ($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false) : ?>
-					<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] . $strNavQueryStringFull ?>" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
-				<? else : ?>
-					<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
-				<? endif ?>
-				<? $arResult["nStartPage"]++ ?>
-			<? endwhile ?>
+					<? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) : ?>
+						<li class="nav-item active"><span class="company-border"></span><a href="javascript:void(0)" class="nav-link"><?= $NavRecordGroupPrint ?></a></li>
+					<? elseif ($arResult["nStartPage"] == $arResult["NavPageCount"] && $arResult["bSavePage"] == false) : ?>
+					<? else : ?>
+						<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>" class="nav-link"><?= $NavRecordGroupPrint ?></a></li>
+					<? endif ?>
+					<? $arResult["nStartPage"]-- ?>
+				<? endwhile ?>
 
-			<? if ($arResult["NavPageNomer"] < $arResult["NavPageCount"] && $arResult['NavPageNomer'] != $arResult['NavPageCount']) : ?>
-				<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] + 1) ?>" class="nav-link"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-			<? endif; ?>
-		</ul>
-	</nav>
-</div>
+				<? while ($arResult["nStartPage"] <= $arResult["nEndPage"]) : ?>
+					<? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) : ?>
+						<li class="nav-item active"><span class="company-border"></span><a href="javascript:void(0)" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
+					<? elseif ($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false) : ?>
+						<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] . $strNavQueryStringFull ?>" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
+					<? else : ?>
+						<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>" class="nav-link"><?= $arResult["nStartPage"] ?></a></li>
+					<? endif ?>
+					<? $arResult["nStartPage"]++ ?>
+				<? endwhile ?>
+
+				<? if ($arResult["NavPageNomer"] < $arResult["NavPageCount"] && $arResult['NavPageNomer'] != $arResult['NavPageCount']) : ?>
+					<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] + 1) ?>" class="nav-link"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<? endif; ?>
+			</ul>
+		</nav>
+	</div>
+<? endif; ?>

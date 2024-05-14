@@ -11,6 +11,14 @@ global $APPLICATION;
 if (empty($arResult))
     return "";
 
+// https://schema.org/BreadcrumbList JSON-LD
+$json = '
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement":
+[';
 
 $strReturn .= '<div class="col-12"><nav aria-label="breadcrumb" class="nav-breadcrumb"><ol class="breadcrumb">';
 
@@ -18,11 +26,6 @@ $itemSize = count($arResult);
 for ($index = 0; $index < $itemSize; $index++) {
 
     $title = htmlspecialcharsex($arResult[$index]["TITLE"]);
-
-    $nextRef =
-        ($index < $itemSize - 2 && $arResult[$index + 1]["LINK"] <> "" ? ' itemref="bx_breadcrumb_' . ($index) . '"' :
-            '');
-    $child = ($index > 0 ? ' itemprop="child"' : '');
 
     $Url = $APPLICATION->GetCurPage();
     $arUrl = explode('/', $Url);
@@ -66,35 +69,57 @@ for ($index = 0; $index < $itemSize; $index++) {
         $name = $title;
     }
 
-
     if ($arResult[$index]["LINK"] <> "" && $index != $itemSize - 1) {
+        $span = strtoupper(mb_substr($name, 0, 1)) . strtolower(mb_substr($name, 1));
         $strReturn .= '
-			<li class="breadcrumb-item" id="bx_breadcrumb_' . ($index) .
-            '" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"' . $child . $nextRef . ' data-test="' .
-            $new_name . '">
-
-				<a href="' . $arResult[$index]["LINK"] . '" title="' . $name . '" itemprop="url">
-					<span itemprop="title">' . strtoupper(mb_substr($name, 0, 1)) . strtolower(mb_substr($name, 1)) . '</span>
+			<li class="breadcrumb-item">
+				<a href="' . $arResult[$index]["LINK"] . '" title="' . $name . '">
+					<span>' . $span . '</span>
 				</a>
 			</li>';
+        $json .= '
+        {
+            "@type": "ListItem",
+            "position": ' . ($index + 1) . ',
+            "item":
+            {
+             "@id": "https://' . $_SERVER['SERVER_NAME'] . $arResult[$index]["LINK"] . '",
+             "name": "' . $span . '"
+             }
+        },
+        ';
     } else {
+        $span = '';
         if ($arFields) {
+            $span = strtoupper(mb_substr($name, 0, 1)) . strtolower(mb_substr($name, 1));
             $strReturn .= '
-				<li class="breadcrumb-item active" data-test="' . $new_name . '">
-					<span>' . strtoupper(mb_substr($name, 0, 1)) . strtolower(mb_substr($name, 1)) . '</span>
+				<li class="breadcrumb-item active">
+					<span>' . $span . '</span>
 				</li>';
         } else {
+            $span = strtoupper(mb_substr($title, 0, 1)) . strtolower(mb_substr($title, 1));
             $strReturn .= '
-				<li class="breadcrumb-item active" data-test="' . $title . '">
-					<span>' . strtoupper(mb_substr($title, 0, 1)) . strtolower(mb_substr($title, 1)) . '</span>
+				<li class="breadcrumb-item active">
+					<span>' . $span . '</span>
 				</li>';
         }
 
+        $json .= '{
+            "@type": "ListItem",
+           "position": ' . ($index + 1) . ',
+           "item":
+            {
+              "@id": "https://' . $_SERVER['SERVER_NAME'] . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) . '",
+              "name": "' . $span . '"
+            }
+           }';
     }
 }
 
 $strReturn .= '</ol></nav></div>';
+$json .= ']}</script>';
+
+$strReturn .= $json;
 
 $GLOBALS['BREADCRUMB'] = $strReturn;
 return '';
-?>

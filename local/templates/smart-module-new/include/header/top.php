@@ -23,12 +23,10 @@
                     ); ?>
                     <div class="header-box header-box-phone">
                         <div class="location-box">
-                            <a href="#" class="btn-location" data-bs-toggle="modal"
-                               data-bs-target="#locationModal">Санкт-Петербург</a>
+                            <a href="#" class="btn-location" data-bs-toggle="modal" data-bs-target="#locationModal">Санкт-Петербург</a>
                         </div>
                         <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#">
-                            <i class="fa fa-phone"
-                               aria-hidden="true"></i>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
                             #WF_PHONES#
                         </a>
                     </div>
@@ -71,8 +69,7 @@
                         </li>
                     </ul>
 
-                    <a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
-                       data-bs-target="#callbackModal">Получить консультацию</a>
+                    <a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal" data-bs-target="#callbackModal">Получить консультацию</a>
                     <div class="btn-search d-flex d-md-none">
                         <svg class="svg-icon svg-icon-search">
                             <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#search"></use>
@@ -88,37 +85,25 @@
 </div>
 
 <? $APPLICATION->IncludeComponent(
-	"bitrix:search.title", 
-	"search", 
-	array(
-		"CATEGORY_0" => array(
-			0 => "main",
-			1 => "iblock_catalog",
-			2 => "iblock_content",
-		),
-		"CATEGORY_0_TITLE" => "",
-		"CATEGORY_0_forum" => array(
-			0 => "all",
-		),
-		"CATEGORY_0_iblock_catalog" => array(
-			0 => "all",
-		),
-		"CATEGORY_0_iblock_content" => array(
-			0 => "all",
-		),
-		"CHECK_DATES" => "N",
-		"CONTAINER_ID" => "title-search",
-		"INPUT_ID" => "title-search-input",
-		"NUM_CATEGORIES" => "1",
-		"ORDER" => "date",
-		"PAGE" => "#SITE_DIR#search/index.php",
-		"SHOW_INPUT" => "Y",
-		"SHOW_OTHERS" => "N",
-		"TOP_COUNT" => "20",
-		"USE_LANGUAGE_GUESS" => "Y",
-		"COMPONENT_TEMPLATE" => "search",
-		"CATEGORY_0_main" => array(
-		)
-	),
-	false
+    "bitrix:search.title",
+    "search",
+    array(
+        "CATEGORY_0" => array("iblock_catalog"),
+        "CATEGORY_0_TITLE" => "",
+        "CATEGORY_0_iblock_catalog" => array(
+            0 => "1",
+        ),
+        "CHECK_DATES" => "N",
+        "CONTAINER_ID" => "title-search",
+        "INPUT_ID" => "title-search-input",
+        "NUM_CATEGORIES" => "1",
+        "ORDER" => "date",
+        "PAGE" => "#SITE_DIR#search/index.php",
+        "SHOW_INPUT" => "Y",
+        "SHOW_OTHERS" => "N",
+        "TOP_COUNT" => "20",
+        "USE_LANGUAGE_GUESS" => "Y",
+        "COMPONENT_TEMPLATE" => "search",
+    ),
+    false
 ); ?>
