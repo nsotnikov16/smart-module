@@ -26,17 +26,30 @@ class Navigation {
     getHTML() {
         const parser = new DOMParser();
         const doc = parser.parseFromString(this.elementFrom.value, 'text/html');
-        const h2List = doc.querySelectorAll('h2');
-        const h3List = doc.querySelectorAll('h3');
-        let html = '<ol>';
-        if (h2List.length) {
-            h2List.forEach(h2 => {
-                html += `<li><a href="#">${h2.innerHTML}</a>`;
+        const hList = Array.from(doc.querySelectorAll('h2, h3'));
+        let html = '';
+        if (hList.length && hList.some(h => h.tagName == 'H2')) {
+            html += '<ol>';
+            hList.forEach((h, index) => {
+                const id = 'title' + index;
+                h.id = id;
+                const next = hList[index + 1];
+                const prev = hList[index - 1];
+                const htmlLi = `<li><a href="#${id}">${h.innerHTML}</a>`;
+                if (h.tagName == 'H2') {
+                    if (prev?.tagName == 'H3') html += `</ul>`;
+                    html += htmlLi;
+                    if (next?.tagName == 'H3') html += `<ul>`;
+                }
 
-                html += '</li>';
+                if (h.tagName == 'H3') html += `${htmlLi}</li>`;
+
+                if (h.tagName == 'H2') html += '</li>';
             })
+            html += '</ol>';
+            this.elementFrom.value = doc.body.innerHTML;
         }
-        html += '</ol>';
+
         return html;
     }
 

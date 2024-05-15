@@ -41,44 +41,19 @@ $this->setFrameMode(true); ?>
 <div class="row">
     <div class="col-12 d-flex flex-wrap align-items-stretch">
         <article class="article-content">
-            <div class="article-menu open">
-                <div class="article-menu__head">
-                    <div class="h4">Содержание</div>
+            <? if (($nav = $arResult['PROPERTIES']['SODERZHANIE']['~VALUE']) && $nav['TEXT']) : ?>
+                <div class="article-menu open">
+                    <div class="article-menu__head">
+                        <div class="h4">Содержание</div>
+                    </div>
+                    <div class="article-menu__body">
+                        <?= $nav['TEXT'] ?>
+                        <? if (strlen($nav['TEXT']) > 300) : ?>
+                            <a href="#" class="article-menu__toggle">Показать полностью</a>
+                        <? endif; ?>
+                    </div>
                 </div>
-                <div class="article-menu__body">
-                    <ol>
-                        <li>
-                            <a href="#">На что необходимо обратить внимание</a>
-                        </li>
-                        <li><a href="#">Инженеры рекомендуют</a></li>
-                        <li>
-                            <a href="#">Подготовка к укладке основания</a>
-                            <ul>
-                                <li><a href="#">Подготовка площадки</a></li>
-                                <li><a href="#">Установка бытовки на блоки</a></li>
-                                <li><a href="#">Подготовка площадки</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Покрытие слоем гидроизоляции</a></li>
-                        <li><a href="#">Корректировка количества уровней</a></li>
-                        <li><a href="#">Применение подъемного крана</a></li>
-                        <li><a href="#">Покрытие слоем гидроизоляции</a></li>
-                        <li><a href="#">Корректировка количества уровней</a></li>
-                        <li><a href="#">Применение подъемного крана</a></li>
-                        <li>
-                            <a href="#">Подготовка к укладке основания</a>
-                            <ul>
-                                <li><a href="#">Подготовка площадки</a></li>
-                                <li><a href="#">Установка бытовки на блоки</a></li>
-                                <li><a href="#">Подготовка площадки</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Корректировка количества уровней</a></li>
-                        <li><a href="#">Применение подъемного крана</a></li>
-                    </ol>
-                    <a href="#" class="article-menu__toggle">Показать полностью</a>
-                </div>
-            </div>
+            <? endif; ?>
 
             <div class="box-text article-text">
                 <?= $arResult["DETAIL_TEXT"] ?>
