@@ -54,3 +54,14 @@ function changeContent(&$content)
         );
     }
 }
+
+AddEventHandler('main', 'OnProlog', 'OnPrologAdminHandler');
+
+function OnPrologAdminHandler()
+{
+    $adminUrl = '/bitrix/admin/';
+    if (!str_contains($_SERVER['REQUEST_URI'], $adminUrl)) return;
+    if (str_contains($_SERVER['REQUEST_URI'], $adminUrl . 'iblock_element_edit.php')) {
+        include __DIR__ . '/include/admin/iblock_element_edit.php';
+    }
+}
