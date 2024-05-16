@@ -38,7 +38,7 @@ AddEventHandler("main", "OnEndBufferContent", "changeContent");
 function changeContent(&$content)
 {
     global $BREADCRUMB, $APPLICATION;
-    if (!str_contains($_SERVER['REQUEST_URI'], 'bitrix/admin/')) {
+    if (!str_contains($_SERVER['REQUEST_URI'], '/bitrix/')) {
         $content = str_replace(
             [
                 '#BREADCRUMB#',
