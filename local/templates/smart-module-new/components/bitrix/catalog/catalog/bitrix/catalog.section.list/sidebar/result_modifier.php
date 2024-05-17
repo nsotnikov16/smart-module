@@ -1,13 +1,20 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 if (!empty($arResult['SECTIONS'])) {
 	foreach ($arResult['SECTIONS'] as $key => $arSection) {
-		
 		$arSelect = array('ID', 'NAME', 'SECTION_PAGE_URL', 'UF_TITLEMENU');
-		$arFilter = array('IBLOCK_ID' => $arParams['IBLOCK_ID'], '=SECTION_ID' => $arSection["ID"], 'ACTIVE' => 'Y', 'GLOBAL_ACTIVE' => 'Y');
+		$arFilter = array(
+			'IBLOCK_ID' => $arParams['IBLOCK_ID'],
+			'=SECTION_ID' => $arSection["ID"],
+			'ACTIVE' => 'Y',
+			'GLOBAL_ACTIVE' => 'Y',
+			'CNT_ACTIVE' => 'Y'
+		);
 		$res = CIBlockSection::GetList(array('SORT' => 'ASC'), $arFilter, true, $arSelect);
 		$arSubSections = [];
-		while ($ob = $res->GetNext()) 
+		while ($ob = $res->GetNext()) {
+			if ($ob['ELEMENT_CNT'] <= 0) continue;
 			$arSubSections[] = $ob;
+		}
 
 		$arResult['SECTIONS'][$key]['SUBSECTIONS'] = $arSubSections;
 	}

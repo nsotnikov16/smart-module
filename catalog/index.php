@@ -146,7 +146,7 @@ $APPLICATION->SetTitle("Каталог");
 				"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
 				"USE_STORE" => "N",
 				"USE_ENHANCED_ECOMMERCE" => "N",
-				"PAGER_TEMPLATE" => "smart-module",
+				"PAGER_TEMPLATE" => "pagination",
 				"DISPLAY_TOP_PAGER" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "Y",
 				"PAGER_TITLE" => "Каталог",
