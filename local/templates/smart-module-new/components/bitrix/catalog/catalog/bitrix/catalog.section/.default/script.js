@@ -27,7 +27,7 @@
     }))
 
     document.addEventListener('DOMContentLoaded', () => {
-        const productsCount = document.querySelectorAll('[data-product-item]').length;
+        const productsCount = document.querySelectorAll('.product-item').length;
         const advantagesBlock = document.querySelector('.advantages-events');
         const stockBlock = document.querySelector('.sales-sidebar');
 
