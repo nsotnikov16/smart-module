@@ -13,19 +13,45 @@
 $this->setFrameMode(true);
 ?>
 <? if (!empty($arResult['ITEMS'])) : ?>
-	<div class="advantages-events">
-		<? foreach ($arResult["ITEMS"] as $arItem) : ?>
+	<div class="advantages-events tabs">
+		<? foreach ($arResult["ITEMS"] as $key => $arItem) : ?>
 			<?
 			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 			?>
-			<div class="advantages-events-box" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+
+			<div class="advantages-events-box js-tab-trigger" data-tab="<?= $key ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 				<div class="advantages-events-box__icon">
 					<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arItem["NAME"] ?>" loading="lazy" />
 				</div>
 				<div class="advantages-events-box__text">
 					<div class="box-text">
 						<p><?= $arItem["NAME"] ?></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="advantages-events-box__hidden js-tab-content" data-tab="<?= $key ?>">
+				<div class="advantages-events-box__close">
+					<svg class="svg-icon">
+						<use xlink:href="#ASSETS_PATH#/img/sprite.svg#close"></use>
+					</svg>
+				</div>
+				<div class="advantages-events-box">
+					<div class="advantages-events-box__icon">
+						<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arItem["NAME"] ?>" loading="lazy" />
+					</div>
+					<div class="advantages-events-box__text">
+						<div class="box-text">
+							<p><?= $arItem["NAME"] ?></p>
+						</div>
+					</div>
+				</div>
+				<div class="advantages-events-box__body">
+					<div class="box-text">
+						<p>
+							<?= $arItem['PREVIEW_TEXT'] ?>
+						</p>
 					</div>
 				</div>
 			</div>
