@@ -1,0 +1,3 @@
+.catalog-menu__link_empty::before {
+    display: none;
+}
