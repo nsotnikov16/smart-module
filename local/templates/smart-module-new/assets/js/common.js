@@ -393,19 +393,6 @@ $('.sidebar-card input:checkbox').change(function () {
 	}
 });
 
-$('#kombox-filter .kombox-combo input[type=checkbox]').change(function () {
-	var title = $(this).parents('.kombox-combo').siblings('.select-title');
-	var values = [];
-	$(this).parents('.kombox-combo').children('.lvl2').each(function (i, e) {
-		var slice_num = $(e).find('.kombox-cnt').text().length
-		values.push($(e).children('span').text().slice(0, -slice_num));
-	});
-	if (values.length > 0) {
-		title.text(values.join(', '));
-	} else {
-		title.text(title.data('property-name'));
-	}
-});
 
 $(".slider-range1").slider({
 	min: 0,

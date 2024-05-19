@@ -1,6 +1,6 @@
 (function () {
     let url = new URL(window.location.href);
-
+    let loadMore = false;
 
     const getPropsProduct = (element) => {
         const id = element.getAttribute('data-id');
@@ -39,12 +39,14 @@
 
     // Показать еще
     document.addEventListener('click', (({ target }) => {
-        if (!target.closest('[data-show-more-catalog]')) return
+        if (!target.closest('[data-show-more-catalog]') || loadMore) return
         const productsContainer = document.querySelector('[data-products-container]');
         let page = Number(url.searchParams.get('PAGEN_1'));
+        target.textContent = 'Загружаем...';
         if (!page) page = 1;
         url.searchParams.set("PAGEN_1", page + 1);
         window.history.pushState({ path: url.href }, '', url.href);
+        loadMore = true;
         $.ajax(url.href + '&ajax=Y', {
             dataType: 'html',
             success: function (html) {
@@ -55,6 +57,9 @@
                     fade: true,
                     arrows: false,
                 });
+            },
+            complete: function() {
+                loadMore = false;
             }
         })
     }))

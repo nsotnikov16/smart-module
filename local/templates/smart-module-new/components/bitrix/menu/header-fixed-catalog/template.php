@@ -1,5 +1,4 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<?echo "<!-- <pre>"; var_dump($arResult); echo "</pre> -->";?>
 <? if (!empty($arResult)): ?>
     <div class="dropdown-menu">
     <ul class="dropdown-menu-catalog my-ul">
