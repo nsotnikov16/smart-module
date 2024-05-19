@@ -73,8 +73,8 @@ $componentElementParams = array(
 	'ELEMENT_CODE' => $arResult['VARIABLES']['ELEMENT_CODE'],
 	'SECTION_ID' => $arResult['VARIABLES']['SECTION_ID'],
 	'SECTION_CODE' => $arResult['VARIABLES']['SECTION_CODE'],
-	'SECTION_URL' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['section'],
-	'DETAIL_URL' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['element'],
+	'SECTION_URL' => $arResult['FOLDER'] . $arResult['URL_TEMPLATES']['section'],
+	'DETAIL_URL' => $arResult['FOLDER'] . $arResult['URL_TEMPLATES']['element'],
 	'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
 	'CURRENCY_ID' => $arParams['CURRENCY_ID'],
 	'HIDE_NOT_AVAILABLE' => $arParams['HIDE_NOT_AVAILABLE'],
@@ -136,7 +136,7 @@ $componentElementParams = array(
 	'ADD_TO_BASKET_ACTION_PRIMARY' => (isset($arParams['DETAIL_ADD_TO_BASKET_ACTION_PRIMARY']) ? $arParams['DETAIL_ADD_TO_BASKET_ACTION_PRIMARY'] : null),
 	'SHOW_CLOSE_POPUP' => isset($arParams['COMMON_SHOW_CLOSE_POPUP']) ? $arParams['COMMON_SHOW_CLOSE_POPUP'] : '',
 	'DISPLAY_COMPARE' => (isset($arParams['USE_COMPARE']) ? $arParams['USE_COMPARE'] : ''),
-	'COMPARE_PATH' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare'],
+	'COMPARE_PATH' => $arResult['FOLDER'] . $arResult['URL_TEMPLATES']['compare'],
 	'BACKGROUND_IMAGE' => (isset($arParams['DETAIL_BACKGROUND_IMAGE']) ? $arParams['DETAIL_BACKGROUND_IMAGE'] : ''),
 	'COMPATIBLE_MODE' => (isset($arParams['COMPATIBLE_MODE']) ? $arParams['COMPATIBLE_MODE'] : ''),
 	'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : ''),
@@ -148,8 +148,8 @@ $componentElementParams = array(
 	'DATA_LAYER_NAME' => (isset($arParams['DATA_LAYER_NAME']) ? $arParams['DATA_LAYER_NAME'] : ''),
 	'BRAND_PROPERTY' => (isset($arParams['BRAND_PROPERTY']) ? $arParams['BRAND_PROPERTY'] : ''),
 
-	'USE_GIFTS_DETAIL' => $arParams['USE_GIFTS_DETAIL']?: 'Y',
-	'USE_GIFTS_MAIN_PR_SECTION_LIST' => $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST']?: 'Y',
+	'USE_GIFTS_DETAIL' => $arParams['USE_GIFTS_DETAIL'] ?: 'Y',
+	'USE_GIFTS_MAIN_PR_SECTION_LIST' => $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST'] ?: 'Y',
 	'GIFTS_SHOW_DISCOUNT_PERCENT' => $arParams['GIFTS_SHOW_DISCOUNT_PERCENT'],
 	'GIFTS_SHOW_OLD_PRICE' => $arParams['GIFTS_SHOW_OLD_PRICE'],
 	'GIFTS_DETAIL_PAGE_ELEMENT_COUNT' => $arParams['GIFTS_DETAIL_PAGE_ELEMENT_COUNT'],
@@ -183,14 +183,13 @@ if (isset($arParams['USER_CONSENT_IS_CHECKED'])) {
 
 if (isset($arParams['USER_CONSENT_IS_LOADED'])) {
 	$componentElementParams['USER_CONSENT_IS_LOADED'] = $arParams['USER_CONSENT_IS_LOADED'];
-}
+} ?>
 
-$elementId = $APPLICATION->IncludeComponent(
+<? $elementId = $APPLICATION->IncludeComponent(
 	'bitrix:catalog.element',
 	'',
 	$componentElementParams,
 	$component
 );
 $GLOBALS['CATALOG_CURRENT_ELEMENT_ID'] = $elementId;
-
 ?>
