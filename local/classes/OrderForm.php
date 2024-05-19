@@ -27,7 +27,7 @@ class OrderForm
             'form_hidden_4' => $this->request->get('base_price'),
             'form_hidden_5' => $this->request->get('add_price'),
             'form_hidden_6' => $this->request->get('price'),
-            'form_hidden_6' => $this->request->get('add_services'),
+            'form_hidden_7' => $this->request->get('add_services'),
         ];
 
         try {

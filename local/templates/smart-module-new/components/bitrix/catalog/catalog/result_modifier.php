@@ -13,6 +13,42 @@ if (!function_exists('getWebflyCatalogTopText')) {
     }
 }
 
+if (!function_exists('getWebflyCatalogFilterTexts')) {
+    function getWebflyCatalogFilterTexts()
+    {
+        if (!\CModule::IncludeModule('webfly.seocities')) return;
+        $filterURL = explode('/', $_SERVER['REDIRECT_URL']);
+        $result = [];
+        if (in_array('filter', $filterURL)) {
+            $arSelectSeoV2 = array("ID", "NAME", "DATE_ACTIVE_FROM", "PREVIEW_TEXT", "DETAIL_TEXT");
+            $arFilterSeoV2 = array("IBLOCK_ID" => 64, "NAME" => $_SERVER['REDIRECT_URL'], "ACTIVE" => "Y", "PROPERTY_DOMEN" => $_SERVER['SERVER_NAME']);
+            $resSeoV2 = CIBlockElement::GetList(array(), $arFilterSeoV2, false, false, $arSelectSeoV2);
+            if ($obSeoV2 = $resSeoV2->Fetch()) $result = $obSeoV2;
+        }
+        return $result;
+    }
+}
+
+if (!function_exists('getSimilarSections')) {
+    function getSimilarSections($sectionId)
+    {
+        $result = [];
+        $arSelect = array('ID', 'NAME', 'SECTION_PAGE_URL', 'UF_SAME', 'UF_IMG_POH_TO_2', 'UF_IMG_POH_TO_1', 'UF_URL_POH_TO_2', 'UF_URL_POH_TO_1', 'UF_TITLE_POH_TO_2', 'UF_TITLE_POH_TO_1', 'UF_SHOWCALC');
+        $arFilter = array('IBLOCK_ID' => 1, 'ACTIVE' => 'Y', 'ID' => $sectionId);
+        $res = CIBlockSection::GetList(array('SORT' => 'ASC'), $arFilter, true, $arSelect);
+        while ($ob = $res->GetNext()) {
+            if ($ob['UF_SHOWCALC'] == '1') $GLOBALS['showCulc'] = true;
+            foreach ($ob as $key => $value) {
+                if (!$value) continue;
+                if (str_contains($key, '_1')) $result[0][str_replace('_1', '', $key)] = $value;
+                if (str_contains($key, '_2')) $result[1][str_replace('_2', '', $key)] = $value;
+            }
+        }
+        ksort($result);
+        return $result;
+    }
+}
+
 if (!function_exists('getSidebarData')) {
     // Перенос со старого шаблона
     function getSidebarData()

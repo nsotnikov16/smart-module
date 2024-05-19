@@ -64,7 +64,7 @@
                                 <? endif; ?>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal" data-bs-target="#orderModal" data-base-price="<?= intval($arItem['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE']) ?>" data-product-id="<?= $arItem['ID'] ?>">Купить</a>
+                        <a href="#" class="btn btn-green recommended-products-card__btn" data-bs-toggle="modal" data-bs-target="#orderModal" data-base-price="<?= intval($arItem['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE']) ?>" data-product-id="<?= $arItem['ID'] ?>" onclick="clickProduct(this)">Купить</a>
                     </div>
                 </div>
             </div>
