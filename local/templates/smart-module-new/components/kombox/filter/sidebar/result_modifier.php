@@ -19,15 +19,18 @@ if (is_array($arResult['ELEMENTS']) && count($arResult['ELEMENTS']) > 1 && $arRe
 }
 
 if (!empty($arResult['ITEMS'])) {
+    $showPanelFilter = false;
     foreach ($arResult['ITEMS'] as $key => $arItem) {
         if (empty($arItem['VALUES'])) continue;
         $isChecked = false;
         foreach ($arItem['VALUES'] as $arValue) {
             if ($arValue['CHECKED']) {
                 $isChecked = true;
+                $showPanelFilter = true;
                 break;
             }
         }
         if ($isChecked) $arResult['ITEMS'][$key]['IS_SHOW'] = true;
     }
+    if ($showPanelFilter) $arResult['SHOW_PANEL'] = true;
 }
