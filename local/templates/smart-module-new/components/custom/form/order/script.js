@@ -46,15 +46,27 @@ const createInput = (name) => {
     return input;
 }
 
-function clickProduct(element) {
-    const basePrice = element.getAttribute('data-base-price');
+function clickProduct(element, objOrder) {
+    const price = element ? element.getAttribute('data-base-price') : objOrder.price;
     const form = document.querySelector('[data-order-form]');
-    let inputBasePrice = form.querySelector('[name="price"]');
+    let inputPrice = form.querySelector('[name="price"]');
     let inputUrl = form.querySelector('[name="url"]');
+    let inputAddPrice = form.querySelector('[name="add_price"]');
+    let inputAddServices = form.querySelector('[name="add_services"]');
 
-    if (!inputBasePrice) {
-        inputBasePrice = createInput('price');
-        form.append(inputBasePrice);
+    if (!inputPrice) {
+        inputPrice = createInput('price');
+        form.append(inputPrice);
+    }
+
+    if (!inputAddPrice) {
+        inputAddPrice = createInput('add_price');
+        form.append(inputAddPrice);
+    }
+
+    if (!inputAddServices) {
+        inputAddServices = createInput('add_services');
+        form.append(inputAddServices);
     }
 
     if (!inputUrl) {
@@ -62,6 +74,10 @@ function clickProduct(element) {
         form.append(inputUrl);
     }
 
-    inputBasePrice.value = basePrice;
+    [inputPrice, inputUrl, inputAddPrice, inputAddServices].forEach(input => input.value = ''); // сброс значений
+
+    inputPrice.value = price;
+    if (objOrder.addPrice) inputAddPrice.value = objOrder.addPrice;
+    if (objOrder.addServices) inputAddServices.value = objOrder.addServices;
     inputUrl.value = window.location.href;
 }

@@ -19,9 +19,24 @@
             this.minusBtns.forEach(btn => btn.addEventListener('click', () => this.handlerMinusBtn(btn)));
             this.addToCardBtns.forEach(btn => btn.addEventListener('click', () => this.handlerPlusBtn(btn)));
             this.countInputs.forEach(input => input.addEventListener('change', () => this.handlerChangeInput(input)));
-            this.basketOrderBtn.addEventListener('click', () => {
-                // Допилить
+            this.basketOrderBtn.addEventListener('click', this.handlerOrderBtn.bind(this));
+        }
+
+        handlerOrderBtn() {
+            let addPrice = 0;
+            let price = 0;
+            let addServices = '';
+            const basketItems = this.basketList.querySelectorAll('[data-item]');
+            if (!basketItems.length) return alert('В корзине пусто :(');
+            basketItems.forEach(item => {
+                const itemInfo = this.findItem(item);
+                addPrice += itemInfo.price;
+                price += itemInfo.price * itemInfo.count;
+                addServices += `${itemInfo.name} - ${itemInfo.count} шт. (${itemInfo.price} р. за шт);\n`;
             })
+            if (typeof clickProduct != 'function') return alert('Код ошибки: FUNCTION_UNDEFINED');
+            const obj = { price, addPrice, addServices }
+            clickProduct(false, obj);
         }
 
         handlerPlusBtn(btn) {
@@ -129,7 +144,8 @@
             const price = Number(priceElement.getAttribute('data-default-price'));
             const countElement = item.querySelector('[data-count]');
             const count = Number(countElement.value);
-            return { item, priceElement, price, countElement, count, serviceElement, serviceElementCount };
+            const name = item.querySelector('[data-name]').textContent;
+            return { item, name, priceElement, price, countElement, count, serviceElement, serviceElementCount };
         }
 
         createItem({ name, price, id }) {
@@ -139,7 +155,7 @@
             div.setAttribute('data-item', '');
             price = price.replace(/\D/g, "");
             div.innerHTML = `
-            <div class="services-description">${name}</div>
+            <div class="services-description" data-name>${name}</div>
             <div class="services-price">
                 <p class="services-title_price">Стоимость</p>
                 <span class="count-price" data-default-price="${price}"><span data-price>${price}</span> руб.</span>

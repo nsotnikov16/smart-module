@@ -145,7 +145,7 @@ $this->setFrameMode(true); ?>
                                                                     <p>Стоимость:</p>
                                                                     <div class="price" data-price><?= $element['PREVIEW_TEXT'] ?></div>
                                                                 </div>
-                                                                <a href="#" class="btn btn-accent btn-add-card" data-add-to-card>
+                                                                <a href="javascript:void(0)" class="btn btn-accent btn-add-card" data-add-to-card>
                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                     <span>Добавить</span>
                                                                 </a>
