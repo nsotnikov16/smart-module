@@ -1,4 +1,4 @@
-if (!window.app) window.app = {ASSETS_PATH: '/local/templates/smart-module-new/assets'};
+if (!window.app) window.app = { ASSETS_PATH: '/local/templates/smart-module-new/assets' };
 $('[name="phone"]').mask('+7 (999)999-99-99');
 
 // mobile menu
@@ -617,7 +617,7 @@ $('.video-container-tab').slick({
 	infinite: false,
 });
 
-$('.video-tab').each(function(i) {
+$('.video-tab').each(function (i) {
 	const selector = `.video-container-tab${i}`;
 	const countSlides = document.querySelector(selector).childNodes.length;
 	$(this).slick({
@@ -841,35 +841,59 @@ function start_map() {
 * @returns {object}
 */
 async function request(method = 'GET', url, data) {
-    let result = {};
-    try {
-        if (!url) throw new Error('Отсутствует url адрес');
-        const body = data instanceof FormData ? data : JSON.stringify(data);
+	let result = {};
+	try {
+		if (!url) throw new Error('Отсутствует url адрес');
+		const body = data instanceof FormData ? data : JSON.stringify(data);
 
-        const options = {
-            method,
-            ...method != 'GET' && data ? { body } : ''
-        }
+		const options = {
+			method,
+			...method != 'GET' && data ? { body } : ''
+		}
 
-        if (data instanceof FormData === false) {
-            options.headers = {
-                'Content-Type': 'application/json'
-            }
-        }
+		if (data instanceof FormData === false) {
+			options.headers = {
+				'Content-Type': 'application/json'
+			}
+		}
 
-        const response = await fetch(url, options);
-        let text = await response.text();
-        text = text.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-        result = JSON.parse(text);
+		const response = await fetch(url, options);
+		let text = await response.text();
+		text = text.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+		result = JSON.parse(text);
 
-    } catch (error) {
-        result = { success: false, error: error.message };
-    }
+	} catch (error) {
+		result = { success: false, error: error.message };
+	}
 
-    return result;
+	return result;
 }
 
 function redirect(url, timer = 0) {
 	if (!url) return;
 	setTimeout(() => { window.location.href = window.location.protocol + '//' + window.location.hostname + url; }, timer)
 }
+
+const getPropsProduct = (element) => {
+	const id = element.getAttribute('data-id');
+	const propsAtrValue = element.getAttribute('data-get-props');
+	const props = propsAtrValue ? JSON.parse(propsAtrValue) : false;
+	const infoBlock = element.nextElementSibling
+	if (!infoBlock.closest('[data-product-info]')) return
+	if (!props) return
+	if (!window.catalogItemAjaxPropsPath) return;
+	infoBlock.textContent = 'Загрузка...'
+	fetch(window.catalogItemAjaxPropsPath, {
+		method: 'POST',
+		body: JSON.stringify({
+			props,
+			id,
+		})
+	}).then(res => res.text()).then(res => infoBlock.innerHTML = `<ul class="list-characteristics my-ul">${res}</ul>`)
+	element.setAttribute('data-get-props', '');
+}
+
+document.addEventListener('mouseover', (({ target }) => {
+	if (!target.closest('[data-get-props]')) return;
+	getPropsProduct(target);
+}))

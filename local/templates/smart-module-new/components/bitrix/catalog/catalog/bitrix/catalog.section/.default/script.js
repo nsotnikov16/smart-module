@@ -2,30 +2,6 @@
     let url = new URL(window.location.href);
     let loadMore = false;
 
-    const getPropsProduct = (element) => {
-        const id = element.getAttribute('data-id');
-        const propsAtrValue = element.getAttribute('data-get-props');
-        const props = propsAtrValue ? JSON.parse(propsAtrValue) : false;
-        const infoBlock = element.nextElementSibling
-        if (!infoBlock.closest('[data-product-info]')) return
-        if (!props) return
-        if (!window.catalogSectionAjaxPropsPath) return;
-        infoBlock.textContent = 'Загрузка...'
-        fetch(window.catalogSectionAjaxPropsPath, {
-            method: 'POST',
-            body: JSON.stringify({
-                props,
-                id,
-            })
-        }).then(res => res.text()).then(res => infoBlock.innerHTML = `<ul class="list-characteristics my-ul">${res}</ul>`)
-        element.setAttribute('data-get-props', '');
-    }
-
-    document.addEventListener('mouseover', (({ target }) => {
-        if (!target.closest('[data-get-props]')) return;
-        getPropsProduct(target);
-    }))
-
     document.addEventListener('DOMContentLoaded', () => {
         const productsCount = document.querySelectorAll('.product-item').length;
         const advantagesBlock = document.querySelector('.advantages-events');

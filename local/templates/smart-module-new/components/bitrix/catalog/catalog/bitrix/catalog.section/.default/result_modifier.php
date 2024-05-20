@@ -20,17 +20,4 @@ if (empty($arResult["ITEMS"]["0"])) {
     }
 }
 
-if (!empty($arResult['ITEMS'])) {
-    foreach ($arResult['ITEMS'] as $key => $arItem) {
-        if (isset($arItem['PREVIEW_PICTURE']['ID'])) {
-            $arResult['ITEMS'][$key]['MAIN_IMG_SRC'] = \CFile::ResizeImageGet(
-                $arItem['PREVIEW_PICTURE'],
-                array('width' => 355, 'height' => 220),
-                BX_RESIZE_IMAGE_PROPORTIONAL,
-                true
-            )['src'];
-        } else {
-            $arResult['ITEMS'][$key]['MAIN_IMG_SRC'] = ASSETS_PATH . "/img/noimage_355x220.jpg";
-        }
-    }
-}
+
