@@ -434,7 +434,7 @@ $similarSections = getSimilarSections($arResult['VARIABLES']['SECTION_ID']); // 
 				<? foreach ($similarSections as $simSection) : ?>
 					<div class="col-12 col-md-6 mb-40">
 						<a href="<?= $simSection['UF_URL_POH_TO'] ?>" class="advantages-company-col">
-							<img src="<?= \CFile::GetPath($simSection['UF_IMG_POH_TO']) ?>" alt="<?= $simSection['UF_TITLE_POH_TO'] ?>" loading="lazy" />
+							<img src="<?= \CFile::ResizeImageGet($simSection['UF_IMG_POH_TO'], array('width'=>355, 'height'=>220), BX_RESIZE_IMAGE_PROPORTIONAL, true)['src']; ?>" alt="<?= $simSection['UF_TITLE_POH_TO'] ?>" loading="lazy" />
 							<span class="advantages-company-col__link"><?= $simSection['UF_TITLE_POH_TO'] ?></span>
 						</a>
 					</div>

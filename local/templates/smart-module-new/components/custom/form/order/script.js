@@ -39,3 +39,29 @@
     }
 })();
 
+const createInput = (name) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    return input;
+}
+
+function clickProduct(element) {
+    const basePrice = element.getAttribute('data-base-price');
+    const form = document.querySelector('[data-order-form]');
+    let inputBasePrice = form.querySelector('[name="price"]');
+    let inputUrl = form.querySelector('[name="url"]');
+
+    if (!inputBasePrice) {
+        inputBasePrice = createInput('price');
+        form.append(inputBasePrice);
+    }
+
+    if (!inputUrl) {
+        inputUrl = createInput('url');
+        form.append(inputUrl);
+    }
+
+    inputBasePrice.value = basePrice;
+    inputUrl.value = window.location.href;
+}

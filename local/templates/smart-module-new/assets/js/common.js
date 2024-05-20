@@ -585,7 +585,7 @@ $(window).on('load resize', function () {
 $('.down').on("click", function () {
 	let $input = $(this).parent().find('input');
 	let count = parseInt($input.val()) - 1;
-	count = count < 1 ? 1 : count;
+	count = count < 1 ? 0 : count;
 	$input.val(count);
 	$input.change();
 	return false;

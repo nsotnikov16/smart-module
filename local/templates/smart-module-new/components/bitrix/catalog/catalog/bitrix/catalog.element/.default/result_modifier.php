@@ -2,17 +2,21 @@
 
 use Bitrix\Main\Page\Asset;
 
-Asset::getInstance()->addString('
-<script>
-try {
-	window.spritespinObj = {
-		min: "' . $arResult['DETAIL_PICTURE']['SRC'] . '",
-		big: "' . \CFile::GetPath($arResult['PROPERTIES']['FULL_SPRITE']['VALUE']) . '"
-	}
-} catch (error) {
-	
+if ($arResult['DETAIL_PICTURE']['SRC'] && ($fspritepath = \CFile::GetPath($arResult['PROPERTIES']['FULL_SPRITE']['VALUE']))) {
+	Asset::getInstance()->addString('
+	<script>
+	(function(){
+	try {
+		window.spritespinObj = {
+			min: "' . $arResult['DETAIL_PICTURE']['SRC'] . '",
+			big: "' . $fspritepath . '"
+		}
+	} catch (error) {
+		
+	}})()
+	</script>');
 }
-</script>');
+
 
 /**
  * Дополнительные услуги
@@ -38,13 +42,12 @@ $res_el = Bitrix\Iblock\ElementTable::getList(array(
 while ($row = $res_el->fetch()) {
 	$arResult['ADD_SERVICES'][$row['IBLOCK_SECTION_ID']]['ELEMENTS'][] = $row;
 }
-echo '<!-- <pre>';
-var_dump($arResult);
-echo '</pre> -->';
 
 if (!$arResult['DETAIL_PICTURE']['SRC']) {
 	$arResult['DETAIL_PICTURE']['SRC'] = ASSETS_PATH . '/img/noimage_400x300.jpg';
 }
+
+if (!is_array($arResult['DISPLAY_PROPERTIES']['PHOTOS']['VALUE'])) $arResult['DISPLAY_PROPERTIES']['PHOTOS']['VALUE'] = [];
 
 array_unshift($arResult['DISPLAY_PROPERTIES']['PHOTOS']['VALUE'], $arResult['PREVIEW_PICTURE']['ID']);
 
@@ -67,20 +70,3 @@ foreach ($infoProps as $propCode) {
 		$arResult['PRODUCT_INFO'][] = ['NAME' => $arrProp['NAME'], 'VALUE' => implode(', ', $arrProp['VALUE'])];
 	}
 }
-
-$arResult['TABS'] = ['Дополнительные услуги'];
-$url_page = $ar_res_url['DETAIL_PAGE_URL'];
-$url_page_sec = explode("/", $url_page)[2];
-$needleSections = [
-	'ofisnye-zdaniya',
-	'bystrovozvodimye-sklady',
-	'stroitelnye-zdaniya',
-	'zdaniya-dlya-biznesa',
-	'sooruzheniya-dlya-sporta',
-	'selskokhozyaystvennye-zdaniya',
-	'torgovye-zdaniya',
-	'promyshlennye-zdaniya',
-	'bystrovozvodimye-zdaniya'
-];
-if (in_array($url_page_sec, $needleSections)) $arResult['TABS'][] = 'Технология';
-if ($arResult['PREVIEW_TEXT']) $arResult['TABS'][] = 'Описание';

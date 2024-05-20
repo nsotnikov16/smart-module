@@ -36,14 +36,22 @@ $this->setFrameMode(true); ?>
                         <? endforeach ?>
                     </div>
                     <div class="product-image">
-                        <a class="js-fullscreen" href="#" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть подробно"><i class="fa fa-expand" id="tooltip" aria-hidden="true"></i></a>
-                        <div class="spritespin"></div>
-                        <div class="spritespinBig"></div>
-                        <div id="container_for_button">
-                            <div id="prewSlide"></div>
-                            <input type="range" min="0" max="29" step="1" value="0" data-orientation="horizontal" />
-                            <div id="nextSlide"></div>
-                        </div>
+                        <? if ($arResult['DETAIL_PICTURE']['SRC'] && $arResult['PROPERTIES']['FULL_SPRITE']['VALUE']) : ?>
+                            <a class="js-fullscreen" href="#" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть подробно"><i class="fa fa-expand" id="tooltip" aria-hidden="true"></i></a>
+                            <div class="spritespin"></div>
+                            <div class="spritespinBig"></div>
+                            <div id="container_for_button">
+                                <div id="prewSlide"></div>
+                                <input type="range" min="0" max="29" step="1" value="0" data-orientation="horizontal" />
+                                <div id="nextSlide"></div>
+                            </div>
+                        <? else : ?>
+                            <div>
+                                <a href="<?= $arResult['PREVIEW_PICTURE']['SRC'] ?>" class="new-js-popup-min" data-fancybox="new-js-popup-min-2">
+                                    <img src="<?= $arResult['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arResult['NAME'] ?>">
+                                </a>
+                            </div>
+                        <? endif; ?>
                     </div>
                 <? endif; ?>
             </div>
@@ -75,9 +83,8 @@ $this->setFrameMode(true); ?>
                                 <p><strong>Стоимость:</strong><?= $arResult['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE'] ?: 'по запросу' ?></p>
                             </div>
                         </div>
-                        <? if (!$arResult['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE']) : ?>
-                            <a href="javascript:void(0)" class="btn btn-green product-information__btn" data-bs-toggle="modal" data-bs-target="#orderModal">Узнать стоимость</a>
-                        <? endif; ?>
+
+                        <a href="javascript:void(0)" class="btn btn-green product-information__btn" data-base-price="<?= intval($arResult['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE']) ?>" onclick="clickProduct(this)" data-bs-toggle="modal" data-bs-target="#orderModal"><?= $arResult['DISPLAY_PROPERTIES']['PRICE']['DISPLAY_VALUE'] ? 'Купить' : 'Узнать стоимость' ?></a>
                     </div>
                 </div>
             </div>
@@ -85,16 +92,88 @@ $this->setFrameMode(true); ?>
     </div>
 </div>
 
-<div class="product-details">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="nav nav-tabs nav-tabs-products" role="tablist">
-                    <button class="nav-link active" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">Дополнительные услуги</button>
-                    <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">Сертификаты</button>
-                    <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">Описание</button>
-                </nav>
+<? if (!empty($arResult['ADD_SERVICES']) || $arResult['DETAIL_TEXT']) : ?>
+    <div class="product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="nav nav-tabs nav-tabs-products" role="tablist">
+                        <? if (!empty($arResult['ADD_SERVICES'])) : ?>
+                            <button class="nav-link" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">Дополнительные услуги</button>
+                        <? endif; ?>
+                        <? if ($arResult['DETAIL_TEXT']) : ?>
+                            <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">Описание</button>
+                        <? endif; ?>
+                        <!-- <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">Сертификаты</button> -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="section-tabs-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content tab-content-product">
+                            <? if (!empty($arResult['ADD_SERVICES'])) : ?>
+                                <div class="tab-pane fade" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab" tabindex="0">
+                                    <div class="tab-content-product-wrapper tabs">
+                                        <div class="tab-product-category">
+                                            <div class="tab-product-category__col">
+                                                <? foreach (($arResult['ADD_SERVICES']) as $key => $service) : ?>
+                                                    <div class="js-tab-trigger tab-product-category-item" data-tab="<?= $key ?>">
+                                                        <div class="tab-product-category-item__icon">
+                                                            <img src="<?= CFile::GetPath($service["DETAIL_PICTURE"]); ?>" alt="<?= $service['NAME'] ?>" loading="lazy">
+                                                        </div>
+                                                        <div class="tab-product-category-item__text"><?= $service['NAME'] ?></div>
+                                                    </div>
+                                                <? endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <div class="tab-product-category-content">
+                                            <? foreach (($arResult['ADD_SERVICES']) as $key => $service) : ?>
+                                                <div class="js-tab-content" data-tab="<?= $key ?>">
+                                                    <? if (!empty($service['ELEMENTS'])) : ?>
+                                                        <? foreach ($service['ELEMENTS'] as $element) : ?>
+                                                            <div class="product-component-row" data-services-element-id="<?= $element['ID']?>">
+                                                                <? if ($element['PREVIEW_PICTURE']) : ?>
+                                                                    <a href="javascript:void(0)" class="product-component-row__img">
+                                                                        <img src="<?= CFile::GetPath($element['PREVIEW_PICTURE']) ?>" alt="<?= $element['NAME'] ?>" loading="lazy">
+                                                                    </a>
+                                                                <? endif; ?>
+                                                                <a href="javascript:void(0)" class="product-component-row__name" data-name><?= $element['NAME'] ?></a>
+                                                                <div class="price-wrapper">
+                                                                    <p>Стоимость:</p>
+                                                                    <div class="price" data-price><?= $element['PREVIEW_TEXT'] ?></div>
+                                                                </div>
+                                                                <a href="#" class="btn btn-accent btn-add-card" data-add-to-card>
+                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                    <span>Добавить</span>
+                                                                </a>
+                                                                <div class="amount">
+                                                                    <span class="down" data-minus>-</span>
+                                                                    <input type="text" value="0" data-count/>
+                                                                    <span class="up" data-plus>+</span>
+                                                                </div>
+                                                            </div>
+                                                        <? endforeach; ?>
+                                                    <? endif; ?>
+                                                </div>
+                                            <? endforeach; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <? endif; ?>
+                            <? if ($arResult['DETAIL_TEXT']) : ?>
+                                <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab" tabindex="0">
+                                    <div class="box-text">
+                                        <?= $arResult['DETAIL_TEXT'] ?>
+                                    </div>
+                                </div>
+                            <? endif; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<? endif; ?>

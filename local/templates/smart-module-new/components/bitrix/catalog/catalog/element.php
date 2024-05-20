@@ -191,5 +191,15 @@ if (isset($arParams['USER_CONSENT_IS_LOADED'])) {
 	$componentElementParams,
 	$component
 );
+
+
+$APPLICATION->IncludeComponent(
+	"custom:form",
+	"questions",
+);
+
+$APPLICATION->IncludeComponent("custom:form", "order");
+$APPLICATION->IncludeComponent("custom:basketjs", "basket");
+
 $GLOBALS['CATALOG_CURRENT_ELEMENT_ID'] = $elementId;
 ?>
