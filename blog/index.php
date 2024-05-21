@@ -1,15 +1,15 @@
 <?
-$domain = 'smart-module.ru';
-$domain = 'smart.local';
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-if ($_SERVER['SERVER_NAME'] !== $domain) {
+CModule::IncludeModule("webfly.seocities");
+$domain = CWebflyCities::GetSubDomain();
+if ($domain !== 'default') {
 	@define("ERROR_404", "Y");
 	CHTTP::SetStatus("404 Not Found");
-	LocalRedirect('https://' . $domain . $_SERVER['REQUEST_URI'], true);
+	LocalRedirect('http://' . str_replace($domain . '.', '', $_SERVER['SERVER_NAME']) . $_SERVER['REQUEST_URI'], true);
 	die();
 };
 $APPLICATION->SetTitle("Блог");
-if (CModule::IncludeModule("webfly.seocities") and CModule::IncludeModule("iblock")) {
+if (CModule::IncludeModule("iblock")) {
 	$cityID = CSeoCities::getCityId();
 	global $cityFilter;
 	$cityFilter = array("ID" => CIBlockElement::SubQuery("ID", array("IBLOCK_ID" => "6", "PROPERTY_NOT_SHOW_IN_CITIES" => $cityID)));
