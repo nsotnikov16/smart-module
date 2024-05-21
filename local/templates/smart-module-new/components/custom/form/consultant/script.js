@@ -21,10 +21,10 @@
             form.reset();
             messageBlock.innerHTML = '<span style="color: green">Ваша заявка принята.</span>';
             if (typeof NeirosEventSend === 'function') {
-                // NeirosEventSend('send-event', {
-                //     type: 'form',
-                //     data: { name: form.name.value, phone: form.phone.value },
-                // });
+                NeirosEventSend('send-event', {
+                    type: 'form',
+                    data: { name: form.name.value, phone: form.phone.value },
+                });
             }
             redirect('/thank/', 500);
         })

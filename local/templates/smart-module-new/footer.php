@@ -190,6 +190,8 @@ $APPLICATION->IncludeComponent(
     ),
     false
 ); ?>
+
+<? include __DIR__ . '/include/footer/scripts.php'; ?>
 </body>
 
 </html>

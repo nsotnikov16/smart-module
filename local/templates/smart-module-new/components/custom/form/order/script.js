@@ -34,6 +34,12 @@
             form.reset();
             success.classList.remove('d-none');
             main.classList.add('d-none');
+            if (typeof NeirosEventSend === 'function') {
+                NeirosEventSend('send-event', {
+                    type: 'form',
+                    data: { phone: form.phone.value },
+                });
+            }
         })
     } catch (error) {
     }

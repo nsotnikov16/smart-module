@@ -26,10 +26,10 @@
             form.reset();
 
             if (typeof NeirosEventSend === 'function') {
-                // NeirosEventSend('send-event', {
-                //     type: 'form',
-                //     data: { name: form.name.value, phone: form.phone.value },
-                // });
+                NeirosEventSend('send-event', {
+                    type: 'form',
+                    data: { name: form.name.value, phone: form.phone.value },
+                });
             }
             redirect('/thank/?message=Ваше сообщение успешно отправлено!', 500);
         })

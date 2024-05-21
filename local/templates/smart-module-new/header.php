@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <? include __DIR__ . '/include/styles.php'; ?>
-    <? include __DIR__ . '/include/scripts.php'; ?>
+    <? include __DIR__ . '/include/header/scripts.php'; ?>
     <? $APPLICATION->ShowHead(); ?>
 </head>
 <body>
