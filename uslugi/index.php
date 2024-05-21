@@ -1,30 +1,27 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$asset = \Bitrix\Main\Page\Asset::getInstance();
-$asset->addCss(SITE_TEMPLATE_PATH . "/css/new-css.css");
 $APPLICATION->SetTitle("Услуги");
 ?>
-<!--new section-->
-<section class="box categories">
-    <ul class="categories-list categories-list-my services-list">
-        <li class="categories-list-item">
-            <a href="/uslugi/dostavka/">
-                <span class="categories-image">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/images/new-img/service-img1.jpg" alt="Доставка">
-                </span>
-                <span class="categories-title">
-                    Доставка </span>
-            </a>
-        </li>
-        <li class="categories-list-item">
-            <a href="/uslugi/arenda/">
-                <span class="categories-image">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/images/new-img/service-img2.jpg" alt="Аренда">
-                </span>
-                <span class="categories-title">
-                    Аренда </span>
-            </a>
-        </li>
-    </ul>
+<section class="page page-services">
+    <div class="container">
+        <div class="row">
+            #BREADCRUMB#
+            <div class="col-12">
+                <h1 class="text-center mb-45">#H1#</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex flex-wrap">
+                <a href="/uslugi/dostavka/" class="industry-card services-card">
+                    <span class="industry-card__img"><img src="#ASSETS_PATH#/img/service-img1.png" alt="Торговый сектор" loading="lazy" /></span>
+                    <span class="industry-card__title">Доставка</span>
+                </a>
+                <a href="/uslugi/arenda/" class="industry-card services-card">
+                    <span class="industry-card__img"><img src="#ASSETS_PATH#/img/service-img2.png" alt="Торговый сектор" loading="lazy" /></span>
+                    <span class="industry-card__title">Торговый сектор</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

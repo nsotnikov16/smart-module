@@ -1263,3 +1263,7 @@ table {
 .map {
   height: 100%;
 }
+
+.error404__img {
+  max-width: 450px;
+}

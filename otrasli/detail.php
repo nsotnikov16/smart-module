@@ -1,5 +1,4 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$aMenuLinksExt = [];
 if (CModule::IncludeModule('iblock')) $otrasli_iblock = \CIBlock::GetList([], ['CODE' => 'otrasli'], false)->Fetch();
 
 $APPLICATION->SetTitle(""); ?>
@@ -54,6 +53,7 @@ $APPLICATION->SetTitle(""); ?>
 			1 => "SUBTITLE",
 			2 => "ADVANTAGES",
 			3 => "ADVANTAGES_IMG",
+			4 => "PRODUCTS"
 		),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_CANONICAL_URL" => "N",
@@ -111,7 +111,7 @@ $APPLICATION->IncludeComponent(
 		"SECTION_ID_VARIABLE" => 'SECTION_ID',
 		"PRODUCT_QUANTITY_VARIABLE" => 'quantity',
 		"PRODUCT_PROPS_VARIABLE" => 'prop',
-		"FILTER_NAME" => '',
+		"FILTER_NAME" => 'otrasliFilter',
 		"CACHE_TYPE" => 'A',
 		"CACHE_TIME" => '36000000',
 		"CACHE_FILTER" => 'N',
@@ -141,7 +141,7 @@ $APPLICATION->IncludeComponent(
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"USE_MAIN_ELEMENT_SECTION" => 'Y',
 		"ADD_SECTIONS_CHAIN" => "N",
-		'ADD_TO_BASKET_ACTION' => $basketAction,
+		'ADD_TO_BASKET_ACTION' => '',
 		'TITLE' => 'Это может вам понравиться'
 	),
 ); ?>

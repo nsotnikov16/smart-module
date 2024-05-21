@@ -15,3 +15,8 @@ if (!empty($arResult['PROPERTIES']['ADVANTAGES']['VALUE'])) {
         ];
     }
 }
+
+$GLOBALS['otrasliFilter'] = ['ID' => false]; // Для блока "Это может вам понравиться"
+if (!empty($arResult['PROPERTIES']['PRODUCTS']['VALUE'])) {
+    $GLOBALS['otrasliFilter'] = ['=ID' => $arResult['PROPERTIES']['PRODUCTS']['VALUE']];
+}
