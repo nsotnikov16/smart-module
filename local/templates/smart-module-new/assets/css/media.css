@@ -400,6 +400,7 @@
     left: 0px;
     margin-bottom: 10px;
     width: 100%;
+    top: 5px;
   }
   .city-block {
     margin-top: 0px;
@@ -426,7 +427,7 @@
   }
   .all-city-block .h2 {
     font-size: 16px;
-    margin-bottom: 0px;
+    margin-bottom: 8px;
   }
   .all-city-block li {
     width: 100%;

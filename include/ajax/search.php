@@ -40,7 +40,7 @@ while($ob = $res->GetNextElement())
 $mass_region = array_unique($mass_region);
 
 foreach ($mass_region as $item){
-		echo '<ul class="all-city-block">';
+		echo '<ul class="all-city-block my-ul">';
 		echo '<div class="h2">'.$item.'</div>';
 		foreach ($mass_city as $city){
 			if($city['region'] == $item){
@@ -64,7 +64,7 @@ $arFilter = array("IBLOCK_ID" => 4, "ACTIVE" => "Y", "ACTIVE_DATE"=>"Y", "PROPER
 $arSelectFields = array();
 $res = CIBlockElement::GetList($arOrder, $arFilter, false, false, array('ID', 'NAME',  'PROPERTY_WF_REGION',  'PROPERTY_WF_SUBDOMAIN'));
 
-echo '<ul class="all-city-block">';
+echo '<ul class="all-city-block my-ul">';
 echo '<div class="h2">'.$_POST['region'].'</div>';
 while($ob = $res->GetNextElement())
 {    $arFields = $ob->GetFields();
@@ -92,7 +92,7 @@ $arFilter = array("IBLOCK_ID" => 4, "ACTIVE" => "Y", "ACTIVE_DATE"=>"Y", "PROPER
 $arSelectFields = array();
 $res = CIBlockElement::GetList($arOrder, $arFilter, false, false, array('ID', 'NAME',  'PROPERTY_WF_REGION',  'PROPERTY_WF_SUBDOMAIN'));
 $mass_region = [];
-echo '<ul class="all-city-block all-region-mobile">';
+echo '<ul class="all-city-block all-region-mobile my-ul">';
 while($ob = $res->GetNextElement())
 {
 	 $arFields = $ob->GetFields();

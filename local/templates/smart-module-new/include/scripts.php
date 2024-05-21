@@ -1,6 +1,8 @@
 <? use Bitrix\Main\Page\Asset;
 Asset::getInstance()->addString('<script>window.app = ' . \CUtil::PhpToJSObject(['ASSETS_PATH' => ASSETS_PATH, 'AJAX_URL' => AJAX_URL]) .'</script>');
 Asset::getInstance()->addJs('//api-maps.yandex.ru/2.1/?lang=ru_RU');
+Asset::getInstance()->addJs(ASSETS_PATH . '/js/d3.min.js');
+Asset::getInstance()->addJs(ASSETS_PATH . '/js/topojson.min.js');
 Asset::getInstance()->addJs(ASSETS_PATH . '/js/datamaps.rus.js');
 Asset::getInstance()->addJs(ASSETS_PATH . '/js/jquery.min.js');
 Asset::getInstance()->addJs(ASSETS_PATH . '/js/bootstrap.bundle.min.js');

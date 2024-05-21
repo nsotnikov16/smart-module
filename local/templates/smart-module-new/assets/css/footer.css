@@ -375,10 +375,13 @@ footer .list-social {
 }
 
 #container {
-  display: none;
+  position: relative;
   width: 100%;
   height: 400px;
   padding-top: 10px;
+  padding-bottom: 20px !important;
+  margin-bottom: 15px;
+  background: #EEEEEE;
 }
 
 .city-block {
@@ -394,6 +397,7 @@ footer .list-social {
   float: left;
   width: 100%;
   margin-left: 0px;
+  margin-top: 20px;
 }
 .all-city-block .h2 {
   font-size: 18px;
@@ -404,6 +408,16 @@ footer .list-social {
 .all-city-block li {
   float: left;
   width: 25%;
+}
+
+.all-city-block a {
+  color: black;
+  font-size: 14px;
+}
+
+.all-city-block a:hover {
+  text-decoration: underline;
+  color: #0078a0;
 }
 
 .datamaps-hoverover {

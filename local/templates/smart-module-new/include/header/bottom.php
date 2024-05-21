@@ -6,8 +6,8 @@
             <div class="col-12">
                 <nav class="nav nav-menu">
                     <div class="location-box d-flex d-md-none">
-                        <a href="#" class="btn-location" data-bs-toggle="modal"
-                           data-bs-target="#locationModal">Санкт-Петербург</a>
+                        <a href="javascript:void(0)" class="btn-location" data-bs-toggle="modal"
+                           data-bs-target="#locationModal" onClick="start_map()">#WF_CITY_NAME#</a>
                     </div>
 
                     <? $APPLICATION->IncludeComponent(

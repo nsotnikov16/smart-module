@@ -23,7 +23,7 @@
                     ); ?>
                     <div class="header-box header-box-phone">
                         <div class="location-box">
-                            <a href="#" class="btn-location" data-bs-toggle="modal" data-bs-target="#locationModal">Санкт-Петербург</a>
+                            <a href="javascript:void(0)" class="btn-location" data-bs-toggle="modal" data-bs-target="#locationModal" onClick="start_map()">#WF_CITY_NAME#</a>
                         </div>
                         <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#">
                             <i class="fa fa-phone" aria-hidden="true"></i>

@@ -65,7 +65,8 @@
                                 "COMPOSITE_FRAME_TYPE" => "AUTO",
                                 "DELAY" => "N",
                                 "MAX_LEVEL" => "2",
-                                "MENU_CACHE_GET_VARS" => array(0 => "",
+                                "MENU_CACHE_GET_VARS" => array(
+                                    0 => "",
                                 ),
                                 "MENU_CACHE_TIME" => "3600",
                                 "MENU_CACHE_TYPE" => "N",
@@ -87,7 +88,8 @@
                                 "COMPOSITE_FRAME_TYPE" => "AUTO",
                                 "DELAY" => "N",
                                 "MAX_LEVEL" => "2",
-                                "MENU_CACHE_GET_VARS" => array(0 => "",
+                                "MENU_CACHE_GET_VARS" => array(
+                                    0 => "",
                                 ),
                                 "MENU_CACHE_TIME" => "3600",
                                 "MENU_CACHE_TYPE" => "N",
@@ -118,8 +120,7 @@
                                 "PATH" => "/include/footer/copy.php"
                             )
                         ); ?>
-                        <a href="/politika-konfidentsialnosti/" class="color-grey link-document d-inline"
-                           target="_blank">Политика
+                        <a href="/politika-konfidentsialnosti/" class="color-grey link-document d-inline" target="_blank">Политика
                             конфиденциальности</a>
                     </div>
                     <ul class="list-social my-ul">
@@ -151,9 +152,7 @@
                     </ul>
                     <div class="link-developer">
                         <span>Создание и продвижение сайта</span>
-                        <a rel="nofollow"
-                           target="blank"
-                           href="https://olever.ru">
+                        <a rel="nofollow" target="blank" href="https://olever.ru">
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-developer.svg" alt="">
                         </a>
                     </div>
@@ -168,15 +167,29 @@ $APPLICATION->IncludeComponent(
     "callback",
 );
 ?>
-<?$APPLICATION->IncludeComponent(
-    "webfly:meta.edit", 
-    ".default", 
+
+<? $APPLICATION->IncludeComponent(
+    "webfly:cities.popup",
+    "cities",
+    array(
+        "CACHE_TIME" => "3600",
+        "CACHE_TYPE" => "A",
+        "COMPOSITE_FRAME_MODE" => "A",
+        "COMPOSITE_FRAME_TYPE" => "AUTO",
+        "WF_FAVORITE" => "WF_CITY_ROD",
+        "WF_JQUERY" => "Y"
+    )
+); ?>
+<? $APPLICATION->IncludeComponent(
+    "webfly:meta.edit",
+    ".default",
     array(
         "CACHE_TYPE" => "A",
         "CACHE_TIME" => "3600",
         "WF_JQUERY" => "N"
     ),
     false
-);?>
+); ?>
 </body>
+
 </html>

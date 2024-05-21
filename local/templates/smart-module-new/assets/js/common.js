@@ -565,8 +565,8 @@ $(window).on('load resize', function () {
 			infinite: true,
 			speed: 100,
 			slidesToShow: 1,
-			prevArrow: '<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-left"></use></svg></button>',
-			nextArrow: '<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="img/sprite.svg#angle-right"></use></svg></button>',
+			prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
+			nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
 			asNavFor: '.tab-product-category-content'
 		});
 		$('.tab-product-category-content:not(.slick-initialized)').slick({
@@ -691,12 +691,12 @@ $('ul.tabs__caption').on('click', 'li:not(.active)', function () {
 	$('div.tabs__content.active').find('video').trigger('play');
 });
 
-
+const ajaxSearchUrl = '/include/ajax/search.php';
 $('#map-search').on('keyup', function () {
 
 	$.ajax({
 		type: "POST",
-		url: "ajax/search.php",
+		url: ajaxSearchUrl,
 		data: {
 			city: $(this).val()
 		},
@@ -718,7 +718,7 @@ $(document).on('click', '.all-region-mobile span', function () {
 
 	$.ajax({
 		type: "POST",
-		url: "ajax/search.php",
+		url: ajaxSearchUrl,
 		data: {
 			region: $(this).html()
 		},
@@ -744,11 +744,12 @@ $('.back-to-map').on('click', function () {
 
 scale = 600;
 if ($(window).width() <= 768) {
+	console.log('fasfasf')
 	$('#select-city-fo-map .modal-title').html('Выберите свой регион');
 	$('.back-to-map').html('К выбору региона');
 	$.ajax({
 		type: "POST",
-		url: "ajax/search.php",
+		url: ajaxSearchUrl,
 		data: {
 			allregion: ''
 		},
@@ -759,78 +760,83 @@ if ($(window).width() <= 768) {
 }
 
 function start_map() {
-
-	if ($(window).width() >= 1024) {
-		console.log($('#container').html());
-		if ($('#container').html() === '') {
+	if ($(window).width() < 1024 || $('#container').children().length) return;
+	new Promise((resolve) => {
+		const interval = setInterval(() => {
 			var width = $('#container').width(),
 				height = $('#container').height();
+			console.log(width, height)
+			if (width > 0 && height > 0) {
+				clearInterval(interval);
+				resolve({ width, height });
+			}
+		}, 25)
 
-			//basic map config with custom fills, mercator projection
-			var map = new Datamap({
-				scope: 'rus',
-				element: document.getElementById('container'),
-				responsive: true,
-				setProjection: function (element) {
-					var projection = d3.geo.albers()
-						.rotate([-105, 0])
-						.center([-10, 65])
-						.parallels([52, 64])
-						.scale(scale)
-						.translate([width / 2, height / 2]);
-					var path = d3.geo.path()
-						.projection(projection);
+	}).then(({ width, height }) => {
+		//basic map config with custom fills, mercator projection
+		var map = new Datamap({
+			scope: 'rus',
+			element: document.getElementById('container'),
+			responsive: true,
+			setProjection: function (element) {
+				var projection = d3.geo.albers()
+					.rotate([-105, 0])
+					.center([-10, 65])
+					.parallels([52, 64])
+					.scale(scale)
+					.translate([width / 2, height / 2]);
+				var path = d3.geo.path()
+					.projection(projection);
 
-					return {
-						path: path,
-						projection: projection
-					};
-				},
-				fills: {
-					defaultFill: '#E0E0E0',
-					lt50: 'rgba(0,244,244,0.9)',
-					gt50: 'red'
-				},
+				return {
+					path: path,
+					projection: projection
+				};
+			},
+			fills: {
+				defaultFill: '#E0E0E0',
+				lt50: 'rgba(0,244,244,0.9)',
+				gt50: 'red'
+			},
 
-				data: {
-					'071': {
-						fillKey: 'lt50'
-					},
-					'001': {
-						fillKey: 'gt50'
-					}
+			data: {
+				'071': {
+					fillKey: 'lt50'
 				},
-				geographyConfig: {
-					highlightFillColor: '#638FC1',
-					highlightBorderColor: 'rgba(245, 245, 245, 0.2)'
-				},
-				done: function (datamap) {
-					datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
-						//geography.properties.name
-
-						$.ajax({
-							type: "POST",
-							url: "/include/ajax/search.php",
-							data: {
-								region: geography.properties.name
-							},
-							success: function (html) {
-								$('#container').css('display', 'none');
-								$('.city-block').css('display', 'block');
-								$('.city-block').html(html);
-								$('#select-city-fo-map .modal-title').html('Выберите свой город');
-								$('#select-city-fo-map .back-to-map').css('display', 'flex');
-							}
-						});
-					});
+				'001': {
+					fillKey: 'gt50'
 				}
-			});
+			},
+			geographyConfig: {
+				highlightFillColor: '#638FC1',
+				highlightBorderColor: 'rgba(245, 245, 245, 0.2)'
+			},
+			done: function (datamap) {
+				datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
+					//geography.properties.name
 
-			window.addEventListener('resize', function (event) {
-				map.resize();
-			});
-		}
-	}
+					$.ajax({
+						type: "POST",
+						url: "/include/ajax/search.php",
+						data: {
+							region: geography.properties.name
+						},
+						success: function (html) {
+							$('#container').css('display', 'none');
+							$('.city-block').css('display', 'block');
+							$('.city-block').html(html);
+							$('#select-city-fo-map .modal-title').html('Выберите свой город');
+							$('#select-city-fo-map .back-to-map').css('display', 'flex');
+						}
+					});
+				});
+			}
+		});
+
+		window.addEventListener('resize', function (event) {
+			map.resize();
+		});
+	})
 }
 
 /**
