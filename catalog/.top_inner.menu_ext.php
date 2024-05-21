@@ -9,7 +9,7 @@ $aMenuLinksExt = $APPLICATION->IncludeComponent(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "1",
 		"DEPTH_LEVEL" => "2",
-		"CACHE_TYPE" => "A",
+		"CACHE_TYPE" => "N",
 		"CACHE_TIME" => "360000"
 	)
 );

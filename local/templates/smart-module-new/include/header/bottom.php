@@ -15,7 +15,7 @@
                         "header",
                         array(
                             "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
-                            "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                            "MENU_CACHE_TYPE" => "N",    // Тип кеширования (отключаем для корректной работы поля раздела UF_CURRENT_TOP_MENU)
                             "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
                             "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
                             "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса

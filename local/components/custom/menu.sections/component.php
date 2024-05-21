@@ -23,6 +23,7 @@ if($arParams["DEPTH_LEVEL"]<=0)
 
 $arResult["SECTIONS"] = array();
 $arResult["ELEMENT_LINKS"] = array();
+$arResult['RENAME'] = [];
 
 if($this->StartResultCache())
 {
@@ -50,15 +51,29 @@ if($this->StartResultCache())
 			"SECTION_PAGE_URL",
 			'UF_HIDE_LINK',
 			'UF_NAME_TOP_MENU',
-			'UF_ICONMENU'
+			'UF_ICONMENU',
+			'IBLOCK_SECTION_ID',
+			'UF_CURRENT_TOP_MENU'
 		));
 		if($arParams["IS_SEF"] !== "Y")
 			$rsSections->SetUrlTemplates("", $arParams["SECTION_URL"]);
 		else
 			$rsSections->SetUrlTemplates("", $arParams["SEF_BASE_URL"].$arParams["SECTION_PAGE_URL"]);
 		while($arSection = $rsSections->GetNext())
-		{
-			$arResult["SECTIONS"][] = array(
+		{	
+			if (!empty($arSection['UF_CURRENT_TOP_MENU']) && str_contains($APPLICATION->GetCurDir(), $arSection['SECTION_PAGE_URL'])) {
+				foreach ($arSection['UF_CURRENT_TOP_MENU'] as $value) {
+					$arrValue = explode(', ', $value);
+					$secId = $arrValue[0];
+					$newName = $arrValue[1];
+					$arResult['RENAME'][$secId] = $newName;
+				}
+			}
+			if ($arSection['DEPTH_LEVEL'] > 1 && !$arResult['SECTIONS'][$arSection['IBLOCK_SECTION_ID']]) {
+				continue;
+			}
+
+			$arResult["SECTIONS"][$arSection["ID"]] = array(
 				"ID" => $arSection["ID"],
 				"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],
 				"~NAME" => $arSection["~NAME"],
@@ -140,7 +155,7 @@ foreach($arResult["SECTIONS"] as $arSection)
 			"IS_PARENT" => false,
 			"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],
 			'FROM_CATALOG' => $arParams["IBLOCK_ID"] == 1,
-			'UF_NAME_TOP_MENU' => $arSection['UF_NAME_TOP_MENU'],
+			'UF_NAME_TOP_MENU' => $arResult['RENAME'][$arSection['ID']] ?: $arSection['UF_NAME_TOP_MENU'],
 			'UF_ICONMENU' => $arSection['UF_ICONMENU']
 		),
 	);
