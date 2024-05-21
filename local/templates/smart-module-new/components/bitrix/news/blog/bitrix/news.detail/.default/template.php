@@ -26,7 +26,7 @@ $this->setFrameMode(true); ?>
                     <svg class="svg-icon svg-icon-calendar">
                         <use xlink:href="#ASSETS_PATH#/img/sprite.svg#view"></use>
                     </svg>
-                    <span>156</span>
+                    <span class="neiros_views">156</span>
                 </div>
                 <div class="materials-card-list__item">
                     <svg class="svg-icon svg-icon-calendar">

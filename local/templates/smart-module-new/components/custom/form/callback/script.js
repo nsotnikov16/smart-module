@@ -23,7 +23,7 @@
                 modalErrorTitle.innerHTML = result.error ?? errorDefault;
                 return modalError.show();
             }
-            form.reset();
+            
 
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
@@ -31,6 +31,7 @@
                     data: { name: form.name.value, phone: form.phone.value },
                 });
             }
+            form.reset();
             redirect('/thank/?message=Ваше сообщение успешно отправлено!', 500);
         })
     } catch (error) {

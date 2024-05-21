@@ -18,7 +18,7 @@
                 messageBlock.innerHTML = `<span style="color: red">${result.error ?? errorDefault}</span>`;
                 return;
             }
-            form.reset();
+            
             messageBlock.innerHTML = '<span style="color: green">Ваша заявка принята.</span>';
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
@@ -26,6 +26,7 @@
                     data: { name: form.name.value, phone: form.phone.value },
                 });
             }
+            form.reset();
             redirect('/thank/', 500);
         })
     } catch (error) {

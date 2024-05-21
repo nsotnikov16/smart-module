@@ -31,7 +31,6 @@
             const result = await request('POST', window.app.AJAX_URL, formData);
             formBtn.textContent = formBtnStartText;
             if (!result.success) return modalError.show();
-            form.reset();
             success.classList.remove('d-none');
             main.classList.add('d-none');
             if (typeof NeirosEventSend === 'function') {
@@ -40,6 +39,7 @@
                     data: { phone: form.phone.value },
                 });
             }
+            form.reset();
         })
     } catch (error) {
     }

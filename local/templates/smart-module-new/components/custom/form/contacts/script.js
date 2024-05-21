@@ -15,6 +15,13 @@
             const result = await request('POST', window.app.AJAX_URL, formData);
             formBtn.textContent = formBtnStartText;
             if (!result.success) return modalError.show();
+            if (typeof NeirosEventSend === 'function') {
+                NeirosEventSend('send-event', {
+                    type: 'form',
+                    data: { name: form.name.value, phone: form.phone.value, email: form.email.value },
+                });
+            }
+            form.reset();
             redirect('/thank/?message=' + `Спасибо за обращение!<br>Мы ответим Вам в ближайшее время.`, 500);
         })
     } catch (error) {
