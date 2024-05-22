@@ -66,7 +66,7 @@ $infoProps = ['FLOOR', 'MATERIAL', 'MODIFICATION', 'TYPE', 'BLOCKS'];
 $arResult['PRODUCT_INFO'] = [];
 foreach ($infoProps as $propCode) {
 	$arrProp = $arResult['PROPERTIES'][$propCode];
-	if (!empty($arrProp['VALUE'])) {
+	if (is_array($arrProp['VALUE']) &&!empty($arrProp['VALUE'])) {
 		$arResult['PRODUCT_INFO'][] = ['NAME' => $arrProp['NAME'], 'VALUE' => implode(', ', $arrProp['VALUE'])];
 	}
 }
