@@ -9,7 +9,7 @@
 		echo ShowMessage(array("MESSAGE" => GetMessage("CT_BSE_AUTH_ERR"), "TYPE" => "ERROR"));
 	else : ?>
 		<div class="subscribe-box__title">Подпишитесь на новые статьи
-			от компания Смарт-модуль</div>
+			от компании Смарт-модуль</div>
 		<form method="post" class="form-subscribe" action="<?= $arResult["FORM_ACTION"] . '#subscribe' ?>">
 			<? echo bitrix_sessid_post(); ?>
 			<input type="hidden" name="PostAction" value="<? echo ($arResult["ID"] > 0 ? "Update" : "Add") ?>" />
@@ -28,7 +28,7 @@
 					</svg></button>
 			</div>
 			<label class="label-checkbox">
-				<input type="checkbox" name="privacy_policy" id="privacy_policy" checked>
+				<input type="checkbox" name="licenses_subscribe" id="privacy_policy" value="Y" checked>
 				<span class="label-checkbox__custom"></span>
 				<span class="label-checkbox__text">Даю согласие на обработку <a target="_blank" href="/politika-konfidentsialnosti/">персональных данных</a></span>
 			</label>
