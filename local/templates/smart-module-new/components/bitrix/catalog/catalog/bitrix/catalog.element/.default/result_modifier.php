@@ -70,3 +70,8 @@ foreach ($infoProps as $propCode) {
 		$arResult['PRODUCT_INFO'][] = ['NAME' => $arrProp['NAME'], 'VALUE' => implode(', ', $arrProp['VALUE'])];
 	}
 }
+
+$arResult['CERTIFICATES'] = [];
+$db_cert = \CIBlockElement::GetList([], ['IBLOCK_ID' => 56, 'ACTIVE' => 'Y'], false, false, ['ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'NAME']);
+while ($arr = $db_cert->Fetch())
+	$arResult['CERTIFICATES'][] = $arr;

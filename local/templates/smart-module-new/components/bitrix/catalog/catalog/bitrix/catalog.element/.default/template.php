@@ -92,7 +92,7 @@ $this->setFrameMode(true); ?>
     </div>
 </div>
 
-<? if (!empty($arResult['ADD_SERVICES']) || $arResult['DETAIL_TEXT']) : ?>
+<? if (!empty($arResult['ADD_SERVICES']) || $arResult['DETAIL_TEXT'] || !empty($arResult['CERTIFICATES'])) : ?>
     <div class="product-details">
         <div class="container">
             <div class="row">
@@ -101,10 +101,12 @@ $this->setFrameMode(true); ?>
                         <? if (!empty($arResult['ADD_SERVICES'])) : ?>
                             <button class="nav-link" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">Дополнительные услуги</button>
                         <? endif; ?>
-                        <? if ($arResult['DETAIL_TEXT']) : ?>
-                            <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">Описание</button>
+                        <? if (!empty($arResult['CERTIFICATES'])) : ?>
+                            <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">Сертификаты</button>
                         <? endif; ?>
-                        <!-- <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">Сертификаты</button> -->
+                        <? if ($arResult['DETAIL_TEXT']) : ?>
+                            <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">Описание</button>
+                        <? endif; ?>
                     </nav>
                 </div>
             </div>
@@ -134,7 +136,7 @@ $this->setFrameMode(true); ?>
                                                 <div class="js-tab-content" data-tab="<?= $key ?>">
                                                     <? if (!empty($service['ELEMENTS'])) : ?>
                                                         <? foreach ($service['ELEMENTS'] as $element) : ?>
-                                                            <div class="product-component-row" data-services-element-id="<?= $element['ID']?>">
+                                                            <div class="product-component-row" data-services-element-id="<?= $element['ID'] ?>">
                                                                 <? if ($element['PREVIEW_PICTURE']) : ?>
                                                                     <a href="javascript:void(0)" class="product-component-row__img">
                                                                         <img src="<?= CFile::GetPath($element['PREVIEW_PICTURE']) ?>" alt="<?= $element['NAME'] ?>" loading="lazy">
@@ -151,7 +153,7 @@ $this->setFrameMode(true); ?>
                                                                 </a>
                                                                 <div class="amount">
                                                                     <span class="down" data-minus>-</span>
-                                                                    <input type="text" value="0" data-count/>
+                                                                    <input type="text" value="0" data-count />
                                                                     <span class="up" data-plus>+</span>
                                                                 </div>
                                                             </div>
@@ -163,8 +165,21 @@ $this->setFrameMode(true); ?>
                                     </div>
                                 </div>
                             <? endif; ?>
-                            <? if ($arResult['DETAIL_TEXT']) : ?>
+                            <? if (!empty($arResult['CERTIFICATES'])) : ?>
                                 <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab" tabindex="0">
+                                    <div class="row">
+                                        <? foreach ($arResult['CERTIFICATES'] as $arCert) : ?>
+                                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-20">
+                                                <a href="<?= \CFile::GetPath($arCert['DETAIL_PICTURE'] ?: $arCert['PREVIEW_PICTURE']) ?>" class="certificate-box" data-fancybox="certificate">
+                                                    <img src="<?= \CFile::GetPath($arCert['PREVIEW_PICTURE'] ?: $arCert['DETAIL_PICTURE']) ?>" alt="<?= $arCert['NAME'] ?>" loading="lazy">
+                                                </a>
+                                            </div>
+                                        <? endforeach; ?>
+                                    </div>
+                                </div>
+                            <? endif; ?>
+                            <? if ($arResult['DETAIL_TEXT']) : ?>
+                                <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab" tabindex="0">
                                     <div class="box-text">
                                         <?= $arResult['DETAIL_TEXT'] ?>
                                     </div>
