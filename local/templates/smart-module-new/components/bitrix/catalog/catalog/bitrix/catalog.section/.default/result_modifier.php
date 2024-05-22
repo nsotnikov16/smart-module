@@ -1,5 +1,5 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-
+$GLOBALS['SHOWCALC'] = $arResult['UF_SHOWCALC'];
 if (empty($arResult["ITEMS"]["0"])) {
     global $_SESSION;
     // проверяем в активных элементах свойство исключения

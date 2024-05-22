@@ -460,11 +460,6 @@ $(document).mouseup(function (e) { // событие клика по веб-до
 	}
 });
 
-
-$('.btn-calculate-modal').on('click', function () {
-	$('.calculate-total').fadeIn();
-});
-
 // tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
