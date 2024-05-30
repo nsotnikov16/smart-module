@@ -393,34 +393,6 @@ $('.sidebar-card input:checkbox').change(function () {
 	}
 });
 
-
-$(".slider-range1").slider({
-	min: 0,
-	max: 12,
-	value: 8,
-	animate: "fast",
-	range: "min",
-	slide: function (event, ui) {
-		$(".dec1").val(ui.value);
-	}
-});
-
-$(".dec1").val($(".slider-range1").slider("values", 0));
-
-
-$(".slider-range2").slider({
-	min: 0,
-	max: 20,
-	value: 6,
-	animate: "fast",
-	range: "min",
-	slide: function (event, ui) {
-		$(".dec2").val(ui.value);
-	}
-});
-
-$(".dec2").val($(".slider-range2").slider("values", 0));
-
 $(".slider-range3").slider({
 	min: 0,
 	max: 20,
