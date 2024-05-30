@@ -25,16 +25,17 @@ $similarSections = getSimilarSections($arResult['VARIABLES']['SECTION_ID']); // 
 			<h1 class="text-center mb-45">#H1#</h1>
 		</div>
 		<div class="row">
-			<? if ($webflyCatalogTopText || !empty($webflyCatalogFilterTexts)) : ?>
-				<div class="col-12">
-					<div class="under_title_text">
-						<?= $webflyCatalogTopText ?>
-						<? if ($webflyCatalogFilterTexts['PREVIEW_TEXT']) : ?>
-							<p><?= $webflyCatalogFilterTexts['PREVIEW_TEXT'] ?></p>
-						<? endif; ?>
-					</div>
+			<div class="col-12">
+				<div class="under_title_text">
+					<?= $webflyCatalogTopText ?>
+					<? if ($webflyCatalogFilterTexts['PREVIEW_TEXT']) : ?>
+						<p><?= $webflyCatalogFilterTexts['PREVIEW_TEXT'] ?></p>
+					<? endif; ?>
+					<?= $sotbitSeoMetaTopDesc ?>
+					<? $APPLICATION->ShowViewContent('sotbit_seometa_top_desc'); //вывод верхнего описания
+					?>
 				</div>
-			<? endif; ?>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 d-flex flex-wrap">
@@ -535,9 +536,11 @@ $APPLICATION->IncludeComponent(
 ?>
 
 <? if (!intval($_REQUEST['PAGEN_1']) > 0) : ?>
+	<? global $sotbitSeoMetaBottomDesc;?>
 	<div class="description-catalog">
 		<div class="container">
 			#WF_SEO_TEXT_1#
+			<? $APPLICATION->ShowViewContent('sotbit_seometa_bottom_desc'); ?>
 		</div>
 	</div>
 <? endif; ?>
