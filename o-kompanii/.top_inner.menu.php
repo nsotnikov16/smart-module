@@ -29,7 +29,7 @@ $aMenuLinks = Array(
 	),
     Array(
         "Сертификаты",
-        "/o-kompanii/certificates/",
+        "/certificates/",
         Array(),
         Array(),
         ""
