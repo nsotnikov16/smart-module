@@ -27,8 +27,8 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 			<div class="projects-card panel_heading" id="<?= $this->GetEditAreaId($arSection['ID']) ?>">
 				<div class="block_title">
 					<div class="projects-card__icon">
-						<? if ($arSection['UF_PREVIEW_IMG']) : ?>
-							<img src="<?= \CFile::GetPath($arSection['UF_PREVIEW_IMG']) ?>" loading="lazy" />
+						<? if ($arSection['PICTURE']['SRC']) : ?>
+							<img src="<?= $arSection['PICTURE']['SRC'] ?>" loading="lazy" />
 						<? endif; ?>
 					</div>
 					<div class="h3"><?= $arSection['NAME'] ?></div>
