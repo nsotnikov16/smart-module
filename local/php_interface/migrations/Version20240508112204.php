@@ -1,7 +1,7 @@
 <?php
 
 namespace Sprint\Migration;
-
+\CModule::IncludeModule('iblock');
 
 class Version20240508112204 extends Version
 {
@@ -16,6 +16,8 @@ class Version20240508112204 extends Version
   public function up()
   {
     $helper = $this->getHelperManager();
+    $ib = new \CIBlock;
+    $ib->Update(2, ['CODE' => 'projects']);
     $helper->UserTypeEntity()->saveUserTypeEntity(array(
       'ENTITY_ID' => 'IBLOCK_content:projects_SECTION',
       'FIELD_NAME' => 'UF_PREVIEW_IMG',
