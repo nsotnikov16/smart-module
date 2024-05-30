@@ -32,9 +32,9 @@
                     </div>
                     <div class="header-box header-box-mail">
                         <span>Email поддержка:</span>
-                        <a href="mailto:#WF_EMAIL#" class="mail #WF_EMAIL_REPLACE#">
+                        <a href="mailto:#WF_EMAIL#" class="mail">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            #WF_EMAIL#
+                            <span class="#WF_EMAIL_REPLACE#">#WF_EMAIL#</span>
                         </a>
                     </div>
 

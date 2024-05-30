@@ -46,9 +46,9 @@
                             <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#close-icon"></use>
                         </svg>
                     </div>
-                    <a href="mailto:#WF_EMAIL#" class="mail d-block d-md-none #WF_EMAIL_REPLACE#">
+                    <a href="mailto:#WF_EMAIL#" class="mail d-block d-md-none">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        #WF_EMAIL#
+                        <span class="#WF_EMAIL_REPLACE#">#WF_EMAIL#</span>
                     </a>
                 </nav>
             </div>
