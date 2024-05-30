@@ -61,8 +61,8 @@ $this->setFrameMode(true); ?>
                         <div class="product-information-advantages">
                             <? foreach ($arResult['PROPERTIES']['ADV_PROD']['ITEMS'] as $adv) : ?>
                                 <div class="product-information-advantages-item" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-placement="top" title="<?= $adv['NAME'] ?>">
-                                    <img src="<?= $adv['PREVIEW_PICTURE'] ?>" alt="" class="img-default">
-                                    <img src="<?= $adv['DETAIL_PICTURE'] ?>" alt="" class="img-hover" loading="lazy">
+                                    <img src="<?= $adv['PREVIEW_PICTURE'] ?>" class="img-default">
+                                    <img src="<?= $adv['DETAIL_PICTURE'] ?>" class="img-hover">
                                 </div>
                             <? endforeach; ?>
                         </div>
