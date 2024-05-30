@@ -65,3 +65,12 @@ function OnPrologAdminHandler()
         include __DIR__ . '/include/admin/iblock_element_edit.php';
     }
 }
+
+AddEventHandler("main", "OnEpilog", "changeMetaTagsPagen");
+function changeMetaTagsPagen() {
+    global $APPLICATION;
+    if (intval($_REQUEST['PAGEN_1']) > 0) {
+        $APPLICATION->SetPageProperty("description", $APPLICATION->GetPageProperty("description") . " | страница " . intval($_REQUEST['PAGEN_1']));
+        $APPLICATION->SetPageProperty("title", $APPLICATION->GetTitle() . " в #WF_CITY_PRED# | страница " . intval($_REQUEST['PAGEN_1']));
+    }
+}

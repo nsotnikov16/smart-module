@@ -580,9 +580,5 @@ if (!empty($sotbitSeoMetaBreadcrumbTitle)) {
 	$APPLICATION->AddChainItem($sotbitSeoMetaBreadcrumbTitle);
 }
 
-if (intval($_REQUEST['PAGEN_1']) > 0) {
-	$APPLICATION->SetPageProperty("description", $APPLICATION->GetPageProperty("description") . " | страница " . intval($_REQUEST['PAGEN_1']));
-	$APPLICATION->SetPageProperty("title", $APPLICATION->GetTitle() . " | страница " . intval($_REQUEST['PAGEN_1']));
-}
 //sotbit seometa meta end 
 ?>
