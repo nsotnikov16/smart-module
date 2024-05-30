@@ -116,6 +116,8 @@
             this.basketCount.textContent = items.length;
             if (!items.length) {
                 this.basketSum.textContent = 0;
+                this.basketCount.classList.add('d-none');
+                this.basket.style.right = '';
                 return;
             }
 
@@ -126,6 +128,7 @@
             })
 
             this.basketSum.textContent = basketSum;
+            this.basketCount.classList.remove('d-none');
         }
 
         findItem(idOrElement) {
