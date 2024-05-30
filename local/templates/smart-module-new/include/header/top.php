@@ -25,9 +25,9 @@
                         <div class="location-box">
                             <a href="javascript:void(0)" class="btn-location" data-bs-toggle="modal" data-bs-target="#locationModal" onClick="start_map()">#WF_CITY_NAME#</a>
                         </div>
-                        <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#">
+                        <a href="tel:#WF_PHONES#" class="phone">
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            #WF_PHONES#
+                            <span class="#WF_PHONE_REPLACE#">#WF_PHONES#</span>
                         </a>
                     </div>
                     <div class="header-box header-box-mail">

@@ -33,15 +33,15 @@
                         ); ?>
                     </div>
                     <a href="<?= SITE_DIR ?>" class="logo">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-sm.png" alt="Logo sm" loading="lazy"/>
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo-sm.png" alt="Logo sm" loading="lazy" />
                     </a>
                     <div class="header-box">
                         <div class="location-box header-box-phone">
-                            <a href="javascript:void(0)" class="btn-location" data-bs-toggle="modal"
-                               data-bs-target="#locationModal" onClick="start_map()">#WF_CITY_NAME#</a>
+                            <a href="javascript:void(0)" class="btn-location" data-bs-toggle="modal" data-bs-target="#locationModal" onClick="start_map()">#WF_CITY_NAME#</a>
                         </div>
-                        <a href="tel:#WF_PHONES#" class="phone #WF_PHONE_REPLACE#"><i class="fa fa-phone"
-                                                                                      aria-hidden="true"></i>#WF_PHONES#</a>
+                        <a href="tel:#WF_PHONES#" class="phone">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span class="#WF_PHONE_REPLACE#">#WF_PHONES#</span></a>
                     </div>
 
                     <nav class="nav nav-menu">
@@ -68,8 +68,7 @@
                         ); ?>
                     </nav>
 
-                    <a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal"
-                       data-bs-target="#callbackModal">Получить консультацию</a>
+                    <a href="#" class="btn btn-accent btn-callback" data-bs-toggle="modal" data-bs-target="#callbackModal">Получить консультацию</a>
                     <div class="btn-search">
                         <svg class="svg-icon svg-icon-search">
                             <use xlink:href="<?= SITE_TEMPLATE_PATH ?>/assets/img/sprite.svg#search"></use>
@@ -83,7 +82,8 @@
         </div>
     </div>
     <? // Данный блок дублируется в вёрстке, поэтому сделаем копирование через JS.
-    // см. local/templates/smart-module-new/components/bitrix/search.title/search/script.js  ?>
+    // см. local/templates/smart-module-new/components/bitrix/search.title/search/script.js  
+    ?>
     <div class="search-wrapper" data-search-paste>
 
     </div>

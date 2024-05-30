@@ -31,9 +31,9 @@
                         false
                     ); ?>
 
-                    <a href="tel:#WF_PHONES#" class="phone d-flex d-md-none #WF_PHONE_REPLACE#">
+                    <a href="tel:#WF_PHONES#" class="phone d-flex d-md-none">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        #WF_PHONES#
+                        <span class="#WF_PHONE_REPLACE#">#WF_PHONES#</span>
                     </a>
                     <a href="#" class="btn btn-accent btn-callback d-flex d-md-none" data-bs-toggle="modal"
                        data-bs-target="#callbackModal">Получить
