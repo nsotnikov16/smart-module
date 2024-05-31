@@ -41,7 +41,7 @@ if (!empty($arResult)) {
     // Для фиксированной шапки в компонент добавляем исключения по урл
     // Если элемент меню в ссылке имеет данное исключение, то убираем из arResult
     if (is_array($arParams['EXCLUDED']) && !empty($arParams['EXCLUDED'])) {
-        $arResult = array_filter($arResult, function ($arItem) use ($arParams) {
+        $this->__component->arResult = array_filter($arResult, function ($arItem) use ($arParams) {
             $ok = true;
             foreach ($arParams['EXCLUDED'] as $ex) {
                 if (str_contains($arItem['LINK'], $ex)) $ok = false;

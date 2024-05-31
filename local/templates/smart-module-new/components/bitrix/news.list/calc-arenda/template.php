@@ -94,7 +94,7 @@ $this->setFrameMode(true);
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-calculate__image">
-										<img src="#ASSETS_PATH#/img/calculate-image.png" alt="" loading="lazy" data-arenda-img>
+										<img src="#ASSETS_PATH#/img/calculate-image.png" loading="lazy" data-arenda-img>
 									</div>
 								</div>
 							</div>
@@ -104,11 +104,49 @@ $this->setFrameMode(true);
 			</div>
 		</div>
 	</div>
+
+	<div class="modal modal-v2 fade" id="arendaModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body mt-3">
+					<div class="modal-title">Оформление заявки</div>
+					<form method="post" class="form-callback" data-arenda-form>
+						<div class="row">
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Введите имя" name="name" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<label>
+									<input type="text" placeholder="Введите номер телефона" name="phone" required="">
+								</label>
+							</div>
+							<div class="col-12 mb-20">
+								<div class="consent">
+									<p>Заполняя форму вы соглашаетесь с условиями <a href="/politika-konfidentsialnosti/" class="text-decoration d-inline" target="_blank">политики конфиденциальности</a></p>
+								</div>
+							</div>
+							<div class="col-12">
+								<button type="submit" class="btn btn-accent w-100">
+									Оформить заказ
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script data-skip-moving="true">
 		try {
-			window.arendaObj = <?= \CUtil::PhpToJSObject($arResult['ITEMS'])?>;
+			window.arendaObj = <?= \CUtil::PhpToJSObject($arResult['ITEMS']) ?>;
 		} catch (error) {
-			
+
 		}
 	</script>
 <? endif; ?>

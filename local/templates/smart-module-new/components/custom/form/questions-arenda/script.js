@@ -21,15 +21,14 @@
                 modalErrorBody.innerHTML = result.error ?? errorDefault;
                 return modalError.show();
             }
-            form.reset();
-
+            
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
                     type: 'form',
                     data: { name: form.name.value, phone: form.phone.value },
                 });
             }
-
+            form.reset();
             redirect('/thank/?message=Ваша заявка принята!', 500);
         })
     } catch (error) {
