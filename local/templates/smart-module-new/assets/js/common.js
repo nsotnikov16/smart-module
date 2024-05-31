@@ -319,6 +319,8 @@ $('.btn-load-projects').on('click', function (e) {
 
 // fixed footer 
 $(document).ready(function () {
+	if ($(window).width() < 1024) return;
+	$('.footer-wrapper').addClass('footer-fixed');
 	$('.footer-wrapper').before('<div class="block-footer-height"></div>');
 	$('.block-footer-height').matchHeight({
 		target: $('.footer-wrapper')

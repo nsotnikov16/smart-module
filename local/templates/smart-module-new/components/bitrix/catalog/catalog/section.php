@@ -525,9 +525,6 @@ if ($GLOBALS['SHOWCALC'] == 1) : ?>
 		</div>
 	</section>
 <? endif; ?>
-
-?>
-
 <?
 $APPLICATION->IncludeComponent(
 	"custom:form",
