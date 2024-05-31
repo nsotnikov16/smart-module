@@ -26,7 +26,7 @@ if (!empty($arResult['SEARCH'])) {
         } else {
             $SECTION_ID = mb_substr($arItem["ITEM_ID"], 1);
             $filter = ["=ID" => $SECTION_ID, 'IBLOCK_ID' => $arItem["PARAM2"]];
-            $rsSection = CIBlockSection::GetList([], $filter, false, ['ID', 'UF_ICONMENU', 'PREVIEW_PICTURE', 'PICTURE'])->Fetch();
+            $rsSection = CIBlockSection::GetList([], $filter, false, ['ID', 'UF_ICONMENU', 'DETAIL_PICTURE', 'PICTURE'])->Fetch();
             $file = $rsSection['UF_ICONMENU'] ?: $rsSection['PICTURE'] ?: $rsSection['DETAIL_PICTURE'];
         }
 
