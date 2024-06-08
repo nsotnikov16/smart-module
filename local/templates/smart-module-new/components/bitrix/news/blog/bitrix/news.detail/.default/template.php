@@ -56,7 +56,7 @@ $this->setFrameMode(true); ?>
             <? endif; ?>
 
             <div class="box-text article-text">
-                <?= $arResult["DETAIL_TEXT"] ?>
+                <?= $arResult["~DETAIL_TEXT"] ?>
             </div>
 
             <div class="comment-section neiros-comment" id="comment-section">
