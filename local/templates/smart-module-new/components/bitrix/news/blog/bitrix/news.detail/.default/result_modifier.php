@@ -11,22 +11,25 @@ if (!function_exists('editDetailText')) {
             $arr['NAME'] = substr($arr['ORIGINAL_NAME'], 0, strrpos($arr['ORIGINAL_NAME'], '.'));
 
             $replacementImgModal = '
-            <figure class="figure">
-                <a data-fancybox="gallery" href="' . $arr['SRC'] . '">
-                    <img alt="' . $arr['NAME'] . '" class="img-responsive sert-img" src="' . $arr['SRC'] . '" loading="lazy" draggable="false">
-                </a>
-                <figcaption>' . $arr['NAME'] . '</figcaption>
-            </figure>';
+            <figure class="article-image article-image-v2">
+				<a class="article-image__img" data-fancybox="gallery" href="' . $arr['SRC'] . '">
+					<img src="' . $arr['SRC'] . '" alt="' . $arr['NAME'] . '" loading="lazy" />
+				</a>
+				<figcaption class="article-image__name">
+					<span>' . $arr['NAME'] . '</span>
+				</figcaption>
+			</figure>
+            ';
 
             $replacementImg = '
-            <figure class="figure">
-                <span class="window-box window-box-no-head">
-                    <span class="window-box__body">
-                        <img alt="' . $arr['NAME'] . '" class="img-responsive sert-img" src="' . $arr['SRC'] . '" loading="lazy" draggable="false">
-                    </span>
-                </span>
-                <figcaption>' . $arr['NAME'] . '</figcaption>
-            </figure>
+            <figure class="article-image">
+				<div class="article-image__img">
+					<img src="' . $arr['SRC'] . '" alt="' . $arr['NAME'] . '" loading="lazy" />
+				</div>
+				<figcaption class="article-image__name">
+					<span>' . $arr['NAME'] . '</span>
+				</figcaption>
+			</figure>
             ';
 
             $detailText = str_replace(
@@ -42,7 +45,13 @@ if (!function_exists('editDetailText')) {
             );
         }
 
-        $replacementblockquote = '<blockquote class="blockquote"><p>$1</p></blockquote>';
+        $replacementblockquote = '
+        <blockquote class="company-block-advantages-info-wrapper article-block-info">
+            <div class="company-block-advantages-info-card">
+                <span class="company-border"></span>
+                <p>$1</p>
+            </div>
+        </blockquote>';
         $detailText = preg_replace('/\{(.+?)\}/', $replacementblockquote, $detailText);
 
         return $detailText;
