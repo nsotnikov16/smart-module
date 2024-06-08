@@ -11,6 +11,10 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+if ($_GET['code']) {
+	$arResult["VARIABLES"]["ELEMENT_ID"] = '';
+	$arResult["VARIABLES"]["ELEMENT_CODE"] = $_GET['code']; 
+}
 ?>
 <div class="page page-article">
 	<div class="container">

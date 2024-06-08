@@ -12,8 +12,10 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 global $cityFilter;
-
-?>
+// Для неактивных элементов по гет параметру делаем открытие
+if ($_GET['code']) :
+	include __DIR__ . '/detail.php'; 
+else : ?>
 <div class="page page-blog">
 	<div class="container">
 		<div class="row">
@@ -82,3 +84,4 @@ global $cityFilter;
 		); ?>
 	</div>
 </div>
+<? endif; ?>
