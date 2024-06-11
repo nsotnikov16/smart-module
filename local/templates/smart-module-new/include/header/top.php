@@ -5,9 +5,11 @@
             <div class="col-12 d-flex">
                 <div class="header-top__wrapper">
                     <a href="#" class="btn-burger-mobile">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <svg class="ham hamRotate ham8 mobile_menu_rotate" viewBox="0 0 100 100" width="50">
+                            <path class="line_svg top_svg" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path>
+                            <path class="line_svg middle_svg" d="m 30,50 h 40"></path>
+                            <path class="line_svg bottom_svg" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path>
+                        </svg>
                     </a>
                     <? $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
