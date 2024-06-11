@@ -98,7 +98,7 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-input:not(.bx-core-window input), textarea:not(.bx-core-window textarea), select:not(.bx-core-window select) {
+input, textarea, select {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -121,6 +121,12 @@ input:not(.bx-core-window input), textarea:not(.bx-core-window textarea), select
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
+
+.bx-core-adm-dialog input, .bx-core-adm-dialog textarea, .bx-core-adm-dialog select {
+  width: initial;
+  font-family: 'Arial';
+}
+
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder {
   color: #222;
 }
