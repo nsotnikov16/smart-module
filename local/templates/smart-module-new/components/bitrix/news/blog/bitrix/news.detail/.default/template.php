@@ -41,7 +41,7 @@ $this->setFrameMode(true); ?>
 <div class="row">
     <div class="col-12 d-flex flex-wrap align-items-stretch">
         <article class="article-content">
-            <? if (($nav = $arResult['PROPERTIES']['SODERZHANIE']['~VALUE']) && $nav['TEXT']) : ?>
+            <? if (($nav = $arResult['PROPERTIES']['SODERZHANIE']['~VALUE']) && $nav['TEXT'] && str_contains($nav['TEXT'], '<li>')) : ?>
                 <div class="article-menu open">
                     <div class="article-menu__head">
                         <div class="h4">Содержание</div>
