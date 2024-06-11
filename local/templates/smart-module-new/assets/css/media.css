@@ -604,7 +604,7 @@
     margin: 20px auto 0;
   }
   body {
-    padding: 62px 0 0;
+    padding: 62px 0 0 !important;
   }
   .btn-burger-mobile {
     display: -webkit-box;
