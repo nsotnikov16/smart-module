@@ -588,7 +588,112 @@ $('.video-container-tab').slick({
 
 $('.video-tab').each(function (i) {
 	const selector = `.video-container-tab${i}`;
-	const countSlides = document.querySelector(selector).childNodes.length;
+	let countSlides = 0;
+	let responsive = false;
+
+	switch (i) {
+		case 0:
+			countSlides = 9;
+			responsive = [
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 7,
+						arrows: true,
+						swipe: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 5,
+						swipe: true,
+						arrows: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: 3,
+						arrows: true,
+						swipe: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						arrows: true,
+						swipe: true,
+						infinite: true,
+					}
+				}
+			]
+			break;
+		case 1:
+			countSlides = 14;
+			responsive = [
+				{
+					breakpoint: 1200,
+					settings: {
+						slidesToShow: 12,
+						arrows: true,
+						swipe: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 10,
+						arrows: true,
+						swipe: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 850,
+					settings: {
+						slidesToShow: 7,
+						swipe: true,
+						arrows: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 5,
+						swipe: true,
+						arrows: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: 3,
+						swipe: true,
+						arrows: true,
+						infinite: true,
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						swipe: true,
+						arrows: true,
+						infinite: true,
+					}
+				}
+			]
+			break;
+	}
+
 	$(this).slick({
 		slidesToShow: countSlides,
 		arrows: false,
@@ -598,44 +703,7 @@ $('.video-tab').each(function (i) {
 		swipe: false,
 		prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
 		nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
-		responsive: [
-			{
-				breakpoint: 992,
-				settings: {
-					slidesToShow: 7,
-					arrows: true,
-					swipe: true,
-					infinite: true,
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 5,
-					swipe: true,
-					arrows: true,
-					infinite: true,
-				}
-			},
-			{
-				breakpoint: 576,
-				settings: {
-					slidesToShow: 3,
-					arrows: true,
-					swipe: true,
-					infinite: true,
-				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					arrows: true,
-					swipe: true,
-					infinite: true,
-				}
-			}
-		]
+		responsive
 	});
 })
 

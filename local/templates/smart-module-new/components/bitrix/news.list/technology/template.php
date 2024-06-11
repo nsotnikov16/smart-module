@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <? if (!empty($arResult['ITEMS'])) : ?>
-	<div class="tabs">
+	<div class="tabs d-flex flex-column">
 		<ul class="tabs__caption my-ul">
 			<? foreach ($arResult["ITEMS"] as $key => $arItem) : ?>
 				<li <?= $key == 0 ? 'class="active"' : '' ?>><?= $arItem['NAME'] ?></li>
@@ -52,6 +52,7 @@ $this->setFrameMode(true);
 							<? endforeach ?>
 						</div>
 					</div>
+					<div class="myprogress-bar"></div>
 				</div>
 			</div>
 		<? endforeach ?>
