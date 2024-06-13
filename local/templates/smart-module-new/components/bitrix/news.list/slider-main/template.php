@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 <? if (!empty($arResult['ITEMS'])): ?>
     <div class="slider slider-main">
-        <? foreach ($arResult["ITEMS"] as $arItem): ?>
+        <? foreach ($arResult["ITEMS"] as $key => $arItem): ?>
             <?
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'],
                 CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -22,7 +22,7 @@ $this->setFrameMode(true);
                 CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"),
                 array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
             ?>
-            <div class="slide" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+            <div class="slide <?= $key > 0 ? 'd-none' : ''?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                 <div class="slider-main-item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                     <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
                          class="slider-main-item__img slider-main-item__img-mobile" loading="lazy"/>

@@ -37,6 +37,13 @@ function setPositionNav() {
 	}, 100)
 }
 
+
+$('.slider-main').on('init', function(event, slick, direction){
+	slick.$slides.each(function () {
+		$(this).removeClass('d-none');
+	})
+});
+
 $('.slider-main').slick({
 	lazyLoad: 'ondemand',
 	slidesToShow: 1,
