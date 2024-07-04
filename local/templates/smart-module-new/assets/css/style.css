@@ -1473,15 +1473,89 @@ table {
   font: normal 16px / 26px "EsqaderoFFCY4F", Arial, Helvetica, sans-serif;
 }
 
+.ar-info-wrapper p {
+  position: relative;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  line-height: 1.6;
+  height: auto;
+  font-weight: bold;
+}
+
+.ar-info-wrapper-tel img {
+  width: 50px;
+  padding-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ar-info-wrapper-tel span {
+  color: #6989ad;
+  font-weight: bold;
+}
+
+.ar-info-wrapper-tel a {
+  color: #6989ad;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.ar-block-info {
+  width: 60%;
+}
+
+.ar-block-img-two {
+  width: 40%;
+}
+
+.ar-block-img-two .ar-block-form-img-wrapper img {
+  width: 100%;
+  -webkit-box-shadow: 18px 18px 0px 0px rgba(228, 240, 254, 1);
+  -moz-box-shadow: 18px 18px 0px 0px rgba(228, 240, 254, 1);
+  box-shadow: 18px 18px 0px 0px rgba(228, 240, 254, 1);
+}
+
+
+@media (max-width: 998px) {
+
+  .ar-block-img-two,
+  .ar-block-info,
+  .ar-block-form-input,
+  .ar-block-form-img {
+    width: 100%;
+  }
+}
+
 
 @media only screen and (max-width: 992px) {
-      .ar-production, .ar-block-form {
-        display: block;
-    }
+
+  .ar-production,
+  .ar-block-form {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-      .ar-block-form-input {
-        padding-left: 0px;
-    }
+  .ar-block-form-input {
+    padding-left: 0px;
+  }
+
+  .company-block-advantages-info-card p span {
+    display: block;
+  }
+
+  .ar-production-text {
+    padding: 0px;
+  }
+
+  .ar-info-wrapper p {
+    font-size: 15px;
+  }
+
+  .ar-info-wrapper p br {
+    display: none;
+  }
+
 }

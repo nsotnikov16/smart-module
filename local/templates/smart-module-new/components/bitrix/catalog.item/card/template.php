@@ -44,12 +44,14 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
                 <? endif; ?>
             </div>
 
-            <div class="product-pagination-image">
-                <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
-                <? foreach ($arItem['PROPERTIES']['PHOTOS']['VALUE'] as $k => $photo) : ?>
-                    <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" data-index="<?= $k + 1 ?>" onmouseenter="paginationImageMouseEnter(this)"></a>
-                <? endforeach ?>
-            </div>
+            <? if (!empty($photos)) : ?>
+                <div class="product-pagination-image">
+                    <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" data-index="0" class="active" onmouseenter="paginationImageMouseEnter(this)"></a>
+                    <? foreach ($arItem['PROPERTIES']['PHOTOS']['VALUE'] as $k => $photo) : ?>
+                        <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" data-index="<?= $k + 1 ?>" onmouseenter="paginationImageMouseEnter(this)"></a>
+                    <? endforeach ?>
+                </div>
+            <? endif; ?>
         </div>
 
         <div class="price-wrapper">
@@ -69,5 +71,5 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
     <script>
         window.catalogItemAjaxPropsPath = '<?= $templateFolder ?>/ajax.php'
     </script>
-    <?$GLOBALS['showScriptAjaxItem'] = true;?>
+    <? $GLOBALS['showScriptAjaxItem'] = true; ?>
 <? endif; ?>
