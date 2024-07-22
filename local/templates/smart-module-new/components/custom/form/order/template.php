@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-12 mb-20">
                             <div class="consent">
-                                <p>Заполняя форму вы соглашаетесь с условиями <a href="#" class="text-decoration d-inline" target="_blank">политики конфиденциальности</a></p>
+                                <p>Заполняя форму вы соглашаетесь с условиями <a href="#POLICY_URL#" class="text-decoration d-inline" target="_blank">политики конфиденциальности</a></p>
                             </div>
                         </div>
                         <div class="col-12">

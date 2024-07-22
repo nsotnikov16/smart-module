@@ -27,7 +27,11 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["N
 	<nav class="nav nav-pagination nav-pagination-v2">
 		<ul class="pagination my-ul">
 			<? if ($arResult["NavPageNomer"] <= $arResult["NavPageCount"] && $arResult['NavPageNomer'] != 1) : ?>
-				<li class="nav-item"><span class="company-border"></span><a href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>" class="nav-link"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+				<? 
+				$url = $arResult["sUrlPath"] . '?' . $strNavQueryString . 'PAGEN_' . $arResult["NavNum"] . '=' . ($arResult["NavPageNomer"] - 1); 
+				if ($arResult["NavNum"] == 1 && ($arResult["NavPageNomer"] - 1) == 1) $url = $arResult["sUrlPath"];
+				?>
+				<li class="nav-item"><span class="company-border"></span><a href="<?= $url ?>" class="nav-link"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
 			<? endif; ?>
 
 			<? while ($arResult["nStartPage"] >= $arResult["nEndPage"]) : ?>

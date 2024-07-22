@@ -41,7 +41,7 @@ $this->setFrameMode(true); ?>
 				<input type="checkbox" name="check" checked="checked" />
 				<span class="label-checkbox__custom"></span>
 				<span class="label-checkbox__text">Согласие на обработку
-					<a href="/politika-konfidentsialnosti/" class="d-inline text-decoration color-accent" target="_blank">персональных
+					<a href="#POLICY_URL#" class="d-inline text-decoration color-accent" target="_blank">персональных
 						данных</a></span>
 			</label>
 			<p data-success-stock></p>

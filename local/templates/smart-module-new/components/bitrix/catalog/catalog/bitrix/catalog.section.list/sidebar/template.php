@@ -34,7 +34,7 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 				?>
 				<li class="catalog-menu__list" id="<?= $this->GetEditAreaId($arSection['ID']) ?>">
 					<? if (!empty($arSection['SUBSECTIONS'])) : ?>
-						<div class="catalog-menu__link"><?= $name ?> бытовки</div>
+						<div class="catalog-menu__link"><?= $name ?></div>
 						<div class="catalog-menu__dropdown">
 							<ul class="catalog-menu__submenu my-ul">
 								<? foreach ($arSection['SUBSECTIONS'] as $arSubSection) : ?>

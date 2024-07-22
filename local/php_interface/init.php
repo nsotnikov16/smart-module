@@ -43,12 +43,16 @@ function changeContent(&$content)
             [
                 '#BREADCRUMB#',
                 '#H1#',
-                '#ASSETS_PATH#'
+                '#ASSETS_PATH#',
+                '#POLICY_URL#',
+                '#DOMAIN_URL#'
             ],
             [
                 $BREADCRUMB ?? '',
                 $APPLICATION->GetTitle(),
-                ASSETS_PATH
+                ASSETS_PATH,
+                POLICY_URL,
+                DOMAIN_URL
             ],
             $content
         );

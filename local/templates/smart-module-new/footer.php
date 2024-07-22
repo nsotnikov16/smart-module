@@ -120,7 +120,7 @@
                                 "PATH" => "/include/footer/copy.php"
                             )
                         ); ?>
-                        <a href="/politika-konfidentsialnosti/" class="color-grey link-document d-inline" target="_blank">Политика
+                        <a href="#POLICY_URL#" class="color-grey link-document d-inline" target="_blank">Политика
                             конфиденциальности</a>
                     </div>
                     <ul class="list-social my-ul">
@@ -192,6 +192,7 @@ $APPLICATION->IncludeComponent(
 ); ?>
 
 <? include __DIR__ . '/include/footer/scripts.php'; ?>
+<? include __DIR__ . '/include/body/end.php'; ?>
 </body>
 
 </html>

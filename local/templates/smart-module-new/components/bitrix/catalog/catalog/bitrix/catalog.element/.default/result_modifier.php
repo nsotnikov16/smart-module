@@ -62,13 +62,16 @@ if (!empty($arResult['PROPERTIES']['ADV_PROD']['VALUE'])) {
 	}
 }
 
-$infoProps = ['FLOOR', 'MATERIAL', 'MODIFICATION', 'TYPE', 'BLOCKS'];
+$infoProps = ['FLOOR', 'MATERIAL', 'MODIFICATION', 'INTERIOR', 'TYPE', 'BLOCKS'];
 $arResult['PRODUCT_INFO'] = [];
 foreach ($infoProps as $propCode) {
 	$arrProp = $arResult['PROPERTIES'][$propCode];
-	if (is_array($arrProp['VALUE']) &&!empty($arrProp['VALUE'])) {
-		$arResult['PRODUCT_INFO'][] = ['NAME' => $arrProp['NAME'], 'VALUE' => implode(', ', $arrProp['VALUE'])];
-	}
+	if (empty($arrProp['VALUE'])) continue;
+
+	$arResult['PRODUCT_INFO'][] = [
+		'NAME' => $arrProp['NAME'],
+		'VALUE' => is_array($arrProp['VALUE']) ? implode(', ', $arrProp['VALUE']) : $arrProp['VALUE']
+	];
 }
 
 $arResult['CERTIFICATES'] = [];

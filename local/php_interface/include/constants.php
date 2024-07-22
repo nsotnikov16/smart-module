@@ -1,6 +1,8 @@
 <?php
 const ASSETS_PATH = '/local/templates/smart-module-new/assets';
 const AJAX_URL = '/local/ajax/';
+const POLICY_URL = '/politika-konfidentsialnosti/';
+const DOMAIN_URL = 'https://' . SITE_SERVER_NAME;
 
 AddEventHandler("main", "OnEndBufferContent", "imgSite");
 
