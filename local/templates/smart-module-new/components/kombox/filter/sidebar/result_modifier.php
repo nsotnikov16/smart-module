@@ -23,14 +23,16 @@ if (!empty($arResult['ITEMS'])) {
     foreach ($arResult['ITEMS'] as $key => $arItem) {
         if (empty($arItem['VALUES'])) continue;
         $isChecked = false;
+        $checkedValues = [];
         foreach ($arItem['VALUES'] as $arValue) {
             if ($arValue['CHECKED']) {
                 $isChecked = true;
                 $showPanelFilter = true;
-                break;
+                $checkedValues[] = $arValue['VALUE'];
             }
         }
         if ($isChecked) $arResult['ITEMS'][$key]['IS_SHOW'] = true;
+        if (!empty($checkedValues)) $arResult['ITEMS'][$key]['NAME'] = implode(', ', $checkedValues);
     }
     if ($showPanelFilter) $arResult['SHOW_PANEL'] = true;
 }

@@ -40,7 +40,7 @@ $this->setFrameMode(true); ?>
                             <a class="js-fullscreen" href="#" data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip" data-bs-placement="left" title="Посмотреть подробно"><i class="fa fa-expand" id="tooltip" aria-hidden="true"></i></a>
                             <div class="spritespin"></div>
                             <div class="spritespinBig"></div>
-                            <div id="container_for_button">
+                            <div id="container_for_button" class="d-none">
                                 <div id="prewSlide"></div>
                                 <input type="range" min="0" max="29" step="1" value="0" data-orientation="horizontal" />
                                 <div id="nextSlide"></div>

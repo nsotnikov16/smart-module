@@ -67,6 +67,7 @@ $(document).ready(function () {
                         loop_change = false;
                     }
                 });
+                $('#container_for_button').removeClass('d-none')
             },
             onFrame: function (e, data) {
                 ranger.val(data.frame);
@@ -119,6 +120,8 @@ $(document).ready(function () {
                         loop_change = false;
                     }
                 });
+
+                $('#container_for_button').removeClass('d-none')
             },
             onFrame: function (e, data) {
                 ranger2.val(data.frame);

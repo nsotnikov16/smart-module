@@ -20,10 +20,10 @@ if (method_exists($this, 'setFrameMode'))
                         <div class="block_title select-title" data-property-name="<?= $arItem['NAME'] ?>">
                             <?= $arItem['NAME'] ?>
                         </div>
-                        <div class="block_hover kombox-combo" <?= $arItem['IS_SHOW'] ? 'style="display:block;"' : '' ?>>
+                        <div class="block_hover kombox-combo">
                             <? foreach ($arItem['VALUES'] as $arValue) : ?>
                                 <? $disabled = ($arValue["DISABLED"] && !$arValue["CHECKED"]) ?>
-                                <label class="label-checkbox lvl2 <?= $disabled ? 'kombox-disabled' : '' ?>">
+                                <label class="label-checkbox lvl2<?= $disabled ? ' kombox-disabled' : '' ?><?= $arValue["CHECKED"] ? ' kombox-checked' : ''?>">
                                     <input type="checkbox" id="<?= $arValue["CONTROL_ID"] ?>" name="<?= $arItem['CODE_ALT'] ?>" value="<?= $arValue['HTML_VALUE_ALT'] ?>" <?= $disabled ? ' disabled="disabled"' : '' ?> <?= $arValue["CHECKED"] ? 'checked="checked"' : '' ?> />
                                     <span class="label-checkbox__custom"> </span><span class="label-checkbox__text"><?= $arValue['VALUE'] ?><span class="val kombox-cnt">(<?= $arValue['CNT'] ?>)</span></span>
                                 </label>

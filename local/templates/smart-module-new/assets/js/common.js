@@ -394,8 +394,8 @@ $(document).ready(function () {
 
 });
 
-$('.sidebar-card input:checkbox').change(function () {
-	if ($(this).is(":checked")) {
+$('.sidebar-card input[type="checkbox"]').change(function () {
+	if ($('.sidebar-card input[type="checkbox"]:checked').length) {
 		$('.sidebar-card__footer').fadeIn();
 	} else {
 		$('.sidebar-card__footer').fadeOut();

@@ -40,6 +40,7 @@ $res_el = Bitrix\Iblock\ElementTable::getList(array(
 ));
 
 while ($row = $res_el->fetch()) {
+	!str_contains($row['PREVIEW_TEXT'], 'руб') ? ($row['PREVIEW_TEXT'] .= ' руб.') : '';  // цена заполняется в админке, кто-то может добавить "руб" руками, страхуемся
 	$arResult['ADD_SERVICES'][$row['IBLOCK_SECTION_ID']]['ELEMENTS'][] = $row;
 }
 
