@@ -38,13 +38,12 @@ $this->setFrameMode(true);
                                 array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                             ?>
                             <div class="slide">
-                                <a href="<?= $arItem['DETAIL_PICTURE']['SRC'] ?:
-                                    $arItem['PREVIEW_PICTURE']['SRC'] ?>" class="certificates-item"
+                                <a href="<?= getImageSrcForCertificate($arItem) ?>" class="certificates-item"
                                    data-fancybox="certificate-photo"
                                    id="<?= $this->GetEditAreaId($arItem['ID']); ?>"
                                    title="<?= $arItem['NAME'] ?>"
                                 >
-                                    <img src="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>"
+                                    <img src="<?= getImageSrcForCertificate($arItem, 'small') ?>" alt="<?= $arItem['NAME'] ?>"
                                          loading="lazy"/>
                                 </a>
                             </div>

@@ -34,8 +34,8 @@ $APPLICATION->SetTitle("Сертификаты");
                 "DISPLAY_PREVIEW_TEXT" => "N",    // Выводить текст анонса
                 "DISPLAY_TOP_PAGER" => "N",    // Выводить над списком
                 "FIELD_CODE" => array(    // Поля
-                    0 => "",
-                    1 => "",
+                    0 => "PREVIEW_PICTURE",
+                    1 => "DETAIL_PICTURE",
                 ),
                 "FILTER_NAME" => "",    // Фильтр
                 "HIDE_LINK_WHEN_NO_DETAIL" => "N",    // Скрывать ссылку, если нет детального описания

@@ -17,8 +17,8 @@ $this->setFrameMode(true);
         <div class="certificates-sidebar-slider">
             <? foreach ($arResult['ITEMS'] as $arItem) : ?>
                 <div class="slide">
-                    <a href="<?= $arItem['DETAIL_PICTURE']['SRC'] ?: $arItem['PREVIEW_PICTURE']['SRC'] ?>" class="certificate-box" data-fancybox="certificate">
-                        <img src="<?= $arItem['DETAIL_PICTURE']['SRC'] ?: $arItem['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $arItem['NAME'] ?>" loading="lazy" /></a>
+                    <a href="<?= getImageSrcForCertificate($arItem) ?>" class="certificate-box" data-fancybox="certificate">
+                        <img src="<?= getImageSrcForCertificate($arItem, 'small') ?>" alt="<?= $arItem['NAME'] ?>" loading="lazy" /></a>
                 </div>
             <? endforeach; ?>
         </div>

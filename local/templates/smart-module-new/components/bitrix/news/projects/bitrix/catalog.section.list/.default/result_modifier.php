@@ -23,6 +23,8 @@ if (!empty($arResult['SECTIONS'])) {
         $arr['PREVIEW_PICTURE'] ? $arr['PREVIEW_PICTURE'] = \CFile::GetPath($arr['PREVIEW_PICTURE']) : '';
         $arr['DETAIL_PICTURE'] ? $arr['DETAIL_PICTURE'] = \CFile::GetPath($arr['DETAIL_PICTURE']) : '';
         $arr['DETAIL_PAGE_URL'] = \CIBlock::ReplaceDetailUrl($arr['DETAIL_PAGE_URL'], $arr, true, 'E');
+        $arr['PREVIEW_PICTURE'] = CFile::ResizeImageGet($arr['PREVIEW_PICTURE'], array('width' => 200, 'height' => 200), BX_RESIZE_IMAGE_PROPORTIONAL, true)['src'];
+        $arr['DETAIL_PICTURE'] = CFile::ResizeImageGet($arr['DETAIL_PICTURE'], array('width' => 200, 'height' => 200), BX_RESIZE_IMAGE_PROPORTIONAL, true)['src'];
         $sections[$arr['IBLOCK_SECTION_ID']][] = $arr;
     }
 
