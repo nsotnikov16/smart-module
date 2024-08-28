@@ -3760,7 +3760,7 @@ a.contacts-box__link:hover {
 }
 
 .description-catalog {
-  margin: 70px 0 80px;
+  padding: 70px 0 80px;
 }
 .description-catalog p {
   margin: 10px 0;

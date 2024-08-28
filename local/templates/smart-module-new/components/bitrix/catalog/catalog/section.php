@@ -14,7 +14,10 @@ getSidebarData();
 $this->setFrameMode(true);
 $webflyCatalogTopText = getWebflyCatalogTopText(); // Получить верхний текст каталога для обычных страниц
 $webflyCatalogFilterTexts = getWebflyCatalogFilterTexts(); // Получить верхний и нижний тексты для страниц каталога с фильтров
-$similarSections = getSimilarSections($arResult['VARIABLES']['SECTION_ID']); // Получить похожие разделы
+$webflySeoText1 = getWebflyCatalogBottomText();
+$infoSection = getInfoSection($arResult['VARIABLES']['SECTION_ID']); // Получить похожие разделы и описание
+$similarSections = $infoSection['SIMILAR_SECTIONS'];
+$description = $infoSection['DESCRIPTION'];
 ?>
 <section class="page page-category">
 	<div class="container">
@@ -531,8 +534,7 @@ $APPLICATION->IncludeComponent(
 	"questions",
 );
 ?>
-
-<? if (!intval($_REQUEST['PAGEN_1']) > 0) : ?>
+<? if (!intval($_REQUEST['PAGEN_1']) > 0 && $webflySeoText1) : ?>
 	<? global $sotbitSeoMetaBottomDesc;?>
 	<div class="description-catalog">
 		<div class="container">
@@ -541,6 +543,14 @@ $APPLICATION->IncludeComponent(
 		</div>
 	</div>
 <? endif; ?>
+
+<?if (!$webflySeoText1):?>
+	<div class="description-catalog">
+		<div class="container">
+			<?= $description; ?>
+		</div>
+	</div>
+<?endif;?>
 
 <?
 $APPLICATION->IncludeComponent(

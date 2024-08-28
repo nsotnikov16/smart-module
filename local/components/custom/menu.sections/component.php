@@ -59,6 +59,8 @@ if($this->StartResultCache())
 			$rsSections->SetUrlTemplates("", $arParams["SECTION_URL"]);
 		else
 			$rsSections->SetUrlTemplates("", $arParams["SEF_BASE_URL"].$arParams["SECTION_PAGE_URL"]);
+
+		$filterElements = filterElementsByCity();
 		while($arSection = $rsSections->GetNext())
 		{	
 			if (!empty($arSection['UF_CURRENT_TOP_MENU']) && str_contains($APPLICATION->GetCurDir(), $arSection['SECTION_PAGE_URL'])) {
@@ -73,6 +75,10 @@ if($this->StartResultCache())
 				continue;
 			}
 
+			if ($filterElements[0] && shouldHideSection($arSection['ID'], $arParams["IBLOCK_ID"], $filterElements[0])) {
+				continue;
+			}
+			
 			$arResult["SECTIONS"][$arSection["ID"]] = array(
 				"ID" => $arSection["ID"],
 				"DEPTH_LEVEL" => $arSection["DEPTH_LEVEL"],

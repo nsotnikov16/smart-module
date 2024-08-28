@@ -78,3 +78,57 @@ function getImageSrcForCertificate(array $arItem, string $type = 'big')
     }
     return $imgArray['SRC'];
 }
+
+function filterElementsByCity()
+{
+    global $arrFilter, $_SESSION;
+    if ($GLOBALS[__FUNCTION__]) return $arrFilter;
+    // -----ПЕРЕНОС-------
+    // фильтр по городам, если в разделе все твоары исключены по свойству - этот раздел не выводим
+    $iden = explode(".", $_SERVER['HTTP_HOST']);
+    $city_code = $iden[0]; // получаем код города
+    if (!empty($city_code)) // и если он есть
+    {
+        $res = \CIBlockElement::GetList(array(), array("IBLOCK_ID" => 4, "PROPERTY_WF_SUBDOMAIN" => $city_code), false, array(), array("ID"));
+        if ($ob = $res->Fetch()) {
+            global $arrFilter, $_SESSION;
+            $arrFilter = array(
+                array("!ID" => \CIBlockElement::SubQuery("ID", array("IBLOCK_ID" => 1, "PROPERTY_CITY" => $ob['ID'])))
+            );
+            $_SESSION['CITY']['ID'] = $ob['ID'];
+        }
+    }
+    // -----ПЕРЕНОС-------
+    $GLOBALS[__FUNCTION__] = true;
+    return $arrFilter;
+}
+
+
+function shouldHideSection($sectionId, $iblockId, $excludedElementIds) {
+    // Фильтр для элементов текущего раздела
+    $arFilter = [
+        'IBLOCK_ID' => $iblockId,
+        'SECTION_ID' => $sectionId,
+        'ACTIVE' => 'Y',
+        $excludedElementIds
+    ];
+
+    // Получаем элементы раздела
+    $rsElements = CIBlockElement::GetList([], $arFilter, false, false, ['ID']);
+    $hideSection = true;
+
+    if ($rsElements->SelectedRowsCount()) $hideSection = false;
+
+    // Если все элементы в разделе подлежат исключению, проверяем подразделы
+    if ($hideSection) {
+        $arSubSections = CIBlockSection::GetList([], ['IBLOCK_ID' => $iblockId, 'SECTION_ID' => $sectionId, 'ACTIVE' => 'Y'], false, ['ID']);
+        while ($arSubSection = $arSubSections->Fetch()) {
+            if (!shouldHideSection($arSubSection['ID'], $iblockId, $excludedElementIds)) {
+                $hideSection = false;
+                break;
+            }
+        }
+    }
+
+    return $hideSection;
+}

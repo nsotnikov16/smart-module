@@ -309,7 +309,9 @@ $params = array(
 	'COMPATIBLE_MODE' => (isset($arParams['COMPATIBLE_MODE']) ? $arParams['COMPATIBLE_MODE'] : ''),
 	'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : ''),
 	'SHOW_ALL_WO_SECTION' => $arParams['SHOW_ALL_WO_SECTION'],
-	'TITLE' => 'Это может вам понравиться'
+	'TITLE' => 'Это может вам понравиться',
+	'SET_META_DESCRIPTION' => 'N',
+	'SET_META_KEYWORDS' => 'N',
 );
 
 $APPLICATION->IncludeComponent(

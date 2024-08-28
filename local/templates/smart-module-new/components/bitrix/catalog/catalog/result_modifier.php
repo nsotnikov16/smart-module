@@ -13,6 +13,17 @@ if (!function_exists('getWebflyCatalogTopText')) {
     }
 }
 
+if (!function_exists('getWebflyCatalogBottomText')) {
+    function getWebflyCatalogBottomText()
+    {
+        if (!\CModule::IncludeModule('webfly.seocities')) return;
+        $arSelect = array("ID", "NAME", "DATE_ACTIVE_FROM", "PROPERTY_WF_SEO_TEXT");
+        $arFilter = array("IBLOCK_CODE" => WF_SEO_IBLOCK, "ACTIVE" => "Y", "NAME" => strtok($_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], '?'));
+        $res = \CIBlockElement::GetList(array(), $arFilter, false, false, $arSelect)->Fetch();
+        return !empty($res) ? $res['PROPERTY_WF_SEO_TEXT_VALUE']['TEXT'] : '';
+    }
+}
+
 if (!function_exists('getWebflyCatalogFilterTexts')) {
     function getWebflyCatalogFilterTexts()
     {
@@ -29,23 +40,38 @@ if (!function_exists('getWebflyCatalogFilterTexts')) {
     }
 }
 
-if (!function_exists('getSimilarSections')) {
-    function getSimilarSections($sectionId)
+if (!function_exists('getInfoSection')) {
+    function getInfoSection($sectionId)
     {
-        $result = [];
-        $arSelect = array('ID', 'NAME', 'SECTION_PAGE_URL', 'UF_SAME', 'UF_IMG_POH_TO_2', 'UF_IMG_POH_TO_1', 'UF_URL_POH_TO_2', 'UF_URL_POH_TO_1', 'UF_TITLE_POH_TO_2', 'UF_TITLE_POH_TO_1', 'UF_SHOWCALC');
+        $similar = [];
+        $description = '';
+        $arSelect = array(
+            'ID',
+            'NAME',
+            'SECTION_PAGE_URL',
+            'UF_SAME',
+            'UF_IMG_POH_TO_2',
+            'UF_IMG_POH_TO_1',
+            'UF_URL_POH_TO_2',
+            'UF_URL_POH_TO_1',
+            'UF_TITLE_POH_TO_2',
+            'UF_TITLE_POH_TO_1',
+            'UF_SHOWCALC',
+            'DESCRIPTION'
+        );
         $arFilter = array('IBLOCK_ID' => 1, 'ACTIVE' => 'Y', 'ID' => $sectionId);
         $res = CIBlockSection::GetList(array('SORT' => 'ASC'), $arFilter, true, $arSelect);
         while ($ob = $res->GetNext()) {
+            $description = $ob['~DESCRIPTION'];
             if ($ob['UF_SHOWCALC'] == '1') $GLOBALS['showCulc'] = true;
             foreach ($ob as $key => $value) {
                 if (!$value) continue;
-                if (str_contains($key, '_1')) $result[0][str_replace('_1', '', $key)] = $value;
-                if (str_contains($key, '_2')) $result[1][str_replace('_2', '', $key)] = $value;
+                if (str_contains($key, '_1')) $similar[0][str_replace('_1', '', $key)] = $value;
+                if (str_contains($key, '_2')) $similar[1][str_replace('_2', '', $key)] = $value;
             }
         }
-        ksort($result);
-        return $result;
+        ksort($similar);
+        return ['SIMILAR_SECTIONS' => $similar, 'DESCRIPTION' => $description];
     }
 }
 
