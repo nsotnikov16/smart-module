@@ -18,7 +18,7 @@ if (!empty($arResult['ITEMS'])) {
         $sections[$arSection['ID']]['ITEMS'][$arSection['IBLOCK_ELEMENT_ID']] = $arResult['ITEMS'][$index];
     }
 
-    if (count($sections) > 1) unset($sections['ALL']);
+    // if (count($sections) > 1) unset($sections['ALL']);
 
     $this->__component->arResult['SECTIONS'] = $sections;
     $this->__component->SetResultCacheKeys(['SECTIONS']);
