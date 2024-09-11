@@ -5,6 +5,16 @@
   src: url("../fonts/Esqadero/EsqaderoRegular.eot");
   src: url("../fonts/Esqadero/EsqaderoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/Esqadero/EsqaderoRegular.woff") format("woff"), url("../fonts/Esqadero/EsqaderoRegular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: 'EsqaderoFFCY4F';
+  src: url('../fonts/esqaderoffcy4f.woff2') format('woff2'),
+  url('../fonts/esqaderoffcy4f.woff') format('woff'),
+  url('../fonts/esqaderoffcy4f.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @font-face {
   font-family: "AktivGroteskCorp";
   font-weight: 400;

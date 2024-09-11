@@ -1,4 +1,9 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+if (!empty($arResult['SECTIONS'])) {
+	$arResult['SECTIONS'] = array_filter($arResult['SECTIONS'], function ($arSection) use ($arParams) {
+		return !shouldHideSection($arSection['ID'], $arParams['IBLOCK_ID'], $GLOBALS['arrFilter'][0]);
+	});
+}
 
 if(is_array($arParams['SECTION_FILTER']) && count($arParams['SECTION_FILTER']) > 0) {
 	// 6. Выбираем только нужные разделы

@@ -71,12 +71,12 @@ $APPLICATION->SetPageProperty('description', 'Контакты "Smart Module" в
                     <div class="contacts-box__body">
                         <div class="h4 contacts-box__title">E-mail</div>
                         <div class="contacts-box-item">
-                            <span>поддержка:</span>
+                            <span>офис продаж:</span>
                             <a href="mailto:#WF_EMAIL#" class="contacts-box__link"><span class="#WF_EMAIL_REPLACE#">#WF_EMAIL#</span></a>
                         </div>
                         <div class="contacts-box-item">
-                            <span>офис продаж:</span>
-                            <a href="mailto:#WF_EMAIL#" class="contacts-box__link"><span class="#WF_EMAIL_REPLACE#">#WF_EMAIL#</span></a>
+                            <span>снабжение:</span>
+                            <a href="mailto:s@smart-module.ru" class="contacts-box__link"><span>s@smart-module.ru</span></a>
                         </div>
                     </div>
                 </div>
