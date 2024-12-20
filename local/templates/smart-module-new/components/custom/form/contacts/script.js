@@ -9,11 +9,12 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!e.target.checkValidity()) return;
-            formBtn.textContent = 'Отправляем...';
+            formBtn.innerHTML = 'Отправляем...<span class="loader loader_submit"></span>';
+            formBtn.disabled = true;
             const formData = new FormData(e.target);
             formData.append('action', 'ContactsForm::send');
             const result = await request('POST', window.app.AJAX_URL, formData);
-            formBtn.textContent = formBtnStartText;
+
             if (!result.success) return modalError.show();
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
@@ -21,8 +22,12 @@
                     data: { name: form.name.value, phone: form.phone.value, email: form.email.value },
                 });
             }
-            form.reset();
-            redirect('/thank/?message=' + `Спасибо за обращение!<br>Мы ответим Вам в ближайшее время.`, 500);
+
+            setTimeout(() => {
+                form.reset();
+                formBtn.innerHTML = formBtnStartText;
+                redirect('/thank/?message=' + `Спасибо за обращение!<br>Мы ответим Вам в ближайшее время.`);
+            }, 5000)
         })
     } catch (error) {
         console.error(error);

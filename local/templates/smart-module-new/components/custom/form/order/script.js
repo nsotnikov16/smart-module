@@ -24,22 +24,29 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!e.target.checkValidity()) return;
-            formBtn.textContent = 'Оформляем...';
+            formBtn.innerHTML = 'Отправляем...<span class="loader loader_submit"></span>';
+            formBtn.disabled = true;
             const formData = new FormData(e.target);
             formData.append('action', 'OrderForm::send');
             formData.append('url', window.location.href);
             const result = await request('POST', window.app.AJAX_URL, formData);
-            formBtn.textContent = formBtnStartText;
             if (!result.success) return modalError.show();
-            success.classList.remove('d-none');
-            main.classList.add('d-none');
+            
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
                     type: 'form',
                     data: { phone: form.phone.value },
                 });
             }
-            form.reset();
+
+            setTimeout(() => {
+                form.reset();
+                formBtn.innerHTML = formBtnStartText;
+                success.classList.remove('d-none');
+                main.classList.add('d-none');
+                redirect('/thank/', 2000)
+            }, 3000)
+            
         })
     } catch (error) {
     }

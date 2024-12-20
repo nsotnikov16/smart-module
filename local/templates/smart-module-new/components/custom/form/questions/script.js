@@ -12,16 +12,17 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!e.target.checkValidity()) return;
-            formBtn.textContent = 'Отправляем...';
+            formBtn.innerHTML = 'Отправляем...<span class="loader loader_submit"></span>';
+            formBtn.disabled = true;
             const formData = new FormData(e.target);
             formData.append('action', 'QuestionsForm::send');
             const result = await request('POST', window.app.AJAX_URL, formData);
-            formBtn.textContent = formBtnStartText;
+            
             if (!result.success) {
                 modalErrorBody.innerHTML = result.error ?? errorDefault;
                 return modalError.show();
             }
-            form.reset();
+           
 
             if (typeof NeirosEventSend === 'function') {
                 NeirosEventSend('send-event', {
@@ -29,8 +30,12 @@
                     data: { name: form.name.value, phone: form.phone.value },
                 });
             }
-
-            redirect('/thank/?message=Ваша заявка принята!', 500);
+            setTimeout(() => {
+                form.reset();
+                formBtn.innerHTML = formBtnStartText;
+                redirect('/thank/?message=Ваша заявка принята!');
+            }, 5000)
+            
         })
     } catch (error) {
         console.error(error);
