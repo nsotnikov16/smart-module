@@ -4504,3 +4504,29 @@ a.contacts-box__link:hover {
 .page-technology {
   padding: 20px 0 0;
 }
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader_submit {
+  margin-left: 8px;
+  border-bottom-color: #507298;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
