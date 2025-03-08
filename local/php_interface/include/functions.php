@@ -132,3 +132,17 @@ function shouldHideSection($sectionId, $iblockId, $excludedElementIds) {
 
     return $hideSection;
 }
+
+function checkPaginationGetParams()
+{
+    // Откуда-то были ссылки со странной пагинацией, ставим 404
+    foreach ($_GET as $key => $value) {
+        if (!str_contains($key, 'PAGEN_')) continue;
+        if ($key != 'PAGEN_1') {
+            @define("ERROR_404", "Y");
+            CHTTP::SetStatus("404 Not Found");
+            require($_SERVER["DOCUMENT_ROOT"] . "/404.php");
+            die();
+        }
+    }
+}

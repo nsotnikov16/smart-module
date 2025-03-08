@@ -111,8 +111,8 @@ if (CModule::IncludeModule("iblock")) {
 		"FILE_404" => "/404.php",	// Страница для показа (по умолчанию /404.php)
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
-			"section" => "#SECTION_CODE#/",
-			"detail" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+			"section" => "#SECTION_CODE_PATH#/",
+			"detail" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
 		)
 	),
 	false
