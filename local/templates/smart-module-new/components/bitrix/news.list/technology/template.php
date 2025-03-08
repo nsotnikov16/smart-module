@@ -31,7 +31,7 @@ $this->setFrameMode(true);
 				<div class="video-container-tab video-container-tab<?= $key ?>">
 					<? foreach ($arItem['PROPERTIES']['VIDEO']['VALUE'] as $keyVideo => $videoId) :	?>
 						<div class="video-conainer-tab-cont">
-							<video muted="" id="video-<?= $videoId ?>" poster="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>">
+							<video muted="" id="video-<?= $videoId ?>" poster="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" playsinline="true">
 								<source type="video/mp4" src="<?= \CFile::GetPath($videoId) ?>">
 							</video>
 						</div>
@@ -43,7 +43,8 @@ $this->setFrameMode(true);
 							сендвич-панелями
 						</div>
 						<div class="video-tab video-tab<?= $key ?>">
-							<? foreach ($arItem['PROPERTIES']['STAGES']['~VALUE'] as $stage) : ?>
+							<? foreach ($arItem['PROPERTIES']['STAGES']['~VALUE'] as $keyStage  => $stage) : ?>
+								<? if ($keyStage >= count($arItem['PROPERTIES']['VIDEO']['VALUE'])) continue; ?>
 								<div class="video-tab__item">
 									<?= $stage ?>
 									<div></div>

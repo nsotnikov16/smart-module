@@ -595,12 +595,12 @@ $('.video-container-tab').slick({
 
 $('.video-tab').each(function (i) {
 	const selector = `.video-container-tab${i}`;
-	let countSlides = 0;
+	let countSlides = document.querySelectorAll(selector + ' .video-conainer-tab-cont').length;
 	let responsive = false;
 
 	switch (i) {
 		case 0:
-			countSlides = 9;
+			//countSlides = 9;
 			responsive = [
 				{
 					breakpoint: 992,
@@ -641,7 +641,7 @@ $('.video-tab').each(function (i) {
 			]
 			break;
 		case 1:
-			countSlides = 14;
+			//countSlides = 14;
 			responsive = [
 				{
 					breakpoint: 1200,
@@ -695,6 +695,7 @@ $('.video-tab').each(function (i) {
 						swipe: true,
 						arrows: true,
 						infinite: true,
+						fade: true,
 					}
 				}
 			]
@@ -710,19 +711,22 @@ $('.video-tab').each(function (i) {
 		swipe: false,
 		prevArrow: `<button type="button" class="slick-prev slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-left"></use></svg></button>`,
 		nextArrow: `<button type="button" class="slick-next slick-arrow"><svg class="svg-icon"><use xlink:href="${window.app.ASSETS_PATH}/img/sprite.svg#angle-right"></use></svg></button>`,
-		responsive
+		responsive,
 	});
 })
-
 
 $('.video-tab').on('afterChange', function (event, slick, currentSlide) {
 	// $('.video-conainer-tab-cont').removeClass('active');
 	// $('#video-tab-' + currentSlide + '').addClass('active');
 	// $('video').get(currentSlide).load();
 	// $('#video-' + currentSlide + '').trigger('play');
-	$('div.tabs__content.active').find('video').trigger('play');
+	$('div.tabs__content.active').find('video').attr('playsinline', true).trigger('play');
 	$(this).find('.video-tab__item.slick-current').prevAll('.video-tab__item').addClass('chose');
 	$(this).find('.video-tab__item.slick-current').nextAll('.video-tab__item').removeClass('chose');
+	if (window.innerWidth <= 480) {
+		$(this).find('.video-tab__item').addClass('d-none');
+		$(this).find('.video-tab__item.slick-current').removeClass('d-none');
+	}
 });
 
 

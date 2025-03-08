@@ -4501,6 +4501,10 @@ a.contacts-box__link:hover {
   border-bottom: 1px solid #507298;
 }
 
+.video-tab .slick-track {
+  transform: none!important;
+}
+
 .page-technology {
   padding: 20px 0 0;
 }

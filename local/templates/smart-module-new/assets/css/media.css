@@ -463,7 +463,7 @@
     padding: 0;
   }
   .video-tab__item div, .video-tab__item span {
-    display: none;
+    display: none !important;
   }
   .tabs__caption {
     font-size: 16px;
@@ -1354,9 +1354,9 @@
   .description-catalog-box {
     width: 50%;
   }
-  .video-tab__item br {
+  /* .video-tab__item br {
     display: none;
-  }
+  } */
 }
 @media only screen and (max-width: 420px) {
   h2 {
